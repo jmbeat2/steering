@@ -40,40 +40,63 @@ class Defects extends Controller
     }
     
     public function store()
-    {
-        date_default_timezone_set('Asia/Manila'); // Replace with your correct timezone
+{
+    date_default_timezone_set('Asia/Manila');
     
-        $model = new DefectsModel(); 
-        $defectType = $this->request->getPost('defect_type');
-        $count = $this->request->getPost('count'); 
-        $name = $this->request->getPost('name');
-    
-        $currentDate = date('Y-m-d'); 
-        $selectedDate = $this->request->getPost('defect_date') ?: $currentDate; 
-    
-        log_message('debug', "Selected Date: $selectedDate | Current Date: $currentDate");
-    
-        $existing = $model->where([
-            'defect_type' => $defectType, 
-            'defect_date' => $selectedDate, 
-            'name' => $name
-        ])->first();
-    
-        if ($existing) {
-            $model->update($existing['id'], [
-                'count' => $existing['count'] + $count
-            ]);
-        } else {
-            $model->save([
-                'defect_type' => $defectType,
-                'defect_date' => $selectedDate,
-                'count' => $count,
-                'name' => $name,
-            ]);
-        }
-    
-        return redirect()->to('/defectsview');
+    $model = new DefectsModel(); 
+    $defectType = $this->request->getPost('defect_type');
+    $count = $this->request->getPost('count'); 
+    $name = session()->get('fullname'); // Getting fullname from session
+    $id_shift = session()->get('id_shift'); // Getting shift from session
+    $empid = session()->get('employee_id'); // Getting shift from session
+
+
+    // Debugging session values
+    log_message('debug', 'Session Fullname: ' . $name . ' | Shift: ' . $id_shift);
+
+    $currentDate = date('Y-m-d'); 
+    $selectedDate = $this->request->getPost('defect_date') ?: $currentDate;
+
+    log_message('debug', "Selected Date: $selectedDate | Current Date: $currentDate");
+
+    // Check if defect already exists for the given date and type
+    $existing = $model->where([
+        'defect_type' => $defectType, 
+        'defect_date' => $selectedDate, 
+        'id_shift' => $id_shift,
+        'name' => $name,
+        'empid' => $empid,
+    ])->first();
+
+    log_message('debug', 'Existing Defect: ' . print_r($existing, true));
+
+    if ($existing) {
+        // If exists, update the count
+        log_message('debug', 'Updating Defect');
+        $model->update($existing['id'], [
+            'count' => $existing['count'] + $count,
+            'id_shift' => $id_shift, // Update shift value
+        ]);
+    } else {
+        // If not exists, create a new record
+        log_message('debug', 'Creating New Defect');
+        $model->save([
+            'defect_type' => $defectType,
+            'defect_date' => $selectedDate,
+            'count' => $count,
+            'id_shift' => $id_shift, // Insert shift value
+            'name' => $name,
+            'empid' => $empid,
+            
+        ]);
     }
+
+    return redirect()->to('/defectsview');
+}
+
+    
+    
+    
     
     
     
