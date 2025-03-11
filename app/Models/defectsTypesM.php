@@ -13,9 +13,5 @@ class defectsTypesM extends Model
         return $this->select('id, type')->findAll(); // Fetch id and defect_type columns
     }
     
-    public function getDefectAssignments($defectType)
-    {
-        return $this->where('defect_type', $defectType)->findAll();
-    }
 }
 
