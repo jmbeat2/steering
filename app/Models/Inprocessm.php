@@ -13,7 +13,7 @@ class Inprocessm extends Model
     public function getDefectAssignments($duty)
     {
         $query = $this->where('duty', $duty)
-                      ->select('lastname, duty')
+                      ->select('lastname, duty, shift_type')
                       ->findAll();
 
         // Log results to check if we are getting data
