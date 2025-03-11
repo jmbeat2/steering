@@ -1,9 +1,11 @@
 # steering
 NBC Steering Dashboard
 
-<h1 align="center">Hi 👋, I'm qwe</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-</p>
+**********************
+/ This system is made by JM
+/ This system is purposes for dashboard manual
+/ into dashboard automatically through web browser
+/
+/
+/
+**********************
