@@ -12,9 +12,6 @@
 </style>
 
 <?php 
-
-
-asd
 ?>
 <head>
     <title>Defect Tracking</title>
