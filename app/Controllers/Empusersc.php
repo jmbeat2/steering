@@ -44,6 +44,7 @@ class Empusersc extends Controller
                 'fname' => $user['fname'],
                 'mname' => $user['mname'],
                 'lname' => $user['lname'],
+                'id_shift' => $user['id_shift'],
                 'logged_in' => true
             ]);
     
