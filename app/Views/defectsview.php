@@ -20,26 +20,44 @@
     
     <!-- Defect Submission Form -->
     <form action="<?= site_url('defects/store') ?>" method="post">
-        <?= csrf_field() ?> <!-- CSRF token added here -->
-        <div class="row g-3">
-            <div class="col-12 col-sm-6 col-md-3">
-                <label for="defect_type" class="form-label">Select Defect Type</label>
-                <select name="defect_type" id="defect_type" class="form-select" required></select>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <label for="shift" class="form-label">Select Shift</label>
-                <select name="shift" id="shift" class="form-select" required></select>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <label for="name" class="form-label">Select Name</label>
-                <select name="name" id="name" class="form-select" required></select>
-            </div>
-            <div class="col-12 col-sm-6 col-md-3">
-                <label for="count" class="form-label">Defect Count</label>
-                <input type="number" name="count" class="form-control" min="1" required>
-            </div>
+    <?= csrf_field() ?>
+    <div class="row g-3">
+        <div class="col-12 col-sm-6 col-md-3">
+            <label for="defect_type" class="form-label">Select Defect Type</label>
+            <select name="defect_type" id="defect_type" class="form-select" required>
+                <!-- Populate defect types here -->
+            </select>
         </div>
-    </form>
+        <div class="col-12 col-sm-6 col-md-3">
+            <label for="shift" class="form-label">Shift</label>
+            <?php
+            $shift = session()->get('id_shift');
+            ?>
+            <?php if ($shift === '1'): ?>
+                <input type="text" class="form-control" id="shift" name="shift" value="Day Shift" required readonly>
+            <?php else: ?>
+                <input type="text" class="form-control" id="shift" name="shift" value="Night Shift" required readonly>
+            <?php endif; ?>
+            <input type="hidden" name="shift" value="<?= $shift === '1' ? 'Day Shift' : 'Night Shift' ?>">
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <label for="name" class="form-label"> Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<?= session()->get('fullname') ?>" required readonly >
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <label for="count" class="form-label">Defect Count</label>
+            <input type="number" name="count" class="form-control" min="1" required>
+        </div>
+
+        <input type="hidden" class="form-control" id="empid" name="empid" value="<?= session()->get('employee_id') ?>" required readonly>
+
+        <!-- Add Submit Button -->
+        <div class="col-12">
+        <button type="submit" class="btn btn-primary" style="display: none;">Submit</button>
+        </div>
+    </div>
+</form>
+
 
     <br>
     <div class="table-responsive">
@@ -96,46 +114,6 @@ $(document).ready(function() {
         },
         error: function() {
             alert("Failed to fetch defect types.");
-        }
-    });
-
-    // Fetch shifts
-    $.ajax({
-        url: "<?= base_url('Userc/FetchName') ?>",
-        type: "GET",
-        dataType: "json",
-        success: function(response) {
-            $('#shift').append('<option value="">Select Shift</option>');
-            $.each(response, function(index, shift) {
-                $('#shift').append('<option value="' + shift.shift_type + '">' + shift.shift_name + '</option>');
-            });
-        },
-        error: function() {
-            alert("Failed to fetch shifts");
-        }
-    });
-
-    // Fetch names based on selected shift
-    $('#shift').change(function() {
-        var selectedShift = $(this).val();
-        if (selectedShift) {
-            $.ajax({
-                url: "<?= base_url('Shiftc/FetchNamesByShift') ?>",
-                type: "GET",
-                dataType: "json",
-                data: { shift: selectedShift },
-                success: function(response) {
-                    $('#name').empty().append('<option value="">Select Name</option>');
-                    $.each(response, function(index, user) {
-                        $('#name').append('<option value="' + user.name + '">' + user.name + '</option>');
-                    });
-                },
-                error: function() {
-                    alert("Failed to fetch names based on shift");
-                }
-            });
-        } else {
-            $('#name').empty().append('<option value="">Select Name</option>');
         }
     });
 });
