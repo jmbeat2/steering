@@ -22,11 +22,13 @@
         <tr class="header" id="dateHeaders"></tr>
       </thead>
       <tbody id="defectData"></tbody>
+
       <!-- Section Titles -->
       <tr class="header">
         <th colspan="1" class="highlight">INPROCESS DEFECT</th>
         <th colspan="5" class="highlight">DAILY ATTENDANCE</th>
       </tr>
+      
       <!-- Attendance Section -->
       <tr class="attendance">
         <th>Shift</th>
@@ -40,14 +42,15 @@
       </tr>
       <tr class="attendance-data">
         <td>Shift</td>
-        <td id="ds-count">36</td>
-        <td id="ns-count">34</td>
-        <td id="total-mp">70</td>
-        <td id="rate"></td>
-        <td id="sl"></td>
-        <td id="vl"></td>
-        <td id="nu"></td>
+        <td id="ds-count">-</td> <!-- Dynamic DS Count -->
+        <td id="ns-count">-</td> <!-- Dynamic NS Count -->
+        <td id="total-mp">-</td> <!-- Dynamic Total MP -->
+        <td id="rate">-</td> <!-- Dynamic Rate -->
+        <td id="sl">-</td> <!-- Dynamic SL -->
+        <td id="vl">-</td> <!-- Dynamic VL -->
+        <td id="nu">-</td> <!-- Dynamic NU -->
       </tr>
+
       <!-- Dynamic Defect Data -->
       <tbody id="wrongInsertData"></tbody>
       <tbody id="notFullyInsertedData"></tbody>
@@ -60,6 +63,7 @@
           let response = await fetch(`<?= base_url('Inprocessc/getDefectAssignments') ?>`);
           let data = await response.json();
           console.log("Fetched Data:", data);
+
           let wrongInsertTable = document.getElementById("wrongInsertData");
           let notFullyInsertedTable = document.getElementById("notFullyInsertedData");
 
@@ -85,7 +89,7 @@
                 </tr>`;
               return;
             }
-            let headerRow = `
+            let headerRow = ` 
               <tr class="header">
                 <td class="highlight">${defectType}</td>
               </tr>`;
@@ -187,36 +191,47 @@
       }
 
       // Fetch attendance data
+      // Populate Defect Summary based on attendance data
       async function fetchAttendanceData() {
-        try {
-          let attendanceData = {
-            dsCount: 36,  // Example value, replace with dynamic data
-            nsCount: 34,  // Example value, replace with dynamic data
-            totalMp: 70,  // Example total, calculated
-            rate: "", // Fetch or calculate rate
-            sl: "", // Fetch or calculate SL
-            vl: "", // Fetch or calculate VL
-            nu: "", // Fetch or calculate NU
-          };
+    try {
+        // Use PHP's base_url() function to get the full URL dynamically
+        let response = await fetch('<?= base_url("/dailyattendancec") ?>');
 
-          // Update the DOM with the fetched data
-          document.getElementById('ds-count').innerText = attendanceData.dsCount;
-          document.getElementById('ns-count').innerText = attendanceData.nsCount;
-          document.getElementById('total-mp').innerText = attendanceData.totalMp;
-          document.getElementById('rate').innerText = attendanceData.rate;
-          document.getElementById('sl').innerText = attendanceData.sl;
-          document.getElementById('vl').innerText = attendanceData.vl;
-          document.getElementById('nu').innerText = attendanceData.nu;
-        } catch (error) {
-          console.error("Error fetching attendance data:", error);
+        // Check if the response is OK (status code 200)
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
-      }
+
+        // Parse the JSON data
+        let data = await response.json();
+
+        // Check if data is received
+        if (data.length > 0) {
+            let attendanceData = data[0];  // Use the first record (or loop through if needed)
+
+            // Update the DOM with the fetched data
+            document.getElementById('ds-count').innerText = attendanceData.ds_count || '-';
+            document.getElementById('ns-count').innerText = attendanceData.ns_count || '-';
+            document.getElementById('total-mp').innerText = attendanceData.total_mp || '-';
+            document.getElementById('rate').innerText = attendanceData.rate || '-';
+            document.getElementById('sl').innerText = attendanceData.sl || '-';
+            document.getElementById('vl').innerText = attendanceData.vl || '-';
+            document.getElementById('nu').innerText = attendanceData.nu || '-';
+        } else {
+            console.error("No attendance data found");
+        }
+    } catch (error) {
+        console.error("Error fetching attendance data:", error);
+    }
+}
+
 
       // Run functions on page load
       document.addEventListener("DOMContentLoaded", function() {
         fetchDefectAssignments();
         fetchDefectData();
         fetchAttendanceData();
+
       });
     </script>
   </body>
