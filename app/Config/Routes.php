@@ -56,3 +56,17 @@ $routes->get('fetchShiftc/fetchShiftTypes', 'fetchShiftc::fetchShiftTypes');
 # PROTECTED ROUTES
 $routes->get('dashboard', ['filter' => 'auth']);
 $routes->get('addMemberc/addUser', 'addMemberc::addUser', ['filter' => 'auth']);
+
+
+# DAILY ATTENDANCE ROUTES
+// Route to access the daily attendance data
+$routes->get('/dailyattendancec', 'Dailyattendancec::getAttendanceData');
+
+
+
+
+// Route to access a specific attendance view by date (optional)
+$routes->get('/dailyattendancec/view/(:any)', 'Dailyattendancec::view/$1');
+
+
+
