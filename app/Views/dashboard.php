@@ -28,65 +28,75 @@
 
         <!-- Section Titles -->
         <tr class="header">
-            <th colspan="3" class="highlight">INPROCESS DEFECT</th>
+            <th colspan="2" class="highlight">INPROCESS DEFECT</th>
             <th colspan="5" class="highlight">DAILY ATTENDANCE</th>
         </tr>
 
         <!-- Dynamic Defect Data -->
+         
         <tbody id="wrongInsertData"></tbody>
         <tbody id="notFullyInsertedData"></tbody>
     </table>
 
     <script>
         async function fetchDefectAssignments() {
-    try {
-        let response = await fetch(`<?= base_url('Inprocessc/getDefectAssignments') ?>`);
-        let data = await response.json();
-        console.log("Fetched Data:", data);
+            try {
+                let response = await fetch(`<?= base_url('Inprocessc/getDefectAssignments') ?>`);
+                let data = await response.json();
+                console.log("Fetched Data:", data);
 
-        let wrongInsertTable = document.getElementById("wrongInsertData");
-        let notFullyInsertedTable = document.getElementById("notFullyInsertedData");
+                let wrongInsertTable = document.getElementById("wrongInsertData");
+                let notFullyInsertedTable = document.getElementById("notFullyInsertedData");
 
-        // Clear previous table data
-        wrongInsertTable.innerHTML = "";
-        notFullyInsertedTable.innerHTML = "";
+                // Clear previous table data
+                wrongInsertTable.innerHTML = "";
+                notFullyInsertedTable.innerHTML = "";
 
-        // Function to generate table content
-        function populateTable(tableElement, defectType, defectData) {
-            if (defectData.length === 0) {
-                tableElement.innerHTML = `<tr><td colspan="2">No data available</td></tr>`;
-                return;
+                // Function to map duty numbers to readable text
+                function getDutyText(duty) {
+                switch (parseInt(duty)) {
+                case 1:
+                    return "Day Shift";
+                case 2:
+                    return "Night Shift";
+                default:
+                    return "Unknown";
+                    }
+                }
+                // Function to generate table content
+                function populateTable(tableElement, defectType, defectData) {
+                    if (defectData.length === 0) {
+                        tableElement.innerHTML = `<tr><td colspan="2">No data available</td></tr>`;
+                        return;
+                    }
+
+                    // Create header row
+                    let headerRow = `
+                        <tr class="header">
+                            <td class="highlight">${defectType}</td>
+                        </tr>
+                    `;
+                    tableElement.innerHTML = headerRow;
+
+                    // Populate rows with lastname - duty (formatted)
+                    defectData.forEach((entry) => {
+                        let row = `
+                            <tr>
+                                <td colspan="2">${entry.lastname} - ${getDutyText(entry.shift_type)}</td>
+                            </tr>
+                        `;
+                        tableElement.innerHTML += row;
+                    });
+                }
+
+                // Populate both tables
+                populateTable(wrongInsertTable, "WRONG INSERT", data.wrong_insert);
+                populateTable(notFullyInsertedTable, "NOT FULLY INSERTED", data.not_fully_inserted);
+
+            } catch (error) {
+                console.error("Error fetching data:", error);
             }
-
-            // Create header row
-            let headerRow = `
-                <tr class="header">
-                    <td class="highlight">${defectType}</td>
-                    <td>Employee (Duty)</td>
-                </tr>
-            `;
-            tableElement.innerHTML = headerRow;
-
-            // Populate rows with lastname - duty
-            defectData.forEach((entry) => {
-                let row = `
-                    <tr>
-                        <td colspan="2">${entry.lastname} - ${entry.duty}</td>
-                    </tr>
-                `;
-                tableElement.innerHTML += row;
-            });
         }
-
-        // Populate both tables
-        populateTable(wrongInsertTable, "WRONG INSERT", data.wrong_insert);
-        populateTable(notFullyInsertedTable, "NOT FULLY INSERTED", data.not_fully_inserted);
-
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    }
-}
-
         
         async function fetchDefectData() {
             try {
