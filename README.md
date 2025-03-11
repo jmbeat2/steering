@@ -44,8 +44,8 @@ command to run if program contains helper info
 
 Contributors names and contact info
 
-ex. JM  
-ex. [@jmmancera23](https://instagram.com/jmmancera23)
+
+[@jmmancera23](https://instagram.com/jmmancera23)
 
 ## Version History
 
