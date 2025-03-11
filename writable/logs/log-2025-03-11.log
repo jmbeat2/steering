@@ -16274,3 +16274,826 @@ DEBUG - 2025-03-11 02:53:17 --> Returned Crosstrain and Skilled data: Array
 
 )
 
+ERROR - 2025-03-11 05:55:47 --> mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 05:55:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:55:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:55:47 --> [Caused by] mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 05:55:53 --> mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 05:55:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:55:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:55:53 --> [Caused by] mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 05:56:14 --> mysqli_sql_exception: Unknown column 'user.shift_name' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 05:56:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user.shift_name' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:56:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user.shift_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:56:14 --> [Caused by] mysqli_sql_exception: Unknown column 'user.shift_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 05:56:22 --> mysqli_sql_exception: Unknown column 'user.shift_name' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 05:56:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user.shift_name' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:56:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user.shift_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 05:56:22 --> [Caused by] mysqli_sql_exception: Unknown column 'user.shift_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`id` = `user`.`shift_name`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 06:04:34 --> mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 06:04:34 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:04:34 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:04:34 --> [Caused by] mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`, `shift`.`id`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 06:04:42 --> mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`...', Array, false)
+#4 C:\xampp\htdocs\steering\app\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\app\Controllers\Userc.php(18): App\Models\Userm->getUser()
+#6 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-03-11 06:04:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 2 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:04:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 4 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:04:42 --> [Caused by] mysqli_sql_exception: Unknown column 'shift.shift_type' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN (1,2)
+ LIMIT 2')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `user`.`id`, `user`.`name`, `user`.`shift_type`, `shift`.`shift_name`
+FROM `user`
+LEFT JOIN `shift` ON `shift`.`shift_type` = `user`.`id`
+WHERE `shift`.`id` IN :shift.id:
+ LIMIT 2', [...], false)
+ 5 APPPATH\Models\Userm.php(22): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:09:57 --> CodeIgniter\Exceptions\InvalidArgumentException: whereIn() expects $values to be of type array or closure
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseBuilder.php on line 964.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(850): CodeIgniter\Database\BaseBuilder->_whereIn('shift.id', null, false, 'AND ', null)
+ 2 APPPATH\Models\Userm.php(32): CodeIgniter\Database\BaseBuilder->whereIn('shift.id')
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:10:11 --> CodeIgniter\Exceptions\InvalidArgumentException: whereIn() expects $values to be of type array or closure
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Database\BaseBuilder.php on line 964.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(850): CodeIgniter\Database\BaseBuilder->_whereIn('shift.id', null, false, 'AND ', null)
+ 2 APPPATH\Models\Userm.php(32): CodeIgniter\Database\BaseBuilder->whereIn('shift.id')
+ 3 APPPATH\Controllers\Userc.php(18): App\Models\Userm->getUser()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 5 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 06:11:02 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Userm::getUser
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Userc.php(18): CodeIgniter\Model->__call('getUser', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 07:05:23 --> Error: Array callback must have exactly two elements
+[Method: GET, Route: defects]
+in APPPATH\Views\defectsview.php on line 31.
+ 1 SYSTEMPATH\View\View.php(224): include()
+ 2 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('defectsview', [], true)
+ 4 APPPATH\Controllers\Defects.php(22): view('defectsview', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 07:23:29 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Userm::getUser
+[Method: GET, Route: Userc/FetchName]
+in SYSTEMPATH\Model.php on line 930.
+ 1 APPPATH\Controllers\Userc.php(18): CodeIgniter\Model->__call('getUser', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Userc->FetchName()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Userc))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 07:27:11 --> ParseError: syntax error, unexpected token "<"
+[Method: GET, Route: defectsview]
+in APPPATH\Controllers\Defects.php on line 49.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\steering\\app\\Controllers\\Defects.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Defects')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Defects')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Defects', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 15:37:37 --> mysqli_sql_exception: Unknown column 'id_shsift' in 'where clause' in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\steering\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\steering\system\BaseModel.php(713): CodeIgniter\Model->doFirst()
+#6 C:\xampp\htdocs\steering\app\Controllers\Defects.php(63): CodeIgniter\BaseModel->first()
+#7 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Defects->store()
+#8 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+#9 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-03-11 15:37:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_shsift' in 'where clause'
+[Method: POST, Route: defects/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `defects`
+WHERE `defect_type` = :defect_type:
+AND `defect_date` = :defect_date:
+AND `id_shsift` = :id_shsift:
+AND `name` = :name:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 4 APPPATH\Controllers\Defects.php(63): CodeIgniter\BaseModel->first()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:37:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'id_shsift' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `defects`
+WHERE `defect_type` = \'Half-locked connector\'
+AND `defect_date` = \'2025-03-11\'
+AND `id_shsift` = \'1\'
+AND `name` = \'Joseph G. Malabanan\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `defects`
+WHERE `defect_type` = \'Half-locked connector\'
+AND `defect_date` = \'2025-03-11\'
+AND `id_shsift` = \'1\'
+AND `name` = \'Joseph G. Malabanan\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `defects`
+WHERE `defect_type` = :defect_type:
+AND `defect_date` = :defect_date:
+AND `id_shsift` = :id_shsift:
+AND `name` = :name:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 6 APPPATH\Controllers\Defects.php(63): CodeIgniter\BaseModel->first()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:37:37 --> [Caused by] mysqli_sql_exception: Unknown column 'id_shsift' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `defects`
+WHERE `defect_type` = \'Half-locked connector\'
+AND `defect_date` = \'2025-03-11\'
+AND `id_shsift` = \'1\'
+AND `name` = \'Joseph G. Malabanan\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `defects`
+WHERE `defect_type` = \'Half-locked connector\'
+AND `defect_date` = \'2025-03-11\'
+AND `id_shsift` = \'1\'
+AND `name` = \'Joseph G. Malabanan\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `defects`
+WHERE `defect_type` = \'Half-locked connector\'
+AND `defect_date` = \'2025-03-11\'
+AND `id_shsift` = \'1\'
+AND `name` = \'Joseph G. Malabanan\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `defects`
+WHERE `defect_type` = :defect_type:
+AND `defect_date` = :defect_date:
+AND `id_shsift` = :id_shsift:
+AND `name` = :name:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(713): CodeIgniter\Model->doFirst()
+ 7 APPPATH\Controllers\Defects.php(63): CodeIgniter\BaseModel->first()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 15:48:59 --> mysqli_sql_exception: Column 'empid' cannot be null in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `de...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `de...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `de...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `de...', Array, false)
+#4 C:\xampp\htdocs\steering\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\steering\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\steering\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\steering\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\steering\app\Controllers\Defects.php(81): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Defects->store()
+#10 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+#11 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-03-11 15:48:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'empid' cannot be null
+[Method: POST, Route: defects/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Defects.php(81): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:48:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'empid' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Broken/damaged connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Broken/damaged connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Defects.php(81): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:48:59 --> [Caused by] mysqli_sql_exception: Column 'empid' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Broken/damaged connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Broken/damaged connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Broken/damaged connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Defects.php(81): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-03-11 15:51:16 --> mysqli_sql_exception: Column 'empid' cannot be null in C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\steering\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `de...', 0)
+#1 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `de...')
+#2 C:\xampp\htdocs\steering\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `de...')
+#3 C:\xampp\htdocs\steering\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `de...', Array, false)
+#4 C:\xampp\htdocs\steering\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\steering\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\steering\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\steering\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\steering\app\Controllers\Defects.php(80): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\steering\system\CodeIgniter.php(933): App\Controllers\Defects->store()
+#10 C:\xampp\htdocs\steering\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+#11 C:\xampp\htdocs\steering\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\steering\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\steering\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\steering\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+CRITICAL - 2025-03-11 15:51:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'empid' cannot be null
+[Method: POST, Route: defects/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Defects.php(80): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:51:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'empid' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Half-locked connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Half-locked connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Defects.php(80): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-03-11 15:51:16 --> [Caused by] mysqli_sql_exception: Column 'empid' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Half-locked connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Half-locked connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (\'Half-locked connector\', \'2025-03-11\', \'1\', \'1\', \'Joseph G. Malabanan\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `defects` (`defect_type`, `defect_date`, `count`, `id_shift`, `name`, `empid`) VALUES (:defect_type:, :defect_date:, :count:, :id_shift:, :name:, :empid:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Defects.php(80): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->store()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
