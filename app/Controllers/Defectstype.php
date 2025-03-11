@@ -17,12 +17,4 @@ class Defectstype extends BaseController
         $defectTypes = $this->model->getDefectTypes();
         return $this->response->setJSON($defectTypes);
     }
-
-    public function getDefectAssignments()
-    {
-        $model = new defectsTypesM();
-        $wrongInsertAssignments = $model->getDefectAssignments('WRONG INSERT');
-
-        return $this->response->setJSON($wrongInsertAssignments);
-    }
 }
