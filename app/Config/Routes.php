@@ -65,8 +65,15 @@ $routes->get('/dailyattendancec', 'Dailyattendancec::getAttendanceData');
 
 
 
-// Route to access a specific attendance view by date (optional)
-$routes->get('/dailyattendancec/view/(:any)', 'Dailyattendancec::view/$1');
+// ATTENDANCE ROUTES
+$routes->get('addAttendance', 'AddAttendance::index');
+
+$routes->get('addAttendance/getAttendanceData', 'AddAttendance::getAttendanceData');  
+$routes->post('addAttendance/update/(:num)', 'addAttendance::update/$1');
+  // Add ID parameter here
+$routes->post('addAttendance/add', 'AddAttendance::add');
+$routes->get('addAttendance/view/(:num)', 'AddAttendance::view/$1');
+$routes->post('addAttendance/delete/(:num)', 'AddAttendance::delete/$1');
 
 
 
