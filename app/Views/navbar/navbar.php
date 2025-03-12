@@ -1,7 +1,8 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet">
 
+<link href="<?= base_url('public/assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/cdn/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" />
+
+<!-- CALENDAR (But not needed.) -->
 <link href="<?= base_url('public/assets/css/fullcalendar.css') ?>" rel="stylesheet" />
 <link href="<?= base_url('public/assets/css/fullcalendar.print.css') ?>" rel="stylesheet" />
 
@@ -39,6 +40,9 @@ echo '</pre>';
         <li class="nav-item">
           <a class="nav-link active" href="<?= site_url('defects') ?>">Defects Information</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="<?= site_url('addAttendance') ?>">Attendance</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="optionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Options
@@ -67,19 +71,39 @@ echo '</pre>';
 </nav>
 
 <!-- Bootstrap 5 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-
+<script src="<?= base_url('public/assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
 <!-- Datatables including JQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script src="<?= base_url('public/assets/datables/js/jquery-3.6.0.min.js') ?>"></script>
+<script src="<?= base_url('public/assets/datables/js/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('public/assets/datables/js/dataTables.bootstrap5.min.js') ?>"></script>
+
+
+
+
+
+
+
+
+<!-- GOING REMOVE -->
+
+<!-- LINKS -->
+ 
+<!-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet"> -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"> -->
+
+
+<!-- SCRIPTS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> -->
+<!-- <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> -->
 
 <!-- Calendar -->
 <!-- <script src="<?= base_url('public/assets/js/jquery-1.10.2.js') ?>"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="<?= base_url('public/assets/js/jquery-ui.custom.min.js') ?>"></script>
-<script src="<?= base_url('public/assets/js/fullcalendar.js') ?>"></script>
-
-
+<script src="<?= base_url('public/assets/js/fullcalendar.js') ?>"></script> -->
