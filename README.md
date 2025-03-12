@@ -66,3 +66,13 @@ This project is licensed under the JM License - see the LICENSE.md file for deta
 * CRUD (Detect information) 98%
 
 all those 98% is finished let say. Just a little modifications for design and a littlebit functions.
+
+## Update March 12, 2025
+
+* v0.1
+    * Fix scripts online convert into files.
+
+## Package
+- Datatables
+- Bootstrap 5
+- JQuery
