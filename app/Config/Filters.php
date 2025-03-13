@@ -27,7 +27,8 @@ class Filters extends BaseFilters
 
     public array $globals = [
         'before' => [
-            'csrf' => ['except' => ['Empusersc/authenticate']] // Exclude CSRF for login only
+            'csrf' => ['except' => ['Empusersc/authenticate', 'addMemberc/addUser']]
+
         ],
         'after' => [],
     ];
