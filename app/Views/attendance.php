@@ -40,7 +40,6 @@
     </div>
 
 <!-- Add Attendance Modal -->
-<!-- Add Attendance Modal -->
 <div class="modal fade" id="attendanceAddModal" tabindex="-1" aria-labelledby="attendanceAddModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
