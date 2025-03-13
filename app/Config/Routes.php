@@ -40,14 +40,12 @@ $routes->get('Calendarc/getAllDefects', 'Calendarc::getAllDefects');
 $routes->get('Crosstrainc/index', 'Crosstrainc::index');
 
 # ADD MEMBER ROUTES
-$routes->get('addMemberc/fetchUsers', 'addMemberc::fetchUsers');  
-$routes->get('addMemberc/index', 'addMemberc::index');  
-$routes->get('addMemberc', 'addMemberc::index'); 
-$routes->post('addMemberc/addUser', 'addMemberc::addUser');  
-$routes->get('addMemberc/getUser/(:segment)', 'AddMemberc::getUser/$1');
-$routes->post('addMemberc/updateUser/(:num)', 'AddMemberc::updateUser/$1');
-$routes->post('addMemberc/deleteUser/(:num)', 'AddMemberc::deleteUser/$1');
-
+$routes->get('addMemberc/fetchUsers', 'addMemberc::fetchUsers');
+$routes->get('addMemberc/index', 'addMemberc::index');
+$routes->get('addMemberc/getUser/(:num)', 'addMemberc::getUser/$1'); // Use lowercase 'addMemberc'
+$routes->post('addMemberc/updateUser/(:num)', 'addMemberc::updateUser/$1');
+$routes->post('addMemberc/deleteUser/(:num)', 'addMemberc::deleteUser/$1');
+$routes->post('addMemberc/addUser', 'addMemberc::addUser');
 
 
 # SHIFT TYPES FETCHING
@@ -55,21 +53,16 @@ $routes->get('fetchShiftc/fetchShiftTypes', 'fetchShiftc::fetchShiftTypes');
 
 # PROTECTED ROUTES
 $routes->get('dashboard', ['filter' => 'auth']);
-$routes->get('addMemberc/addUser', 'addMemberc::addUser', ['filter' => 'auth']);
-
 
 # DAILY ATTENDANCE ROUTES
 // Route to access the daily attendance data
 $routes->get('/dailyattendancec', 'Dailyattendancec::getAttendanceData');
 
-
-
-
 // ATTENDANCE ROUTES
 $routes->get('addAttendance', 'AddAttendance::index');
-
 $routes->get('addAttendance/getAttendanceData', 'AddAttendance::getAttendanceData');  
 $routes->post('addAttendance/update/(:num)', 'addAttendance::update/$1');
+
   // Add ID parameter here
 $routes->post('addAttendance/add', 'AddAttendance::add');
 $routes->get('addAttendance/view/(:num)', 'AddAttendance::view/$1');
