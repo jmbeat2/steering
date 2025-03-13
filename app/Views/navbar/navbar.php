@@ -40,15 +40,13 @@ echo '</pre>';
         <li class="nav-item">
           <a class="nav-link active" href="<?= site_url('defects') ?>">Defects Information</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= site_url('addAttendance') ?>">Attendance</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="optionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Options
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="optionsDropdown">
             <li><a class="dropdown-item" href="<?= site_url('addMemberc/index') ?>">Add Member</a></li>
+            <li><a class="dropdown-item" href="<?= site_url('addAttendance') ?>">Add Attendance</a></li>
             <li><a class="dropdown-item" href="#">Add Announcement</a></li>
             <li><a class="dropdown-item" href="#">Add Shift</a></li>
             <li><a class="dropdown-item" href="#">Add Defect</a></li>
