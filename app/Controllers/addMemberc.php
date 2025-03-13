@@ -5,6 +5,11 @@ use App\Models\addUserm;
 
 class addMemberc extends BaseController
 {
+    public function __construct()
+    {
+        $this->addUserm = new addUserm(); // Ensure the correct model is loaded
+    }
+
     // Show the add user form
     public function index()
     {
@@ -14,66 +19,120 @@ class addMemberc extends BaseController
     // Store user data
     public function addUser()
     {
-        $model = new addUserm();
+        $validation = \Config\Services::validation();
 
+        // Validate form data
+        if (!$this->validate([
+            'employee_id' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'user_type' => 'required',
+            'fname' => 'required',
+            'lname' => 'required',
+            'id_shift' => 'required',
+        ])) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
+        }
+
+        // Get the form data
         $data = [
-            'name' => $this->request->getPost('name'),
-            'firstname' => $this->request->getPost('firstname'),
-            'middlename' => $this->request->getPost('middlename'),
-            'lastname' => $this->request->getPost('lastname'),
-            'shift_type' => $this->request->getPost('shift'),
-            'date' => date('Y-m-d H:i:s')
+            'employee_id' => $this->request->getPost('employee_id'),
+            'username' => $this->request->getPost('username'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'user_type' => $this->request->getPost('user_type'),
+            'fname' => $this->request->getPost('fname'),
+            'mname' => $this->request->getPost('mname'),
+            'lname' => $this->request->getPost('lname'),
+            'id_shift' => $this->request->getPost('id_shift'),
         ];
 
-        if ($model->insert($data)) {
-            return redirect()->to('/addMemberc/index')->with('message', 'User added successfully');
-        } else {
-            return redirect()->back()->with('error', 'Failed to add user');
-        }
+        $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
+
+
+        // Save the user to the database
+        $model = new addUserm();
+        $model->insert($data);
+
+        return $this->response->setJSON(['status' => 'success', 'message' => 'User added successfully']);
     }
 
     // Update user data
     public function updateUser($id)
     {
-        $model = new addUserm();
+        $addUserm = new addUserm();
+        $request = $this->request;
 
-        $data = [
-            'firstname' => $this->request->getPost('firstname'),
-            'middlename' => $this->request->getPost('middlename'),
-            'lastname' => $this->request->getPost('lastname'),
-            'shift_type' => $this->request->getPost('shift')
-        ];
+        // Validate form data
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'employee_id' => 'required',
+            'fname'       => 'required',
+            'mname'       => 'required',
+            'lname'       => 'required',
+            'id_shift'    => 'required',
+            'username'    => 'required',
+            'user_type'   => 'required',
+        ]);
+
         
-        // Regenerate full name
-        $data['name'] = $data['firstname'] . ' ' . $data['middlename'] . ' ' . $data['lastname'];
+        if (!$validation->withRequest($request)->run()) {
+            return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
+        }
 
-        if ($model->update($id, $data)) {
-            return redirect()->to('/addMemberc/index')->with('message', 'User updated successfully');
+        // Get data from form
+        $data = [
+            'employee_id' => $request->getPost('employee_id'),
+            'fname'       => $request->getPost('fname'),
+            'mname'       => $request->getPost('mname'),
+            'lname'       => $request->getPost('lname'),
+            'id_shift'    => $request->getPost('id_shift'),
+            'username'    => $request->getPost('username'),
+            'user_type'   => $request->getPost('user_type'),
+        ];
+
+        $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
+
+        // Update user in the database
+        if ($addUserm->update($id, $data)) {
+            return $this->response->setJSON(['status' => 'success', 'message' => 'User updated successfully!']);
         } else {
-            return redirect()->back()->with('error', 'Failed to update user');
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Update failed.']);
         }
     }
-
+    
     // Delete user
     public function deleteUser($id)
     {
-        $model = new addUserm();
-
-        if ($model->delete($id)) {
-            return redirect()->to('addMemberc')->with('message', 'User deleted successfully');
-        } else {
-            return redirect()->back()->with('error', 'Failed to delete user');
+        $addUserm = new addUserm();
+        
+        if ($addUserm->find($id)) { // Check if user exists
+            $addUserm->delete($id);
+    
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'User deleted successfully'
+            ]);
         }
+    
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'User not found'
+        ]);
     }
+    
 
-    // Fetch all users
+    // Fetch all users for DataTable
     public function fetchUsers()
     {
         $model = new addUserm();
         $totalRecords = $model->countAll();
         $offset = $this->request->getVar('start') ?? 0;
-        $users = $model->findAll( $offset);
+        $limit = $this->request->getVar('length') ?? 10;
 
+        // Fetch users with pagination
+        $users = $model->findAll($limit, $offset);
+
+        // Prepare response for DataTable
         return $this->response->setJSON([
             'draw' => $this->request->getVar('draw'),
             'recordsTotal' => $totalRecords,
@@ -82,43 +141,22 @@ class addMemberc extends BaseController
         ]);
     }
 
-     public function fetchDefects()
-    {
-        $model = new DefectsModel();
-        $defects = $model
-            ->select('name, defect_date, defect_type, SUM(count) as total')
-            ->groupBy('defect_date, defect_type, name')
-            ->orderBy('defect_date', 'DESC')
-            ->findAll();
-
-        // Format the date as "March 5, 2025"
-        foreach ($defects as &$defect) {
-            $defect['defect_date'] = date('F j, Y', strtotime($defect['defect_date']));
-        }
-
-        return $this->response->setJSON($defects);
-    }
-
-
+    // Fetch specific user by ID for editing
     public function getUser($id)
     {
-        $userModel = new \App\Models\addUserm();  // Adjust if your model name is different
-    
-        // Convert ID to integer if it's a single value
-        if (is_numeric($id)) {
-            $user = $userModel->find($id);
+        $user = $this->addUserm->find($id);
+        
+        if ($user) {
+            return $this->response->setJSON([
+                'status' => 'success',
+                'data' => $user
+            ]);
         } else {
-            $ids = explode(',', $id);
-            $user = $userModel->whereIn('id', $ids)->findAll();
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'User not found'
+            ]);
         }
-    
-        if (!$user) {
-            return $this->response->setStatusCode(404)->setJSON(['error' => 'User not found']);
-        }
-    
-        return $this->response->setJSON($user);
     }
     
-    
-
 }
