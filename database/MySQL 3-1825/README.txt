@@ -1,15 +1,16 @@
 ***************************************************************
-/ This backup is from 3-18-25 revive				   /
-/ attendance								   /	
-/ cs                 							   /
-/ daily_attendance							   /		  
-/ defects									   /    
-/ defects_types								   /	 
-/ employess									   /   
-/ manpower (not offcially need)                                /                           
-/ order_summary								   /	   
-/ performance 								   /
-/ shift									   /
-/ user						  			   /
-/ user									   /  
-****************************************************************
+*           Backup from 03-18-2025 - Revive System            *
+***************************************************************
+* Tables:                                                     *
+*   - attendance                                              *
+*   - cs                                                      *
+*   - daily_attendance                                        *
+*   - defects                                                 *
+*   - defect_types                                            *
+*   - employees                                               *
+*   - manpower (not officially needed)                        *
+*   - order_summary                                           *
+*   - performance                                             *
+*   - shift                                                   *
+*   - user                                                    *
+***************************************************************
