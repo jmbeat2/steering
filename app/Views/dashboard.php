@@ -15,23 +15,27 @@
         <tr class="header">
           <th rowspan="2" class="category-column">Category</th>
           <th colspan="31">Defect Summary</th>
+          
           <th rowspan="2" class="total-column">Total</th>
           <th rowspan="2" class="total-column">Crosstrain</th>
           <th rowspan="2" class="total-column">Skilled</th>
+
         </tr>
         <tr class="header" id="dateHeaders"></tr>
       </thead>
       <tbody id="defectData"></tbody>
-
+      <th colspan="1" class="highlight">INPROCESS DEFECT</th>
+      <td colspan="10" id="wrongInsertData"> </td>
+      <td colspan="13" id="notFullyInsertedData"> </td>
       <!-- Section Titles -->
       <tr class="header">
-        <th colspan="1" class="highlight">INPROCESS DEFECT</th>
-        <th colspan="5" class="highlight">DAILY ATTENDANCE</th>
+        <!-- <th colspan="1" class="highlight">INPROCESS DEFECT</th> -->
+        <th colspan="7" class="highlight">DAILY ATTENDANCE</th>
       </tr>
       
       <!-- Attendance Section -->
       <tr class="attendance">
-        <th>Shift</th>
+      <!-- <th>Shift</th> -->
         <th>DS</th>
         <th>NS</th>
         <th>Total MP</th>
@@ -41,7 +45,8 @@
         <th>NU</th>
       </tr>
       <tr class="attendance-data">
-        <td>Shift</td>
+        
+      <!-- <th>Shift</th> -->
         <td id="ds-count">-</td> <!-- Dynamic DS Count -->
         <td id="ns-count">-</td> <!-- Dynamic NS Count -->
         <td id="total-mp">-</td> <!-- Dynamic Total MP -->
@@ -52,8 +57,7 @@
       </tr>
 
       <!-- Dynamic Defect Data -->
-      <tbody id="wrongInsertData"></tbody>
-      <tbody id="notFullyInsertedData"></tbody>
+
     </table>
 
     <script>
@@ -74,8 +78,8 @@
           // Function to map duty numbers to readable text
           function getDutyText(duty) {
             switch (parseInt(duty)) {
-              case 1: return "Day Shift";
-              case 2: return "Night Shift";
+              case 1: return " [Day Shift]";
+              case 2: return "[Night Shift]";
               default: return "Unknown";
             }
           }
@@ -98,15 +102,15 @@
             defectData.forEach((entry) => {
               let row = `
                 <tr>
-                  <td colspan="1">${entry.lastname} - ${getDutyText(entry.shift_type)}</td>
+                  <td colspan="1">${entry.lname} - ${getDutyText(entry.id_shift)}</td>
                 </tr>`;
               tableElement.innerHTML += row;
             });
           }
 
           // Populate both tables
-          populateTable(wrongInsertTable, "WRONG INSERT", data.wrong_insert);
-          populateTable(notFullyInsertedTable, "NOT FULLY INSERTED", data.not_fully_inserted);
+          populateTable(wrongInsertTable, "Wrong insert:", data.wrong_insert);
+          populateTable(notFullyInsertedTable, "Not fully inserted:", data.not_fully_inserted);
         } catch (error) {
           console.error("Error fetching data:", error);
         }

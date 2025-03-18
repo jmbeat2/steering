@@ -11,9 +11,13 @@ class Calendarc extends Controller
     {
         $model = new calendarDefectM();
         
+        // Get current year and month
         $year = date('Y');
-        $startDate = "$year-03-01";
-        $endDate = "$year-03-31";
+        $month = date('m'); // Current month (01-12)
+        
+        // Get the first and last day of the current month
+        $startDate = "$year-$month-01";
+        $endDate = date("Y-m-t", strtotime($startDate)); // Gets the last day of the month
     
         // Fetch defect counts grouped by category and date
         $data = $model->select('defect_type, defect_date, SUM(count) as total_count')
@@ -24,5 +28,6 @@ class Calendarc extends Controller
     
         return $this->response->setJSON($data);
     }
+    
     
 }

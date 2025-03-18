@@ -7,6 +7,23 @@
 <link href="<?= base_url('public/assets/css/fullcalendar.print.css') ?>" rel="stylesheet" />
 
 
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/all.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/duotone-light.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/duotone-regular.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/duotone-thin.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-duotone-light.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-duotone-regular.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-duotone-solid.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-duotone-thin.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-light.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-regular.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-solid.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/sharp-thin.css') ?>" rel="stylesheet" />
+
+
+
+</style>
+
 <!-- UNCOMMENT KUNG GUSTO MO MAKITA SESSIONS MO -->
 <!-- <?php
 echo '<pre>';
@@ -78,8 +95,8 @@ echo '</pre>';
 <script src="<?= base_url('public/assets/datables/js/dataTables.bootstrap5.min.js') ?>"></script>
 
 
-
-
+<!-- <script src="<?= base_url('public/assets/font-awesome-pro-5/js/pro.js') ?>"></script>
+<script src="<?= base_url('public/assets/font-awesome-pro-5/js/pro.min.js') ?>"></script> -->
 
 
 

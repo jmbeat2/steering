@@ -84,7 +84,7 @@
             </div>
             <div class="modal-body">
                 <form id="updateUserForm">
-                    <input type="text" id="updateUserId">
+                    <input type="hidden" id="updateUserId">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">
                             <label for="updateEmployeeId" class="form-label">Employee ID</label>
@@ -151,9 +151,9 @@
         </table>
     </div>
 <script>
-$(document).ready(function() {
+$(document).ready(function () {
     // Initialize DataTable
-    var table = $('#usersTable').DataTable({
+    var table = $("#usersTable").DataTable({
         ajax: "<?= site_url('addMemberc/fetchUsers') ?>",
         columns: [
             { data: "employee_id" },
@@ -167,7 +167,7 @@ $(document).ready(function() {
             { data: "created_at" },
             {
                 data: "id",
-                render: function(data) {
+                render: function (data) {
                     return `
                         <button class="btn btn-warning btn-sm edit-btn" data-id="${data}">Edit</button>
                         <button class="btn btn-danger btn-sm delete-btn" data-id="${data}">Delete</button>
@@ -177,11 +177,10 @@ $(document).ready(function() {
         ]
     });
 
-    // Handle Add User form submission via AJAX
+    // 🔹 Handle Add User Form Submission
     $("#addUserForm").submit(function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
-        formData += "&<?= csrf_token() ?>=<?= csrf_hash() ?>";
+        var formData = $(this).serialize() + "&<?= csrf_token() ?>=<?= csrf_hash() ?>";
 
         $.ajax({
             url: "<?= site_url('addMemberc/addUser') ?>",
@@ -193,9 +192,9 @@ $(document).ready(function() {
                     alert("User added successfully!");
                     $("#addUserModal").modal("hide");
                     $("#addUserForm")[0].reset();
-                    $('#usersTable').DataTable().ajax.reload();
+                    table.ajax.reload();
                 } else {
-                    alert("Error: " + JSON.stringify(response.message));
+                    alert("Error: " + response.message);
                 }
             },
             error: function (xhr) {
@@ -204,111 +203,127 @@ $(document).ready(function() {
         });
     });
 
-    // Handle Edit User Button
-// Handle Edit User Button
-// Handle Edit User Button
-$(document).on('click', '.edit-btn', function() {
-    var userId = $(this).data('id');
+    // 🔹 Handle Edit User Button Click
+    $(document).on("click", ".edit-btn", function () {
+    var userId = $(this).data("id");
+    var $button = $(this); // Store the button reference
 
-    // Fetch user data and populate the form
+    // Disable button & show spinner inside button
+    $button.prop("disabled", true).html(`
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      
+    `);
+
+    // Fetch user data
     $.ajax({
         url: "<?= site_url('addMemberc/getUser/') ?>" + userId,
         type: "GET",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             if (response.status === "success" && response.data) {
                 var user = response.data;
-                $("#updateUserId").val(user.id);  // Ensure ID is passed
-                $("#updateEmployeeId").val(user.employee_id);  // Populate employee ID
-                $("#updateFirstname").val(user.fname);  // Populate first name
-                $("#updateMiddlename").val(user.mname);  // Populate middle name
-                $("#updateLastname").val(user.lname);  // Populate last name
-                $("#updateShift").val(user.id_shift);  // Populate shift
-                $("#updateUsername").val(user.username);  // Populate username
-                $("#updateUserType").val(user.user_type);  // Populate user type
-                $("#updateFullName").val(user.fullname);  // Ensure full name is populated if necessary
-                $("#updateUserForm").data('id', user.id); // Set the user ID on the form
+
+                $("#updateUserId").val(user.id);
+                $("#updateEmployeeId").val(user.employee_id);
+                $("#updateFirstname").val(user.fname);
+                $("#updateMiddlename").val(user.mname);
+                $("#updateLastname").val(user.lname);
+                $("#updateShift").val(user.id_shift).trigger("change");
+                $("#updateUsername").val(user.username);
+                $("#updateUserType").val(user.user_type).trigger("change");
+                $("#updateFullName").val(user.fullname);
+                $("#updateUserForm").data("id", user.id);
+
+                // Show modal after data is fetched
                 $("#updateUserModal").modal("show");
             } else {
-                alert("Error fetching user data.");
+                alert("Error: Unable to fetch user data.");
             }
         },
-        error: function() {
-            alert("Failed to fetch user data.");
+        error: function () {
+            alert("Failed to fetch user data. Please try again.");
+        },
+        complete: function () {
+            // Re-enable button & restore original text
+            $button.prop("disabled", false).html("Edit");
         }
     });
 });
 
 
-// Handle Update User form submission via AJAX
-$("#updateUserForm").submit(function(e) {
-    e.preventDefault();
+    // 🔹 Handle Update User Form Submission
+    $("#updateUserForm").submit(function (e) {
+        e.preventDefault();
+        var userId = $("#updateUserId").val();
 
-    var userId = $("#updateUserId").val();
+        var formData = {
+            employee_id: $("#updateEmployeeId").val(),
+            fname: $("#updateFirstname").val(),
+            mname: $("#updateMiddlename").val(),
+            lname: $("#updateLastname").val(),
+            id_shift: $("#updateShift").val(),
+            username: $("#updateUsername").val(),
+            user_type: $("#updateUserType").val(),
+            "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
+        };
 
-    // Manually capture form data
-    var formData = {
-        employee_id: $("#updateEmployeeId").val(),
-        fname: $("#updateFirstname").val(),
-        mname: $("#updateMiddlename").val(),
-        lname: $("#updateLastname").val(),
-        id_shift: $("#updateShift").val(),
-        username: $("#updateUsername").val(),
-        user_type: $("#updateUserType").val()
-    };
-
-    // Append CSRF Token
-    formData["<?= csrf_token() ?>"] = "<?= csrf_hash() ?>"; 
-
-    $.ajax({
-        url: "<?= site_url('addMemberc/updateUser/') ?>" + userId,
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        success: function(response) {
-            if (response.status === "success") {
-                alert("User updated successfully!");
-                $("#updateUserModal").modal("hide");
-                $('#usersTable').DataTable().ajax.reload();
-                window.location.reload();
-            } else {
-                alert("Error: " + JSON.stringify(response.message));
-            }
-        },
-        error: function(xhr) {
-            console.error(xhr.responseText);
-            alert("AJAX Error: " + xhr.responseText);
-        }
-    });
-});
-
-    // Handle Delete User Button
-    $(document).on('click', '.delete-btn', function() {
-    var userId = $(this).data('id');
-
-    if (confirm('Are you sure you want to delete this user?')) {
         $.ajax({
-            url: "<?= site_url('addMemberc/deleteUser/') ?>" + userId,
+            url: "<?= site_url('addMemberc/updateUser/') ?>" + userId,
             type: "POST",
-            data: {
-                "<?= csrf_token() ?>": "<?= csrf_hash() ?>" // Include CSRF token
-            },
+            data: formData,
             dataType: "json",
-            success: function(response) {
+            success: function (response) {
                 if (response.status === "success") {
-                    alert("User deleted successfully!");
-                    $('#usersTable').DataTable().ajax.reload(); // Refresh DataTable
-                    window.location.reload();
+                    alert("User updated successfully!");
+                    $("#updateUserModal").modal("hide");
+                    table.ajax.reload();
                 } else {
-                    alert("Error: " + JSON.stringify(response.message));
+                    alert("Error: " + response.message);
                 }
             },
-            error: function(xhr) {
+            error: function (xhr) {
+                console.error(xhr.responseText);
                 alert("AJAX Error: " + xhr.responseText);
             }
         });
-    }
-});
+    });
+
+    // 🔹 Handle Delete User Button Click
+    $(document).on("click", ".delete-btn", function () {
+        var userId = $(this).data("id");
+        var $button = $(this); // Store the button reference
+
+         // Disable button & show spinner inside button
+    $button.prop("disabled", true).html(`
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      
+    `);
+
+        if (confirm("Are you sure you want to delete this user?")) {
+            $.ajax({
+                url: "<?= site_url('addMemberc/deleteUser/') ?>" + userId,
+                type: "POST",
+                data: {
+                    "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
+                },
+                dataType: "json",
+                success: function (response) {
+                    if (response.status === "success") {
+                        alert("User deleted successfully!");
+                        table.ajax.reload();
+                    } else {
+                        alert("Error: " + response.message);
+                        $button.hide
+                    }
+                },
+                error: function (xhr) {
+                    alert("AJAX Error: " + xhr.responseText);
+                }
+            });
+        }
+    });
+
+
 
     // Fetch shift types for the Add/Edit user forms
     $.ajax({

@@ -16,8 +16,9 @@ class Dailyattendancem extends Model
     // Get all daily attendance data
     public function getAllAttendance()
     {
-        return $this->findAll();
+        return $this->orderBy('updated_at', 'DESC')->findAll();
     }
+    
 
     // Get a specific attendance record by date
     public function getAttendanceByDate($date)

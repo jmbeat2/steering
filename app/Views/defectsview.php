@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Defect Tracking</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
     <style>
         time {
             font-size: 1.2rem;
@@ -13,11 +13,32 @@
     </style>
 </head>
 <body>
+
+<div class="container my-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis" href="<?= site_url('/') ?>">
+        <i class="fa-solid fa-house"></i>
+          <span class="visually-hidden">Home</span>
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('defects') ?>">Defect tracking system</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        
+      </li>
+    </ol>
+  </nav>
+</div>
+
+
 <div class="container mt-3">
     <time id="current-time"></time>
     <br><br>
+
     <h2>Defect Tracking System</h2>
-    
     <!-- Defect Submission Form -->
     <form action="<?= site_url('defects/store') ?>" method="post">
     <?= csrf_field() ?>

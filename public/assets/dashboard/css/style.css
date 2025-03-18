@@ -1,19 +1,4 @@
-
-.highlight {
-    background-color: yellow;
-    padding: 5px;
-    font-weight: bold;
-}
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
-}
-
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
@@ -27,6 +12,7 @@ h2 {
     color: #333;
 }
 
+/* Table Container */
 .board {
     width: 90%;
     margin: 30px auto;
@@ -35,24 +21,29 @@ h2 {
     background-color: #ffffff;
 }
 
+/* Table Borders & Spacing */
 .board th, .board td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
     font-size: 14px;
 }
 
+/* Header Styling */
 .board th {
     background-color: #007BFF;
     color: white;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
+/* Secondary Headers */
 .header {
     background-color: #f0f0f0;
     font-weight: bold;
 }
 
+/* Category Column */
 .category {
     background-color: #ddd;
     font-weight: bold;
@@ -60,25 +51,50 @@ h2 {
     padding-left: 15px;
 }
 
+/* Section Titles */
 .highlight {
     background-color: #f8c830;
     font-weight: bold;
-}
-
-.total-column {
-    background-color: #8fc9f2;
-    font-weight: bold;
-}
-
-.board td:hover {
-    background-color: #f1f1f1;
-    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    font-size: 1rem;
 }
 
 .highlight:hover {
     background-color: #e1a800;
 }
 
+/* Totals Column */
+.total-column {
+    background-color: #8fc9f2;
+    font-weight: bold;
+}
+
+/* Alternating Row Colors for Readability */
+.board tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect on Rows */
+.board td:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Category Column */
 .category-column {
     background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .board {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .board th, .board td {
+        padding: 8px;
+    }
 }
