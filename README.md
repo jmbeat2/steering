@@ -51,7 +51,7 @@ Contributors names and contact info
 
 * 0.2
     * coming soon!
-    * coming soon! [commit change]() coming soon! [https://github.com/jmbeat2/steering/blob/main/README.md]()
+    * coming soon! [commit change]() coming soon! [release history](https://github.com/jmbeat2/steering/blob/main/README.md)
 * 0.1
     * Initial Release
 
