@@ -18,8 +18,12 @@ class AddAttendance extends BaseController
         if (!session()->get('logged_in')) {
             return redirect()->to('/login')->with('error', 'You need to login first.');
         }
+
+        $data = [
+            'title' => 'Option | Add attendance'
+        ];
         
-        return view('attendance');
+        return view('attendance', $data);
     }
 
     // Add Attendance
