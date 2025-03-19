@@ -69,7 +69,7 @@ all those 98% is finished let say. Just a little modifications for design and a 
 
 ## Update March 19, 2025
 
-* v0.1.1
+* ![Version](https://img.shields.io/badge/version-1.0-blue)
     - re design navbar
     - add new system info scripts
     - add breadcrumbs
