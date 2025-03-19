@@ -1,25 +1,34 @@
 <?= view('navbar/navbar') ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Attendance</title>
-</head>
-
-<body>
+<div class="container my-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis" href="<?= site_url('/') ?>">
+        <i class="fa-solid fa-house"></i>
+          <span class="visually-hidden">Home</span>
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Option</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Add attendance</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        
+      </li>
+    </ol>
+  </nav>
+</div>
     
 <div class="container mt-3">
+    
     <br><br>
     <h2>Attendance List</h2>
         <button type="button" class="btn btn-primary" id="addAttendanceBtn">
         Add Attendance
         </button>
-        <br>
-        <br>
-
         <!-- Table for displaying data -->
         <table id="attendanceTable" class="table table-striped table-hover table-bordered">
         <thead class="table-dark">
