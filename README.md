@@ -51,7 +51,7 @@ Contributors names and contact info
 
 * 0.2
     * coming soon!
-    * coming soon! [commit change]() coming soon! [release history](https://github.com/jmbeat2/steering/blob/main/README.md)
+    * coming soon! [commit change]() coming soon! [release history](https://anotepad.com/note/read/prdn59y2)
 * 0.1
     * Initial Release
 
@@ -73,6 +73,14 @@ all those 98% is finished let say. Just a little modifications for design and a 
     - re design navbar
     - add new system info scripts
     - add breadcrumbs
+
+## Development Progress
+| Feature                   | Completion |
+|----------------------     |------------|
+| CRUD (Add member)         | **98%** (Finalizing design & minor functions) |
+| CRUD (Add attendance)     | **5%** (In development) |
+| CRUD (Detect information) | **98%** (Minor adjustments pending) |
+
 
 ## Package
 - Datatables
