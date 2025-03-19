@@ -1,15 +1,15 @@
 
 
 ## Upcoming version
-![Version](https://img.shields.io/badge/version-1.1-blue)
+![Version](https://img.shields.io/badge/version-1.3-blue)
 
 | Feature          | Status      | Priority |  Progress function | Progress UI Design |
 |:-----------------|:------------|---------:|:-------------------|:-------------------|
-| User Login       | Completed   | Medium     |          100%       |          98%       |
-| Defect records   | Completed   | High   |          100%       |          98%       |
-| Add member  | In Progress | High   |          100%       |          98%       |
-| Add attendance  | In Progress | High   |          100%       |          98%       |
-| UI Design        | In Progress | Medium   |          100%       |          98%       | 
+| User Login       | -  | -     |         -      |         -      |
+| Defect records   | -  | -  |          -       |        -      |
+| Add member  | - | -   |          -     |         -       |
+| Add attendance  | - | -  |          -      |          -       |
+| UI Design        | - | -   |         -      |         -      | 
 
 
 
