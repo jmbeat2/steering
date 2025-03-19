@@ -51,7 +51,7 @@ Contributors names and contact info
 
 * 0.2
     * coming soon!
-    * coming soon! [commit change]() coming soon! [release history]()
+    * coming soon! [commit change]() coming soon! [https://github.com/jmbeat2/steering/blob/main/README.md]()
 * 0.1
     * Initial Release
 
@@ -67,7 +67,7 @@ This project is licensed under the JM License - see the LICENSE.md file for deta
 
 all those 98% is finished let say. Just a little modifications for design and a littlebit functions.
 
-## Update March 12, 2025
+## Update March 19, 2025
 
 * v0.1.1
     - re design navbar

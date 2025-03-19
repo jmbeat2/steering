@@ -13142,3 +13142,170 @@ DEBUG - 2025-03-19 03:50:07 --> Returned Crosstrain and Skilled data: Array
 
 )
 
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-19 03:55:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-19 03:55:30 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-19 03:55:30 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-19 03:55:30 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-19 03:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-19 03:55:30 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-19 03:55:30 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
