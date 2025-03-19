@@ -69,4 +69,9 @@ $routes->get('addAttendance/view/(:num)', 'AddAttendance::view/$1');
 $routes->post('addAttendance/delete/(:num)', 'AddAttendance::delete/$1');
 
 
+$routes->get('system', 'system::index');
+
+
+
+
 
