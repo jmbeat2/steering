@@ -10,17 +10,20 @@ class Defects extends Controller
         if (!session()->get('logged_in')) {
             return redirect()->to('/login')->with('error', 'You need to login first.');
         }
-
-
+    
         $model = new DefectsModel();
-        $data['defects'] = $model
-            ->select('defect_date, name, defect_type, SUM(count) as total')
-            ->groupBy('defect_date, defect_type')
-            ->orderBy('defect_date', 'DESC') // Show newest defects first
-            ->findAll();
+        $data = [
+            'defects' => $model
+                ->select('defect_date, name, defect_type, SUM(count) as total')
+                ->groupBy('defect_date, defect_type')
+                ->orderBy('defect_date', 'DESC') // Show newest defects first
+                ->findAll(),
+            'title' => 'Defect information'
+        ];
     
         return view('defectsview', $data);
     }
+    
 
     public function fetchDefects()
     {
