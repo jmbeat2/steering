@@ -13,7 +13,10 @@ class addMemberc extends BaseController
     // Show the add user form
     public function index()
     {
-        return view('Option/addMember');
+        $data = [
+            'title' => 'Option / Member',
+        ];
+        return view('Option/addMember', $data);
     }
 
     // Store user data
