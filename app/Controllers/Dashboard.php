@@ -32,6 +32,7 @@ class Dashboard extends Controller
             'orders' => $orderModel->findAll(),
             'performance' => $performanceModel->findAll(),
             'manpower' => $manpowerModel->findAll(),
+            'title' => 'Dashboard',
         ];
 
         return view('dashboard', $data);
