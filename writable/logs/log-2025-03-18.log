@@ -5646,3 +5646,2252 @@ DEBUG - 2025-03-18 10:52:35 --> Returned Crosstrain and Skilled data: Array
 
 )
 
+DEBUG - 2025-03-18 23:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:32:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:34:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:35:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:35:39 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:35:39 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:35:39 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:39 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:35:39 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:35:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:35:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:20 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:36:20 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:36:20 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:20 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:36:20 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:36:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:36:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:37:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:38:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:09 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:39:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:22 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:23 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:40:23 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:40:23 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:23 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:40:23 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:40:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:40:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:41:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-18 23:43:58 --> ErrorException: Undefined variable $title
+[Method: GET, Route: /]
+in APPPATH\Views\navbar\navbar.php on line 5.
+ 1 APPPATH\Views\navbar\navbar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\steering\\app\\Views\\navbar\\navbar.php', 5)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\steering\\app\\Views\\navbar\\navbar.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('navbar/navbar', [], true)
+ 5 APPPATH\Views\dashboard.php(1): view('navbar/navbar')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\steering\\app\\Views\\dashboard.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('dashboard', [], true)
+ 9 APPPATH\Controllers\Dashboard.php(37): view('dashboard', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Dashboard->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:44:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:44:48 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:44:48 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:44:48 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:44:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:44:48 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:44:48 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:45:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:45:32 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:32 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:32 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:33 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:33 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:45:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:45:43 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:43 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:43 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:45:43 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:43 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-18 23:45:45 --> ErrorException: Undefined variable $title
+[Method: GET, Route: defects]
+in APPPATH\Views\navbar\navbar.php on line 5.
+ 1 APPPATH\Views\navbar\navbar.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\steering\\app\\Views\\navbar\\navbar.php', 5)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\steering\\app\\Views\\navbar\\navbar.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('navbar/navbar', [], true)
+ 5 APPPATH\Views\defectsview.php(1): view('navbar/navbar')
+ 6 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\steering\\app\\Views\\defectsview.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('defectsview', [], true)
+ 9 APPPATH\Controllers\Defects.php(22): view('defectsview', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Defects->index()
+11 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Defects))
+12 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-18 23:46:22 --> ParseError: syntax error, unexpected token ","
+[Method: GET, Route: defects]
+in APPPATH\Controllers\Defects.php on line 20.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\steering\\app\\Controllers\\Defects.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Defects')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Defects')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\Defects', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:57 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Dela Cruz
+            [duty] => 1
+            [id_shift] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:46:57 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Santos
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+    [1] => Array
+        (
+            [lname] => Ramirez
+            [duty] => 2
+            [id_shift] => 2
+        )
+
+)
+
+DEBUG - 2025-03-18 23:46:57 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Dela Cruz
+                    [duty] => 1
+                    [id_shift] => 1
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Santos
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+            [1] => Array
+                (
+                    [lname] => Ramirez
+                    [duty] => 2
+                    [id_shift] => 2
+                )
+
+        )
+
+)
+
+DEBUG - 2025-03-18 23:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:58 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:46:58 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [crosstrain] => 2
+            [skilled] => 3
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [crosstrain] => 5
+            [skilled] => 15
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-03-18 23:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:46:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:47:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:47:53 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:47:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-18 23:47:55 --> ParseError: syntax error, unexpected token "=>", expecting "]"
+[Method: GET, Route: addMemberc/index]
+in APPPATH\Controllers\addMemberc.php on line 17.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\steering\\app\\Controllers\\addMemberc.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\addMemberc')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\addMemberc')
+ 4 SYSTEMPATH\CodeIgniter.php(885): class_exists('\\App\\Controllers\\addMemberc', true)
+ 5 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:11 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\addMemberc::$addUserm is deprecated in APPPATH\Controllers\addMemberc.php on line 10.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\addMemberc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:48:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\fetchShiftc::$model is deprecated in APPPATH\Controllers\fetchShiftc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\fetchShiftc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-03-18 23:59:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-18 23:59:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-18 23:59:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
