@@ -1,10 +1,6 @@
-# Project Title
+# NBC Steering Dashboard
 
-NBC Steering Dashboard
-
-## Description
-
-Steering dashboard manually convert into, online display through web based, connect into monitor.
+## Steering dashboard manually convert into, online display through web based, connect into monitor.
 
 ## Getting Started
 
@@ -49,13 +45,17 @@ Contributors names and contact info
 
 ## Version History
 
-* 0.2
+* 1.1
     * coming soon!
-    * coming soon! [commit change]() coming soon! [release history](https://anotepad.com/note/read/prdn59y2)
-* 0.1
+* 1.1
+    - re design navbar
+    - add new system info scripts
+    - add breadcrumbs
+    
+* 1.0
     * Initial Release
 
-## License
+*[commit change](https://github.com/jmbeat2/steering) [release history](https://github.com/jmbeat2/steering/blob/main/app/Update/Update.md)
 
 This project is licensed under the JM License - see the LICENSE.md file for details
 
@@ -69,7 +69,7 @@ all those 98% is finished let say. Just a little modifications for design and a 
 
 ## Update March 19, 2025
 
-* ![Version](https://img.shields.io/badge/version-1.0-blue)
+* ![Version](https://img.shields.io/badge/version-1.1-blue)
     - re design navbar
     - add new system info scripts
     - add breadcrumbs
