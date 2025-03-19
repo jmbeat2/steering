@@ -69,8 +69,10 @@ all those 98% is finished let say. Just a little modifications for design and a 
 
 ## Update March 12, 2025
 
-* v0.1
-    * Fix scripts online convert into files.
+* v0.1.1
+    - re design navbar
+    - add new system info scripts
+    - add breadcrumbs
 
 ## Package
 - Datatables
