@@ -55,6 +55,9 @@ class addMemberc extends BaseController
         // Save the user to the database
         $model = new addUserm();
         $model->insert($data);
+        
+        session()->setFlashdata('success', 'your new leader have been added successfully!');
+
 
         return $this->response->setJSON(['status' => 'success', 'message' => 'User added successfully']);
     }
@@ -97,6 +100,9 @@ class addMemberc extends BaseController
 
         // Update user in the database
         if ($addUserm->update($id, $data)) {
+
+            session()->setFlashdata('success', 'your in leaders have been successfully!');
+
             return $this->response->setJSON(['status' => 'success', 'message' => 'User updated successfully!']);
         } else {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Update failed.']);
@@ -112,6 +118,7 @@ class addMemberc extends BaseController
             $addUserm->delete($id);
     
             return $this->response->setJSON([
+                session()->setFlashdata('success', 'your leader employee have been successfuly removed!'),
                 'status' => 'success',
                 'message' => 'User deleted successfully'
             ]);
