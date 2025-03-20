@@ -13,23 +13,24 @@ class AddAttendance extends BaseController
         $this->AddAttendancem = new AddAttendancem();
     }
 
-    public function index ()
+    public function index()
     {
         if (!session()->get('logged_in')) {
             return redirect()->to('/login')->with('error', 'You need to login first.');
         }
 
         $data = [
-            'title' => 'Option | Add attendance'
+            'title' => 'Option | Add Attendance',
+            'message' => session()->getFlashdata('message'),
+            'message_type' => session()->getFlashdata('message_type')
         ];
         
         return view('attendance', $data);
     }
 
-    // Add Attendance
     public function add()
     {
-        // Capture data from POST request
+        // Prepare data for insertion or update
         $data = [
             'date'      => $this->request->getPost('date'),
             'ds_count'  => $this->request->getPost('ds_count'),
@@ -38,35 +39,34 @@ class AddAttendance extends BaseController
             'rate'      => $this->request->getPost('rate'),
             'sl'        => $this->request->getPost('sl'),
             'vl'        => $this->request->getPost('vl'),
-            'nu'        => $this->request->getPost('nu'),
+            'nu'        => $this->request->getPost('nu')
         ];
     
-        // Ensure the data is not empty (validation could be added here)
-        if (empty($data['date']) || empty($data['ds_count']) || empty($data['ns_count'])) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Missing required fields!'
-            ]);
+        // Check if an ID exists for updating, else insert a new record
+        if ($this->request->getPost('id')) {
+            $this->AddAttendancem->update($this->request->getPost('id'), $data);
+            session()->setFlashdata('message', 'Record updated successfully!');
+        } else {
+            $this->AddAttendancem->insert($data);
+            session()->setFlashdata('message', 'Record added successfully!');
         }
     
-        // Insert the data using the model
-        if ($this->AddAttendancem->saveAttendanceData($data)) {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => 'Attendance added successfully'
-            ]);
-        } else {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Failed to add attendance'
-            ]);
-        }
+        // Set flash message type as success
+        session()->setFlashdata('message_type', 'success');
+        
+        // Redirect to the addAttendance page
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Attendance added successfully']);
     }
     
 
-    // Update Attendance
     public function update($id)
     {
+        // Check if the record exists
+        if (!$this->AddAttendancem->find($id)) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Record not found']);
+        }
+    
+        // Prepare data for update
         $data = [
             'date'      => $this->request->getPost('date'),
             'ds_count'  => $this->request->getPost('ds_count'),
@@ -75,87 +75,52 @@ class AddAttendance extends BaseController
             'rate'      => $this->request->getPost('rate'),
             'sl'        => $this->request->getPost('sl'),
             'vl'        => $this->request->getPost('vl'),
-            'nu'        => $this->request->getPost('nu'),
+            'nu'        => $this->request->getPost('nu')
         ];
     
-        // Check if the attendance record exists before updating
-        $attendance = $this->AddAttendancem->find($id);
-        if (!$attendance) {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Attendance record not found'
-            ]);
-        }
+        // Update the record
+        $this->AddAttendancem->update($id, $data);
     
-        // Try to update attendance
-        if ($this->AddAttendancem->updateAttendanceData($id, $data)) {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => 'Attendance updated successfully'
-            ]);
-        } else {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Failed to update attendance'
-            ]);
-        }
+        // Set flash data for success message
+        session()->setFlashdata('message', 'Record updated successfully!');
+        session()->setFlashdata('message_type', 'success');
+    
+        // Return success response as JSON
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Attendance updated successfully']);
     }
     
-
-    // Get Attendance Data for DataTable
-    // public function getAttendanceData()
-    // {
-    //     $attendance = $this->AddAttendancem->findAll();
-    //     return $this->response->setJSON([
-    //         'data' => $attendance
-    //     ]);
-    // }
 
     public function getAttendanceData()
     {
         $model = new AddAttendancem();
-        $totalRecords = $model->countAll();
-        $offset = $this->request->getVar('start') ?? 0;
-        $at = $model->findAll( $offset);
-
+        $attendance = $model->findAll();
+    
         return $this->response->setJSON([
             'draw' => $this->request->getVar('draw'),
-            'recordsTotal' => $totalRecords,
-            'recordsFiltered' => $totalRecords,
-            'data' => $at
+            'recordsTotal' => count($attendance),
+            'recordsFiltered' => count($attendance),
+            'data' => $attendance
         ]);
     }
 
-    
-
-    // Get Attendance by ID (for Edit)
     public function view($id)
     {
-        $attendance = $this->AddAttendancem->getAttendanceById($id);
+        $attendance = $this->AddAttendancem->find($id);
         if ($attendance) {
             return $this->response->setJSON($attendance);
-        } else {
-            return $this->response->setStatusCode(404, 'Record not found');
         }
+        return $this->response->setStatusCode(404, 'Record not found');
     }
 
-    // Delete Attendance
     public function delete($id)
     {
-        // CSRF check or any other necessary validation can go here
-    
-        // Attempt to delete the attendance record with the given ID
-        if ($this->AddAttendancem->deleteAttendance($id)) {
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => 'Attendance record deleted successfully!'
-            ]);
+        if ($this->AddAttendancem->delete($id)) {
+            session()->setFlashdata('message', 'Record deleted successfully!');
+            session()->setFlashdata('message_type', 'success');
         } else {
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'Failed to delete the attendance record.'
-            ]);
+            session()->setFlashdata('message', 'Failed to delete record.');
+            session()->setFlashdata('message_type', 'error');
         }
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Attendance deleted! successfully']);
     }
-    
 }
