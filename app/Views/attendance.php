@@ -10,7 +10,7 @@
         </a>
       </li>
       <li class="breadcrumb-item">
-        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Option</a>
+        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Manage</a>
       </li>
       <li class="breadcrumb-item">
         <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Add attendance</a>
@@ -23,17 +23,18 @@
 </div>
     
 <div class="container mt-3">
-    
-    <br><br>
-    <h2>Attendance List</h2>
-        <button type="button" class="btn btn-primary" id="addAttendanceBtn">
+<h2 style="text-align: left;">ATTENDANCE LIST</h2>
+
+        <button type="button" class="btn btn-primary" id="addAttendanceBtn"><i class="far fa-user-plus"></i>
         Add Attendance
         </button>
+        <br>        <br>
         <!-- Table for displaying data -->
         <table id="attendanceTable" class="table table-striped table-hover table-bordered">
+            
         <thead class="table-dark">
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Date</th>
                     <th>DS Count</th>
                     <th>NS Count</th>
@@ -150,56 +151,104 @@
 </div>
 
 
+<script>
+    function getCsrfToken() {
+        return {
+            '<?= csrf_token() ?>': '<?= csrf_hash() ?>'
+        };
+    }
+</script>
+
+
     <!-- AJAX Script for DataTable and Form Submit -->
     <script>
-$(document).ready(function() {
-    var table = $('#attendanceTable').DataTable({
-        ajax: "<?= site_url('addAttendance/getAttendanceData') ?>",
-        "columns": [
-            { "data": "id" },
-            { "data": "date" },
-            { "data": "ds_count" },
-            { "data": "ns_count" },
-            { "data": "total_mp" },
-            { "data": "rate" },
-            {
-                "data": null,
-                render: function(data) {
-                    return `  
-                        <button class='btn btn-warning btn-sm edit-btn' data-id='${data.id}'>Edit</button>
-                        <button class='btn btn-danger btn-sm delete-btn' data-id='${data.id}'>Delete</button>
-                    `;
+    $(document).ready(function() {
+        var table = $('#attendanceTable').DataTable({
+            ajax: "<?= site_url('addAttendance/getAttendanceData') ?>",
+            "columns": [
+                { "data": "date" },
+                { "data": "ds_count" },
+                { "data": "ns_count" },
+                { "data": "total_mp" },
+                { "data": "rate" },
+                {
+                    "data": null,
+                    render: function(data) {
+                        return `  
+                            <button class='btn btn-warning btn-sm edit-btn' data-id='${data.id}'><i class="fal fa-edit"></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete-btn' data-id='${data.id}'><i class="fal fa-trash-alt"></i> Delete</button>
+                        `;
+                    }
                 }
-            }
-        ]
+            ]
+        });
+
+        let message = "<?= session()->getFlashdata('message') ?>";
+        let messageType = "<?= session()->getFlashdata('message_type') ?>";
+
+        if (message) {
+            iziToast[messageType]({
+                title: messageType.charAt(0).toUpperCase() + messageType.slice(1),
+                message: message,
+                position: 'topRight'
+            });
+        }
     });
+</script>
 
-    // CSRF Token
-    var csrfName = '<?= csrf_token() ?>';
-    var csrfHash = '<?= csrf_hash() ?>';
 
-    // Show Add Modal
-    $('#addAttendanceBtn').click(function() {
-        $('#attendanceFormAdd')[0].reset();  // Reset the form
-        var addModal = new bootstrap.Modal(document.getElementById('attendanceAddModal'));
-        addModal.show();  // Show modal
+<script>
+    $(document).ready(function() {
+        // ✅ Show Add Modal
+        $('#addAttendanceBtn').click(function() {
+            $('#attendanceFormAdd')[0].reset();
+            var addModal = new bootstrap.Modal(document.getElementById('attendanceAddModal'));
+            addModal.show();
+        });
+
+        // ✅ Add Attendance
+        $('#attendanceFormAdd').submit(function(e) {
+            e.preventDefault();
+
+            $.post("<?= site_url('addAttendance/add') ?>", $(this).serialize() + '&' + $.param(getCsrfToken()), function(response) {
+                if (response.status === 'success') {
+                    iziToast.success({ title: 'Success', message: 'Attendance added successfully!', position: 'topRight' });
+                    window.location.reload();
+                    bootstrap.Modal.getInstance(document.getElementById('attendanceAddModal')).hide();
+                } else {
+                    iziToast.error({ title: 'Error', message: response.message, position: 'topRight' });
+                }
+            }, 'json').fail(function(xhr) {
+                iziToast.error({
+                    title: 'Error',
+                    message: 'Failed to save the record. ' + xhr.responseText,
+                    position: 'topRight'
+                });
+            });
+        });
     });
+</script>
 
-    // Edit button click
-    $('#attendanceTable').on('click', '.edit-btn', function() {
-        let attendanceId = $(this).data('id');
 
-        $.ajax({
-            url: "<?= site_url('addAttendance/view') ?>/" + attendanceId,
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
+<script>
+    $(document).ready(function() {
+        // ✅ Fetch Data for Editing
+        $('#attendanceTable').on('click', '.edit-btn', function() {
+            let $button = $(this); // Get the clicked button
+            let attendanceId = $button.data('id');
+
+            // Disable button & show spinner
+            $button.prop("disabled", true).html(`
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Loading...
+            `);
+
+            $.get("<?= site_url('addAttendance/view') ?>/" + attendanceId, function(data) {
                 if (!data || (Array.isArray(data) && data.length === 0)) {
-                    alert("Attendance record not found.");
+                    iziToast.error({ title: 'Error', message: 'Attendance record not found.', position: 'topRight' });
                     return;
                 }
 
-                // Populate the Edit Form with the fetched data
+                // ✅ Populate the modal fields
                 $('#attendanceIdEdit').val(data.id);
                 $('#dateEdit').val(data.date);
                 $('#ds_countEdit').val(data.ds_count);
@@ -211,110 +260,124 @@ $(document).ready(function() {
                 $('#nuEdit').val(data.nu);
 
                 var editModal = new bootstrap.Modal(document.getElementById('attendanceEditModal'));
-                editModal.show();  // Show modal
-            },
-            error: function(xhr) {
-                alert("Error fetching attendance data: " + xhr.responseJSON.error);
-            }
-        });
-    });
+                editModal.show();
 
-    // Add Attendance - Submit Form
-    $('#attendanceFormAdd').submit(function(e) {
-        e.preventDefault();  // Prevent default form submission
-
-        $.ajax({
-            url: "<?= site_url('addAttendance/add') ?>",
-            type: "POST",
-            data: $(this).serialize() + '&' + $.param({ [csrfName]: csrfHash }),
-            dataType: "json",
-            success: function(response) {
-                if (response.status === 'success') {
-                    alert(response.message);
-                    table.ajax.reload();
-                    var addModal = bootstrap.Modal.getInstance(document.getElementById('attendanceAddModal'));
-                    addModal.hide();  // Close modal
-                    window.location.reload();
-                } else {
-                    alert('Error: ' + response.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                alert('Failed to add attendance: ' + error);
-            }
-        });
-    });
-
-    // Edit Attendance - Submit Form
-    $('#attendanceFormEdit').submit(function(e) {
-        e.preventDefault();
-
-        let attendanceId = $('#attendanceIdEdit').val(); // Get the attendance ID
-
-        $.ajax({
-            url: "<?= site_url('addAttendance/update') ?>/" + attendanceId, // Append ID to the URL
-            type: "POST",
-            data: $(this).serialize() + '&' + $.param({ [csrfName]: csrfHash }),
-            dataType: "json",
-            success: function(response) {
-                if (response.status === 'success') {
-                    alert(response.message);
-                    table.ajax.reload();
-                    var editModal = bootstrap.Modal.getInstance(document.getElementById('attendanceEditModal'));
-                    editModal.hide();  // Close modal
-                    window.location.reload();
-                } else {
-                    alert('Error: ' + response.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log(xhr.responseText);
-                alert('Failed to update attendance: ' + error);
-            }
-        });
-    });
-
-    // Delete Function
-    $('#attendanceTable').on('click', '.delete-btn', function() {
-        let attendanceId = $(this).data('id');
-
-        if (confirm('Are you sure you want to delete this record?')) {
-            $.ajax({
-                url: "<?= site_url('addAttendance/delete') ?>/" + attendanceId,
-                type: "POST",
-                data: {
-                    [csrfName]: csrfHash // Send CSRF token for security
-                },
-                success: function(response) {
-                    if (response.status === 'success') {
-                        alert(response.message);
-                        $('#attendanceTable').DataTable().ajax.reload(); // Reload the table after deletion
-                        window.location.reload();
-                    } else {
-                        alert('Error: ' + response.message);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    alert('Failed to delete attendance: ' + error);
-                }
+            }, 'json').fail(function(xhr) {
+                iziToast.error({ title: 'Error', message: 'Error fetching attendance data. ' + xhr.responseText, position: 'topRight' });
+            }).always(function() {
+                // ✅ Restore button text
+                $button.prop("disabled", false).html(`<i class="far fa-edit"></i> Edit`);
             });
-        }
+        });
+
+        // ✅ Edit Attendance Submission
+        $('#attendanceFormEdit').submit(function(e) {
+            e.preventDefault();
+
+            let attendanceId = $('#attendanceIdEdit').val();
+            let $submitButton = $('#attendanceFormEdit button[type="submit"]');
+
+            // Disable button & show spinner
+            $submitButton.prop("disabled", true).html(`
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Saving...
+            `);
+
+            $.post("<?= site_url('addAttendance/update') ?>/" + attendanceId, $(this).serialize() + '&' + $.param(getCsrfToken()), function(response) {
+                if (response.status === 'success') {
+                    iziToast.success({ title: 'Success', message: 'Attendance updated successfully!', position: 'topRight' });
+                    bootstrap.Modal.getInstance(document.getElementById('attendanceEditModal')).hide();
+                    setTimeout(() => location.reload(), 1000); // Delay reload to show success message
+                } else {
+                    iziToast.error({ title: 'Error', message: response.message, position: 'topRight' });
+                }
+            }, 'json').fail(function(xhr) {
+                iziToast.error({ title: 'Error', message: 'Failed to update attendance. ' + xhr.responseText, position: 'topRight' });
+            }).always(function() {
+                // ✅ Restore button text
+                $submitButton.prop("disabled", false).html(`Save Changes`);
+            });
+        });
     });
-});
-
-function updateTime() {
-    const now = new Date();
-    const timeElement = document.getElementById('current-time');
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    timeElement.dateTime = now.toISOString();
-    timeElement.innerHTML = `Today is: ${now.toLocaleDateString(undefined, options)}, Time: ${now.toLocaleTimeString()}`;
-}
-setInterval(updateTime, 1000);
-updateTime();
+</script>
 
 
-    </script>
+
+<script>
+    // 🔹 Handle Delete User Button Click
+    $(document).on("click", ".delete-btn", function () {
+        var userId = $(this).data("id");
+        var $button = $(this); // Store the button reference
+
+        // Disable button & show spinner inside button
+        $button.prop("disabled", true).html(`
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        
+        `);
+        iziToast.question({
+            timeout: 20000,
+            close: false,
+            overlay: true,
+            displayMode: 'once',
+            title: 'Confirm Deletion',
+            message: 'Are you sure you want to delete this attendance??',
+            position: 'center',
+            buttons: [
+                ['<button><b>Yes</b></button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
+                    // Disable button & show spinner inside button
+                    $button.prop("disabled", true).html(`
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Deleting...
+                    `);
+
+                    $.ajax({
+                        url: "<?= site_url('addAttendance/delete/') ?>" + userId,
+                        type: "POST",
+                        data: {
+                            "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
+                        },
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.status === "success") {
+                                iziToast.success({
+                                    title: 'Deleted!',
+                                    message: 'User has been removed successfully.',
+                                    position: 'topRight'
+                                });
+                                setTimeout(() => window.location.reload(), 1000);
+                            } else {
+                                iziToast.error({
+                                    title: 'Error',
+                                    message: response.message,
+                                    position: 'topRight'
+                                    
+                                });
+                                $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Edit');
+                            }
+                        },
+                        error: function (xhr) {
+                            iziToast.error({
+                                title: 'AJAX Error',
+                                message: xhr.responseText,
+                                position: 'topRight'
+                            });
+                            $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Edit');
+                        }
+                    });
+                }, true],
+
+                ['<button>No</button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Delete');
+                }]
+            ]
+        });
+    });
+</script>
+
+
+
+
 </body>
 
 </html>
