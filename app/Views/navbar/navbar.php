@@ -13,69 +13,11 @@
 
 <!-- LINKS FOR FA v5 -->
 <link href="<?= base_url('public/assets/font-awesome-pro-5/v6.7.2/css/all.css') ?>" rel="stylesheet" />
-
-<style>
-    /* Responsive Navbar */
-    @media (max-width: 992px) {
-        .navbar-nav {
-            text-align: center;
-        }
-        .navbar-nav .nav-item {
-            margin-bottom: 10px;
-        }
-        .dropdown-menu {
-            text-align: center;
-        }
-    }
-
-    /* Option & Account - Underline Slide Effect */
-    .underline-link {
-        position: relative;
-        text-decoration: none;
-        color: white;
-        transition: color 0.3s ease-in-out;
-    }
-    .underline-link::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: white;
-        bottom: -3px;
-        left: 0;
-        transform: scaleX(0);
-        transition: transform 0.3s ease-in-out;
-    }
-    .underline-link:hover::after {
-        transform: scaleX(1);
-    }
-
-    /* Option Icon Bounce Animation */
-    .option-icon {
-        transition: transform 0.3s ease-in-out;
-    }
-    .nav-link:hover .option-icon {
-        animation: bounce 0.5s ease-in-out;
-    }
-    @keyframes bounce {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-    }
-
-    /* Account Icon Shake */
-    .account-icon {
-        transition: transform 0.2s ease-in-out;
-    }
-    .nav-link:hover .account-icon {
-        animation: shake 0.3s ease-in-out;
-    }
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-2px); }
-        50% { transform: translateX(2px); }
-        75% { transform: translateX(-2px); }
-    }
-</style>
+<!-- NAVBAR STYLE -->
+<link href="<?= base_url('public/assets/navbar/css/style.css') ?>" rel="stylesheet" />
+<!-- IZITOAST -->
+<link href="<?= base_url('public/assets/izi/dist/css/iziToast.css') ?>" rel="stylesheet" />
+<link href="<?= base_url('public/assets/izi/dist/css/iziToast.min.css') ?>" rel="stylesheet" />
 </head>
 <body>
 
@@ -95,8 +37,9 @@
                     <i class="fas fa-clipboard-list"></i> &nbsp; Manage &nbsp; <i class="far fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="optionsDropdown">
-                        <li><a class="dropdown-item" href="<?= site_url('addMemberc/index') ?>"><i class="fad fa-users"></i>&nbsp; Add Member</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('addMemberc/index') ?>"><i class="fad fa-users"></i>&nbsp; Add leader</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('addAttendance') ?>">&nbsp;<i class="far fa-clipboard-user"></i>&nbsp;&nbsp; Add Attendance</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('Crosstrainc') ?>">&nbsp;<i class="fal fa-tools"></i>&nbsp;&nbsp; Add crosstrain and skilled</a></li>
                         <!-- <li><a class="dropdown-item" href="#">Add Announcement</a></li>
                         <li><a class="dropdown-item" href="#">Add Shift</a></li>
                         <li><a class="dropdown-item" href="#">Add Defect</a></li> -->
@@ -125,6 +68,10 @@
 <script src="<?= base_url('public/assets/datables/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('public/assets/datables/js/jquery.dataTables.min.js') ?>"></script>
 <script src="<?= base_url('public/assets/datables/js/dataTables.bootstrap5.min.js') ?>"></script>
+
+
+<script src="<?= base_url('public/assets/izi/dist/js/iziToast.min.js') ?>"></script>
+
 
 </body>
 </html>
