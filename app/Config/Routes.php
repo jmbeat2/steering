@@ -71,6 +71,11 @@ $routes->post('addAttendance/delete/(:num)', 'AddAttendance::delete/$1');
 
 $routes->get('system', 'system::index');
 
+$routes->get('Crosstrainc/fetch', 'Crosstrainc::fetch');
+$routes->post('Crosstrainc/save', 'Crosstrainc::save');
+$routes->get('Crosstrainc/get/(:num)', 'Crosstrainc::get/$1');
+$routes->delete('Crosstrainc/delete/(:num)', 'Crosstrainc::delete/$1');
+$routes->get('Crosstrainc', 'Crosstrainc::inedexes');
 
 
 
