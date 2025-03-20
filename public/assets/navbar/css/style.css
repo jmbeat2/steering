@@ -1,0 +1,61 @@
+
+    /* Responsive Navbar */
+    @media (max-width: 992px) {
+        .navbar-nav {
+            text-align: center;
+        }
+        .navbar-nav .nav-item {
+            margin-bottom: 10px;
+        }
+        .dropdown-menu {
+            text-align: center;
+        }
+    }
+
+    /* Option & Account - Underline Slide Effect */
+    .underline-link {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        transition: color 0.3s ease-in-out;
+    }
+    .underline-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        bottom: -3px;
+        left: 0;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+    .underline-link:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* Option Icon Bounce Animation */
+    .option-icon {
+        transition: transform 0.3s ease-in-out;
+    }
+    .nav-link:hover .option-icon {
+        animation: bounce 0.5s ease-in-out;
+    }
+    @keyframes bounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    /* Account Icon Shake */
+    .account-icon {
+        transition: transform 0.2s ease-in-out;
+    }
+    .nav-link:hover .account-icon {
+        animation: shake 0.3s ease-in-out;
+    }
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-2px); }
+        50% { transform: translateX(2px); }
+        75% { transform: translateX(-2px); }
+    }
