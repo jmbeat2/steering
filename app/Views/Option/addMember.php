@@ -1,7 +1,26 @@
 <?= view('navbar/navbar') ?>
 
-    <div class="container mt-3">
-    <div class="container my-5">
+<script>
+    $(document).ready(function() {
+        <?php if (session()->getFlashdata('success')) : ?>
+            iziToast.success({
+                title: '',
+                message:  'Hello '+ "<?= isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?> <?= session()->getFlashdata('success'); ?>",
+                position: 'topRight'
+            });
+        <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')) : ?>
+            iziToast.error({
+                title: 'Error',
+                message: "<?= session()->getFlashdata('error'); ?>",
+                position: 'topRight'
+            });
+        <?php endif; ?>
+    });
+</script>
+
+<div class="container my-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
         <li class="breadcrumb-item">
@@ -11,11 +30,11 @@
             </a>
         </li>
         <li class="breadcrumb-item">
-            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Option</a>
+            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Manage</a>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
 
-            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Add member</a>
+            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Add leader</a>
 
         <li class="breadcrumb-item active" aria-current="page">
             
@@ -24,9 +43,9 @@
     </nav>
     </div>
 
-
-    <h2>Add New User</h2>
-    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">
+    <div class="container mt-3">
+    <h2>ADD NEW LEADER </h2>
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="far fa-user-plus"></i>
         Add User
     </button>
 
@@ -141,25 +160,27 @@
 
 
     <!-- Users Table -->
-    <div class="table-responsive mt-4">
-        <table id="usersTable" class="table table-striped table-hover table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>Employee ID</th>
-                    <th>User Type</th>
-                    <th>Full Name</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
-                    <th>Shift Type</th>
-                    <th>Username</th>
-                    <th>Date Added</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="user-table-body"></tbody>
-        </table>
-    </div>
+    <div class="table-responsive mt-5">
+    <table id="usersTable" class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-dark text-nowrap">
+            <tr>
+                <th style="min-width: 40;">Employee ID</th> <!-- Adjusted width -->
+                <th>User Type</th>
+                <th>Full Name</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Shift Type</th>
+                <th>Duty</th>
+                <th>Date Added</th>
+                <th style="min-width: 148px;">Actions</th> <!-- Adjusted width -->
+
+            </tr>
+        </thead>
+        <tbody id="user-table-body"></tbody>
+    </table>
+</div>
+
 <script>
 $(document).ready(function () {
     // Initialize DataTable
@@ -173,19 +194,24 @@ $(document).ready(function () {
             { data: "mname" },
             { data: "lname" },
             { data: "id_shift" },
-            { data: "username" },
+            { data: "duty" },
             { data: "created_at" },
             {
                 data: "id",
                 render: function (data) {
                     return `
-                        <button class="btn btn-warning btn-sm edit-btn" data-id="${data}">Edit</button>
-                        <button class="btn btn-danger btn-sm delete-btn" data-id="${data}">Delete</button>
+                        <button class="btn btn-warning btn-sm edit-btn" data-id="${data}"><i class="far fa-user-edit"></i> Edit</button>
+                        <button class="btn btn-danger btn-sm delete-btn" data-id="${data}"><i class="fal fa-user-times"></i> Delete</button>
                     `;
-                }
+                },
+                responsive: true
             }
         ]
+
+
     });
+
+    
 
     // 🔹 Handle Add User Form Submission
     $("#addUserForm").submit(function (e) {
@@ -199,10 +225,10 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 if (response.status === "success") {
-                    alert("User added successfully!");
+                    // alert("User added successfully!");
                     $("#addUserModal").modal("hide");
                     $("#addUserForm")[0].reset();
-                    table.ajax.reload();
+                    window.location.reload();
                 } else {
                     alert("Error: " + response.message);
                 }
@@ -246,8 +272,10 @@ $(document).ready(function () {
 
                 // Show modal after data is fetched
                 $("#updateUserModal").modal("show");
+                $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
             } else {
                 alert("Error: Unable to fetch user data.");
+                $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
             }
         },
         error: function () {
@@ -255,7 +283,7 @@ $(document).ready(function () {
         },
         complete: function () {
             // Re-enable button & restore original text
-            $button.prop("disabled", false).html("Edit");
+            $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
         }
     });
 });
@@ -284,9 +312,9 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 if (response.status === "success") {
-                    alert("User updated successfully!");
+                    window.location.reload();
                     $("#updateUserModal").modal("hide");
-                    table.ajax.reload();
+                   
                 } else {
                     alert("Error: " + response.message);
                 }
@@ -297,43 +325,6 @@ $(document).ready(function () {
             }
         });
     });
-
-    // 🔹 Handle Delete User Button Click
-    $(document).on("click", ".delete-btn", function () {
-        var userId = $(this).data("id");
-        var $button = $(this); // Store the button reference
-
-         // Disable button & show spinner inside button
-    $button.prop("disabled", true).html(`
-        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-      
-    `);
-
-        if (confirm("Are you sure you want to delete this user?")) {
-            $.ajax({
-                url: "<?= site_url('addMemberc/deleteUser/') ?>" + userId,
-                type: "POST",
-                data: {
-                    "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
-                },
-                dataType: "json",
-                success: function (response) {
-                    if (response.status === "success") {
-                        alert("User deleted successfully!");
-                        table.ajax.reload();
-                    } else {
-                        alert("Error: " + response.message);
-                        $button.hide
-                    }
-                },
-                error: function (xhr) {
-                    alert("AJAX Error: " + xhr.responseText);
-                }
-            });
-        }
-    });
-
-
 
     // Fetch shift types for the Add/Edit user forms
     $.ajax({
@@ -354,6 +345,80 @@ $(document).ready(function () {
 });
 
 </script>
+
+
+<script>
+    // 🔹 Handle Delete User Button Click
+    $(document).on("click", ".delete-btn", function () {
+        var userId = $(this).data("id");
+        var $button = $(this); // Store the button reference
+
+        // Disable button & show spinner inside button
+        $button.prop("disabled", true).html(`
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        
+        `);
+        iziToast.question({
+            timeout: 20000,
+            close: false,
+            overlay: true,
+            displayMode: 'once',
+            title: 'Confirm Deletion',
+            message: 'Are you sure you want to delete this user?',
+            position: 'center',
+            buttons: [
+                ['<button><b>Yes</b></button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
+                    // Disable button & show spinner inside button
+                    $button.prop("disabled", true).html(`
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Deleting...
+                    `);
+
+                    $.ajax({
+                        url: "<?= site_url('addMemberc/deleteUser/') ?>" + userId,
+                        type: "POST",
+                        data: {
+                            "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
+                        },
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.status === "success") {
+                                iziToast.success({
+                                    title: 'Deleted!',
+                                    message: 'User has been removed successfully.',
+                                    position: 'topRight'
+                                });
+                                setTimeout(() => window.location.reload(), 1000);
+                            } else {
+                                iziToast.error({
+                                    title: 'Error',
+                                    message: response.message,
+                                    position: 'topRight'
+                                });
+                                $button.prop("disabled", false).html('<i class="fal fa-user-times"></i> Edit');
+                            }
+                        },
+                        error: function (xhr) {
+                            iziToast.error({
+                                title: 'AJAX Error',
+                                message: xhr.responseText,
+                                position: 'topRight'
+                            });
+                            $button.prop("disabled", false).html('<i class="fal fa-user-times"></i> Edit');
+                        }
+                    });
+                }, true],
+
+                ['<button>No</button>', function (instance, toast) {
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Delete');
+                }]
+            ]
+        });
+    });
+</script>
+
 
 </body>
 </html>
