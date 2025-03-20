@@ -55,15 +55,15 @@
             $shift = session()->get('id_shift');
             ?>
             <?php if ($shift === '1'): ?>
-                <input type="text" class="form-control" id="shift" name="shift" value="Day Shift" required readonly>
+                <input type="text" class="form-control" id="shift" name="shift" value="Day Shift" required disabled>
             <?php else: ?>
-                <input type="text" class="form-control" id="shift" name="shift" value="Night Shift" required readonly>
+                <input type="text" class="form-control" id="shift" name="shift" value="Night Shift" required disabled>
             <?php endif; ?>
             <input type="hidden" name="shift" value="<?= $shift === '1' ? 'Day Shift' : 'Night Shift' ?>">
         </div>
         <div class="col-12 col-sm-6 col-md-3">
             <label for="name" class="form-label"> Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="<?= session()->get('fullname') ?>" required readonly >
+            <input type="text" class="form-control" id="name" name="name" value="<?= session()->get('fullname') ?>" required disabled >
         </div>
         <div class="col-12 col-sm-6 col-md-3">
             <label for="count" class="form-label">Defect Count</label>
