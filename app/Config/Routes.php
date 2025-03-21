@@ -78,5 +78,11 @@ $routes->delete('Crosstrainc/delete/(:num)', 'Crosstrainc::delete/$1');
 $routes->get('Crosstrainc', 'Crosstrainc::inedexes');
 
 
+$routes->get('/dashboard', 'defects_types::index');
+$routes->get('/dashboard/fetch-defects', 'defects_types::fetchDefectSummary');
 
+$routes->post('addMemberc/updateDuty', 'AddMemberc::updateDuty');
+
+
+$routes->post('addMemberc/resetPassword', 'addMemberc::resetPassword');
 
