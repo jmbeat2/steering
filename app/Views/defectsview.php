@@ -1,18 +1,29 @@
 <?= view('navbar/navbar') ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Defect Tracking</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"> -->
-    <style>
-        time {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
+<script>
+    $(document).ready(function() {
+        <?php if (session()->getFlashdata('success')) : ?>
+        let today = new Date();
+        let formattedDate = today.toLocaleDateString('en-US', {
+            month: 'long', day: 'numeric', year: 'numeric'
+        });
+
+        iziToast.success({
+            title: '',
+            message: "<?= session()->getFlashdata('success'); ?> (Date: " + formattedDate + ")",
+            position: 'topRight'
+        });
+    <?php endif; ?>
+
+        <?php if (session()->getFlashdata('error')) : ?>
+            iziToast.error({
+                title: '01A Error',
+                message: "<?= session()->getFlashdata('error'); ?>",
+                position: 'topRight'
+            });
+        <?php endif; ?>
+    });
+</script>
 
 <div class="container my-5">
   <nav aria-label="breadcrumb">
@@ -52,14 +63,23 @@
         <div class="col-12 col-sm-6 col-md-3">
             <label for="shift" class="form-label">Shift</label>
             <?php
-            $shift = session()->get('id_shift');
-            ?>
-            <?php if ($shift === '1'): ?>
-                <input type="text" class="form-control" id="shift" name="shift" value="Day Shift" required disabled>
-            <?php else: ?>
-                <input type="text" class="form-control" id="shift" name="shift" value="Night Shift" required disabled>
-            <?php endif; ?>
-            <input type="hidden" name="shift" value="<?= $shift === '1' ? 'Day Shift' : 'Night Shift' ?>">
+                $shift = session()->get('duty');
+                $shiftText = '';
+
+                switch ($shift) {
+                    case '2':
+                        $shiftText = 'Day Shift';
+                        break;
+                    case '1':
+                        $shiftText = 'Night Shift';
+                        break;
+                    default:
+                        $shiftText = 'N/A'; // Default to Night Shift if duty is not set
+                }
+                ?>
+
+                <input type="text" class="form-control" id="shift" name="shift" value="<?= $shiftText ?>" required disabled>
+                <input type="hidden" name="shift" value="<?= $shiftText ?>">
         </div>
         <div class="col-12 col-sm-6 col-md-3">
             <label for="name" class="form-label"> Name</label>
