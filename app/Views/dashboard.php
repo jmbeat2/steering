@@ -14,7 +14,8 @@
       <thead>
         <tr class="header">
           <th rowspan="2" class="category-column">Category</th>
-          <th colspan="31">Defect Summary</th>
+          <th colspan="31">Defect Summary - <?php echo date('F Y'); ?></th>
+
           
           <th rowspan="2" class="total-column">Total</th>
           <th rowspan="2" class="total-column">Crosstrain</th>
@@ -102,7 +103,7 @@
             defectData.forEach((entry) => {
               let row = `
                 <tr>
-                  <td colspan="1">${entry.lname} - ${getDutyText(entry.id_shift)}</td>
+                <td colspan="1"><strong>${entry.lname}</strong> - ${getDutyText(entry.id_shift)}</td>
                 </tr>`;
               tableElement.innerHTML += row;
             });
