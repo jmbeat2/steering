@@ -9,7 +9,7 @@ class addUserm extends Model
     protected $primaryKey = 'id'; // Primary key column
 
     protected $allowedFields = [
-        'employee_id', 'fname', 'mname', 'lname', 'fullname', 'username', 'user_type', 'id_shift', 'password'
+        'employee_id', 'fname', 'mname', 'lname', 'fullname', 'user_type', 'id_shift', 'password'
     ]; 
 
     protected $useTimestamps = true; // If using timestamps
