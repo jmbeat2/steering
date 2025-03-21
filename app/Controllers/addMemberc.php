@@ -19,48 +19,47 @@ class addMemberc extends BaseController
         return view('Option/addMember', $data);
     }
 
-    // Store user data
     public function addUser()
     {
         $validation = \Config\Services::validation();
-
+    
         // Validate form data
         if (!$this->validate([
             'employee_id' => 'required',
-            'username' => 'required',
             'password' => 'required',
-            'user_type' => 'required',
-            'fname' => 'required',
-            'lname' => 'required',
-            'id_shift' => 'required',
+            'fname'     => 'required',
+            'lname'     => 'required',
+
         ])) {
             return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
         }
-
-        // Get the form data
+    
+        // Get form data
+        $id_shift = $this->request->getPost('id_shift'); // Ensure you get the correct value
+        $duty = $id_shift; // Assigning same value to duty
+    
         $data = [
             'employee_id' => $this->request->getPost('employee_id'),
-            'username' => $this->request->getPost('username'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-            'user_type' => $this->request->getPost('user_type'),
-            'fname' => $this->request->getPost('fname'),
-            'mname' => $this->request->getPost('mname'),
-            'lname' => $this->request->getPost('lname'),
-            'id_shift' => $this->request->getPost('id_shift'),
+            'password' => md5($this->request->getPost('password')),
+            'fname'       => $this->request->getPost('fname'),
+            'mname'       => $this->request->getPost('mname'),
+            'lname'       => $this->request->getPost('lname'),
+            
+
         ];
-
-        $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
-
-
-        // Save the user to the database
+    
+        // Concatenate Full Name
+        $data['fullname'] = trim("{$data['fname']} {$data['mname']} {$data['lname']}");
+    
+        // Save to database
         $model = new addUserm();
         $model->insert($data);
-        
-        session()->setFlashdata('success', 'your new leader have been added successfully!');
-
-
+    
+        session()->setFlashdata('success', 'New leader has been added successfully!');
+    
         return $this->response->setJSON(['status' => 'success', 'message' => 'User added successfully']);
     }
+    
 
     // Update user data
     public function updateUser($id)
@@ -75,9 +74,7 @@ class addMemberc extends BaseController
             'fname'       => 'required',
             'mname'       => 'required',
             'lname'       => 'required',
-            'id_shift'    => 'required',
-            'username'    => 'required',
-            'user_type'   => 'required',
+            
         ]);
 
         
@@ -91,9 +88,8 @@ class addMemberc extends BaseController
             'fname'       => $request->getPost('fname'),
             'mname'       => $request->getPost('mname'),
             'lname'       => $request->getPost('lname'),
-            'id_shift'    => $request->getPost('id_shift'),
-            'username'    => $request->getPost('username'),
-            'user_type'   => $request->getPost('user_type'),
+            'duty'        => $request->getPost('id_shift'),
+          
         ];
 
         $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
@@ -132,23 +128,30 @@ class addMemberc extends BaseController
     
 
     // Fetch all users for DataTable
+    // public function fetchUsers()
+    // {
+    //     $model = new addUserm();
+    //     $totalRecords = $model->countAll();
+    //     $offset = $this->request->getVar('start') ?? 0;
+    //     $limit = $this->request->getVar('length') ?? 10;
+
+    //     // Fetch users with pagination
+    //     $users = $model->findAll($limit, $offset);
+
+    //     // Prepare response for DataTable
+    //     return $this->response->setJSON([
+    //         'draw' => $this->request->getVar('draw'),
+    //         'recordsTotal' => $totalRecords,
+    //         'recordsFiltered' => $totalRecords,
+    //         'data' => $users
+    //     ]);
+    // }
+
     public function fetchUsers()
     {
         $model = new addUserm();
-        $totalRecords = $model->countAll();
-        $offset = $this->request->getVar('start') ?? 0;
-        $limit = $this->request->getVar('length') ?? 10;
-
-        // Fetch users with pagination
-        $users = $model->findAll($limit, $offset);
-
-        // Prepare response for DataTable
-        return $this->response->setJSON([
-            'draw' => $this->request->getVar('draw'),
-            'recordsTotal' => $totalRecords,
-            'recordsFiltered' => $totalRecords,
-            'data' => $users
-        ]);
+        $data = ["data" => $model->findAll()];
+        return $this->response->setJSON($data);
     }
 
     // Fetch specific user by ID for editing
@@ -168,5 +171,93 @@ class addMemberc extends BaseController
             ]);
         }
     }
+
+    public function updateDuty()
+    {
+        $db = \Config\Database::connect();
+        $id = $this->request->getPost('id');
+        $duty = $this->request->getPost('duty');
+        
+    
+        // Check if the user exists
+        $user = $db->table('users')->where('id', $id)->get()->getRow();
+    
+        if (!$user) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'User not found']);
+        }
+    
+        // Debug: Print user data
+        error_log(print_r($user, true)); // Check what fields exist in the user object
+    
+        // Check if the `name` column exists
+        $fullname = isset($user->fullname) ? $user->fullname : "User"; // Use "User" if name is missing
+    
+        // Update the duty
+        $db->table('users')->where('id', $id)->update(['duty' => $duty]);
+    
+        // Custom success message based on duty type
+        $dutyMessage = "{$fullname} has updated duty successfully!";
+        if ($duty === "0") {
+            $dutyMessage = "{$fullname} is now Off Duty!";
+        } elseif ($duty == "2") {
+            $dutyMessage = "{$fullname} is now assigned to Day Shift!";
+        } elseif ($duty == "1") {
+            $dutyMessage = "{$fullname} is now assigned to Night Shift!";
+        }
+    
+        // Store message in flashdata
+        session()->setFlashdata('success', $dutyMessage);
+    
+        return $this->response->setJSON(['status' => 'success', 'message' => $dutyMessage]);
+    }
+    
+    public function resetPassword()
+    {
+        // Check if the user is an admin
+        if (session()->get('user_type') !== '1') {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Unauthorized access!'
+            ]);
+        }
+    
+        $userId = $this->request->getPost('user_id');
+        $newPassword = $this->request->getPost('new_password');
+    
+        if (!$userId || !$newPassword) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Missing user ID or password!'
+            ]);
+        }
+    
+        $userModel = new addUserm();
+    
+        // Retrieve the user's full name
+        $user = $userModel->find($userId);
+        if (!$user) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'User not found!'
+            ]);
+        }
+    
+        $fullName = $user['fname'] . ' ' . $user['lname']; // Adjust field names if needed
+    
+        // Hash password with MD5 (not recommended, better use bcrypt)
+        $hashedPassword = md5($newPassword);
+    
+        $userModel->update($userId, ['password' => $hashedPassword]);
+    
+        // Set flash session message
+        session()->setFlashdata('success', "You successfully reset the password for {$fullName}!");
+    
+        return $this->response->setJSON([
+            'status' => 'success',
+            'message' => "Password reset successfully for {$fullName}!"
+        ]);
+    }
+    
+    
     
 }
