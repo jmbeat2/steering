@@ -5,7 +5,7 @@
         <?php if (session()->getFlashdata('success')) : ?>
             iziToast.success({
                 title: '',
-                message:  'Hello '+ "<?= isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?> <?= session()->getFlashdata('success'); ?>",
+                message:  " <?= session()->getFlashdata('success'); ?>",
                 position: 'topRight'
             });
         <?php endif; ?>
@@ -64,21 +64,12 @@
                                 <label for="employeeId" class="form-label">Employee ID</label>
                                 <input type="text" name="employee_id" id="employeeId" class="form-control" required>
                             </div>
-                            <div class="col-12 col-md-6 mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" required>
-                            </div>
+                           
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
-                            <div class="col-12 col-md-6 mb-3">
-                                <label for="userType" class="form-label">User Type</label>
-                                <select name="user_type" id="userType" class="form-select" required>
-                                    <option value="admin">Admin</option>
-                                    <option value="employee">Employee</option>
-                                </select>
-                            </div>
+                            
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="firstname" class="form-label">First Name</label>
                                 <input type="text" name="fname" id="firstname" class="form-control" required>
@@ -90,10 +81,6 @@
                             <div class="col-12 col-md-6 mb-3">
                                 <label for="lastname" class="form-label">Last Name</label>
                                 <input type="text" name="lname" id="lastname" class="form-control" required>
-                            </div>
-                            <div class="col-12 col-md-6 mb-3">
-                                <label for="shift" class="form-label">Shift Type</label>
-                                <select name="id_shift" id="shift" class="form-select" required></select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Add User</button>
@@ -131,27 +118,65 @@
                             <label for="updateLastname" class="form-label">Last Name</label>
                             <input type="text" id="updateLastname" class="form-control" required>
                         </div>
-                        <div class="col-12 col-md-6 mb-3">
-                            <label for="updateShift" class="form-label">Shift Type</label>
-                            <select id="updateShift" class="form-select" required></select>
-                        </div>
-                        <div class="col-12 col-md-6 mb-3">
-                            <label for="updateUsername" class="form-label">Username</label>
-                            <input type="text" id="updateUsername" class="form-control" required>
-                        </div>
-                        <div class="col-12 col-md-6 mb-3">
-                            <label for="updatePassword" class="form-label">Password</label>
-                            <input type="password" id="updatePassword" class="form-control">
-                        </div>
-                        <div class="col-12 col-md-6 mb-3">
-                            <label for="updateUserType" class="form-label">User Type</label>
-                            <select id="updateUserType" class="form-select" required>
-                                <option value="admin">Admin</option>
-                                <option value="employee">Employee</option>
-                            </select>
-                        </div>
                     </div>
                     <button type="submit" class="btn btn-warning w-100">Update User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dutyModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Update Duty</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Hidden input for user ID -->
+                <input type="hidden" id="userId">
+                
+                <!-- Display last name (read-only) -->
+                <div class="mb-3">
+               
+                </div>
+
+                <!-- Duty Selection -->
+                <div class="mb-3">
+                    <label for="dutySelect" class="form-label"><strong>Select Duty:</strong></label>
+                    <select id="dutySelect" class="form-select">
+                        <option value="0">Off Duty</option>
+                        <option value="1">Night Shift</option>
+                        <option value="2">Day Shift</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="saveDutyBtn" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reset Password Modal -->
+<div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resetPasswordModalLabel">Reset User Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to reset the password for <strong id="userName"></strong>?</p>
+                <form id="resetPasswordForm">
+                    <input type="hidden" id="resetUserId" name="user_id">
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">New Password</label>
+                        <input type="password" id="newPassword" name="new_password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger">Reset Password</button>
                 </form>
             </div>
         </div>
@@ -165,15 +190,14 @@
         <thead class="table-dark text-nowrap">
             <tr>
                 <th style="min-width: 40;">Employee ID</th> <!-- Adjusted width -->
-                <th>User Type</th>
+               
                 <th>Full Name</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
-                <th>Shift Type</th>
-                <th>Duty</th>
+                <th style="min-width: 110px;">Shift</th> <!-- Adjusted width -->
                 <th>Date Added</th>
-                <th style="min-width: 148px;">Actions</th> <!-- Adjusted width -->
+                <th style="min-width: 300px;">Actions</th> <!-- Adjusted width -->
 
             </tr>
         </thead>
@@ -183,33 +207,179 @@
 
 <script>
 $(document).ready(function () {
-    // Initialize DataTable
     var table = $("#usersTable").DataTable({
         ajax: "<?= site_url('addMemberc/fetchUsers') ?>",
         columns: [
             { data: "employee_id" },
-            { data: "user_type" },
             { data: "fullname" },
             { data: "fname" },
             { data: "mname" },
             { data: "lname" },
-            { data: "id_shift" },
-            { data: "duty" },
+            {
+                data: "duty",
+                render: function (data, type, row) {
+                    let dutyLabel = "";
+                    let dutyClass = "";
+                    let dutyIcon = "";
+
+                    switch (data) {
+                        case "0": 
+                            dutyLabel = "Off Duty"; 
+                            dutyClass = "btn-outline-secondary"; 
+                            dutyIcon = "fas fa-moon"; 
+                            break;
+                        case "1": 
+                            dutyLabel = "Night Shift"; 
+                            dutyClass = "btn-outline-danger"; 
+                            dutyIcon = "fas fa-cloud-moon"; 
+                            break;
+                        case "2": 
+                            dutyLabel = "Day Shift"; 
+                            dutyClass = "btn-outline-success"; 
+                            dutyIcon = "fas fa-sun"; 
+                            break;
+                        default: 
+                            dutyLabel = "Unknown"; 
+                            dutyClass = "btn-outline-dark"; 
+                            dutyIcon = "fas fa-question"; 
+                    }
+
+                    return `
+                        <button class="btn btn-sm ${dutyClass} duty-btn d-flex align-items-center" 
+                            data-lastname="${row.lname}" 
+                            data-id="${row.id}" 
+                            data-duty="${data}">
+                            <i class="${dutyIcon} me-2"></i> ${dutyLabel}
+                        </button>
+                    `;
+                }
+            },
             { data: "created_at" },
             {
                 data: "id",
-                render: function (data) {
+                render: function (data, type, row) {
                     return `
-                        <button class="btn btn-warning btn-sm edit-btn" data-id="${data}"><i class="far fa-user-edit"></i> Edit</button>
-                        <button class="btn btn-danger btn-sm delete-btn" data-id="${data}"><i class="fal fa-user-times"></i> Delete</button>
+                        <button class="btn btn-warning btn-sm edit-btn" data-id="${data}">
+                            <i class="far fa-user-edit"></i> Edit
+                        </button>
+                        <button class="btn btn-danger btn-sm reset-btn" data-id="${data}" data-fullname="${row.fullname}">
+                            <i class="fas fa-sync-alt"></i> Reset password
+                        </button>
+                        <button class="btn btn-danger btn-sm delete-btn" data-id="${data}">
+                            <i class="fal fa-user-times"></i> Delete
+                        </button>
                     `;
-                },
-                responsive: true
+                }
             }
         ]
-
-
     });
+
+    // ✅ FIX: Use Event Delegation for Reset Button
+    $("#usersTable tbody").on("click", ".reset-btn", function () {
+    let userId = $(this).data("id");
+    let userName = $(this).data("fullname");
+    let userType = "<?= session()->get('user_type'); ?>"; // Get user type from session
+
+    if (userType === "1") {
+        $("#resetUserId").val(userId);
+        $("#userName").text(userName);
+        $("#resetPasswordModal").modal("show");
+    } else {
+        iziToast.error({
+            title: "Access Denied",
+            message: "Please contact the IT department to reset your account.",
+            position: "topRight"
+        });
+    }
+});
+
+    // ✅ Handle Reset Password Form Submission
+    $("#resetPasswordForm").submit(function (e) {
+    e.preventDefault();
+
+    let csrfName = '<?= csrf_token() ?>'; // Get CSRF token name
+    let csrfHash = '<?= csrf_hash() ?>';  // Get CSRF token value
+
+    let formData = $(this).serializeArray();
+    formData.push({ name: csrfName, value: csrfHash }); // Append CSRF token
+
+    $.ajax({
+        url: "<?= site_url('addMemberc/resetPassword') ?>",
+        type: "POST",
+        data: $.param(formData),  // Send CSRF token along with form data
+        dataType: "json",
+        success: function (response) {
+            if (response.status === "success") {
+                iziToast.success({ message: response.message, position: "topRight" });
+                window.location.reload();
+            } else {
+                iziToast.error({ message: response.message, position: "topRight" });
+            }
+        }
+    });
+});
+
+
+
+
+
+        $(document).ready(function () {
+        let csrfName = '<?= csrf_token() ?>'; // CSRF Token Name
+        let csrfHash = '<?= csrf_hash() ?>';  // CSRF Hash Value
+
+        // Open modal on duty button click
+        $("#usersTable").on("click", ".duty-btn", function () {
+        let userId = $(this).data("id");
+        let lastname = $(this).data("lastname"); // Fetch last name
+        let currentDuty = $(this).data("duty");
+
+        console.log("User ID:", userId);
+        console.log("Last Name:", lastname);
+        console.log("Current Duty:", currentDuty);
+
+        $("#dutyModal .modal-title").text("Update Duty for " + lastname);
+
+        $("#userId").val(userId);   // Set user ID
+        $("#lastnameDisplay").text(lastname);
+
+        $("#dutySelect").val(currentDuty); // Set duty selection
+        
+        $("#dutyModal").modal("show");
+    });
+
+
+    // Save duty change
+    $("#saveDutyBtn").on("click", function () {
+        let userId = $("#userId").val();
+        let newDuty = $("#dutySelect").val();
+
+        $.ajax({
+            url: "<?= site_url('addMemberc/updateDuty') ?>",
+            type: "POST",
+            data: { 
+                id: userId, 
+                duty: newDuty, 
+                [csrfName]: csrfHash  // Include CSRF Token
+            },
+            success: function (response) {
+                if (response.status === "success") {
+                    $("#dutyModal").modal("hide");
+                    location.reload(); // Refresh page to reflect changes
+                } else {
+                    alert("Error: " + response.message);
+                }
+            },
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
+                alert("Something went wrong!");
+            }
+        });
+    });
+});
+
+
+
+
 
     
 
@@ -348,35 +518,35 @@ $(document).ready(function () {
 
 
 <script>
-    // 🔹 Handle Delete User Button Click
+    // 🔹 Handle Delete Attendance Button Click
     $(document).on("click", ".delete-btn", function () {
-        var userId = $(this).data("id");
-        var $button = $(this); // Store the button reference
+        var attendanceId = $(this).data("id");
+        var $button = $(this); // Store button reference
 
-        // Disable button & show spinner inside button
+        // ✅ Disable button & show spinner inside button
         $button.prop("disabled", true).html(`
             <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-        
         `);
+
         iziToast.question({
             timeout: 20000,
             close: false,
             overlay: true,
             displayMode: 'once',
             title: 'Confirm Deletion',
-            message: 'Are you sure you want to delete this user?',
+            message: 'Are you sure you want to delete this attendance?',
             position: 'center',
             buttons: [
                 ['<button><b>Yes</b></button>', function (instance, toast) {
                     instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
 
-                    // Disable button & show spinner inside button
+                    // ✅ Show "Deleting..." text
                     $button.prop("disabled", true).html(`
                         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Deleting...
                     `);
 
                     $.ajax({
-                        url: "<?= site_url('addMemberc/deleteUser/') ?>" + userId,
+                        url: "<?= site_url('addAttendance/delete/') ?>" + attendanceId,
                         type: "POST",
                         data: {
                             "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
@@ -386,7 +556,7 @@ $(document).ready(function () {
                             if (response.status === "success") {
                                 iziToast.success({
                                     title: 'Deleted!',
-                                    message: 'User has been removed successfully.',
+                                    message: 'Attendance has been removed successfully.',
                                     position: 'topRight'
                                 });
                                 setTimeout(() => window.location.reload(), 1000);
@@ -396,7 +566,8 @@ $(document).ready(function () {
                                     message: response.message,
                                     position: 'topRight'
                                 });
-                                $button.prop("disabled", false).html('<i class="fal fa-user-times"></i> Edit');
+                                // ✅ Restore button if error occurs
+                                $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Delete');
                             }
                         },
                         error: function (xhr) {
@@ -405,19 +576,22 @@ $(document).ready(function () {
                                 message: xhr.responseText,
                                 position: 'topRight'
                             });
-                            $button.prop("disabled", false).html('<i class="fal fa-user-times"></i> Edit');
+                            // ✅ Restore button if AJAX fails
+                            $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Delete');
                         }
                     });
                 }, true],
 
                 ['<button>No</button>', function (instance, toast) {
                     instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-                    $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Delete');
+                    // ✅ Restore button if user cancels
+                    $button.prop("disabled", false).html('<i class="fal fa-trash-alt"></i> Delete');
                 }]
             ]
         });
     });
 </script>
+
 
 
 </body>
