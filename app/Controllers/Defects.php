@@ -50,10 +50,16 @@ class Defects extends Controller
     $defectType = $this->request->getPost('defect_type');
     $count = $this->request->getPost('count'); 
     $name = session()->get('fullname'); // Getting fullname from session
-    $id_shift = session()->get('id_shift'); // Getting shift from session
+    $id_shift = session()->get('duty'); // Getting shift from session
     $empid = session()->get('employee_id'); // Getting shift from session
 
-
+    if (!ctype_digit($id_shift)) {
+        session()->setFlashdata('error', 'No assigned shift (DS or NS).');
+        return redirect()->back()->withInput(); // Prevents saving & keeps form data
+    }
+    
+    
+    
     // Debugging session values
     log_message('debug', 'Session Fullname: ' . $name . ' | Shift: ' . $id_shift);
 
@@ -75,14 +81,18 @@ class Defects extends Controller
 
     if ($existing) {
         // If exists, update the count
-        log_message('debug', 'Updating Defect');
+        log_message('debug', 'Updating Defect for ID: ' . $existing['id']);
+    
         $model->update($existing['id'], [
             'count' => $existing['count'] + $count,
             'id_shift' => $id_shift, // Update shift value
         ]);
+    
+        session()->setFlashdata('success', 'Defects count successfully added!');
     } else {
         // If not exists, create a new record
-        log_message('debug', 'Creating New Defect');
+        log_message('debug', 'Creating New Defect Record');
+    
         $model->save([
             'defect_type' => $defectType,
             'defect_date' => $selectedDate,
@@ -90,10 +100,12 @@ class Defects extends Controller
             'id_shift' => $id_shift, // Insert shift value
             'name' => $name,
             'empid' => $empid,
-            
         ]);
+    
+        session()->setFlashdata('success', 'Defects count successfully added!');
     }
-
+    
+    // Redirect after action
     return redirect()->to('/defectsview');
 }
 
