@@ -286,7 +286,7 @@
                 if (response.status === 'success') {
                     iziToast.success({ title: 'Success', message: 'Attendance updated successfully!', position: 'topRight' });
                     bootstrap.Modal.getInstance(document.getElementById('attendanceEditModal')).hide();
-                    setTimeout(() => location.reload(), 1000); // Delay reload to show success message
+                    window.location.reload();
                 } else {
                     iziToast.error({ title: 'Error', message: response.message, position: 'topRight' });
                 }
