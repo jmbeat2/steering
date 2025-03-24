@@ -76,6 +76,8 @@ $routes->post('Crosstrainc/save', 'Crosstrainc::save');
 $routes->get('Crosstrainc/get/(:num)', 'Crosstrainc::get/$1');
 $routes->delete('Crosstrainc/delete/(:num)', 'Crosstrainc::delete/$1');
 $routes->get('Crosstrainc', 'Crosstrainc::inedexes');
+$routes->get('Crosstrainc/getTitle', 'Crosstrainc::getTitle');
+$routes->post('Crosstrainc/updateTitle', 'Crosstrainc::updateTitle');  // Make sure this is POST!
 
 
 $routes->get('/dashboard', 'defects_types::index');
@@ -85,4 +87,12 @@ $routes->post('addMemberc/updateDuty', 'AddMemberc::updateDuty');
 
 
 $routes->post('addMemberc/resetPassword', 'addMemberc::resetPassword');
+
+// $routes->get('employeeskillsbreakdown', 'EmployeeSkillsBreakdownController::index');
+// $routes->post('employeeskillsbreakdown/create', 'EmployeeSkillsBreakdownController::create');
+// $routes->post('employeeskillsbreakdown/update/(:num)', 'EmployeeSkillsBreakdownController::updateTitle/$1');
+// $routes->delete('employeeskillsbreakdown/delete/(:num)', 'EmployeeSkillsBreakdownController::deleteTitle/$1');
+
+
+$routes->get('empSkills/getTitle', 'empSkills::getTitle');
 

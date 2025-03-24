@@ -1,12 +1,11 @@
 <?= view('navbar/navbar') ?>
 
-
 <script>
     $(document).ready(function() {
         <?php if (session()->getFlashdata('success')) : ?>
             iziToast.success({
                 title: '',
-                message:  'Hello '+ "<?= isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?> <?= session()->getFlashdata('success'); ?>",
+                message: 'Hello ' + "<?= isset($_SESSION['lname']) ? $_SESSION['lname'] : '' ?> <?= session()->getFlashdata('success'); ?>",
                 position: 'topRight'
             });
         <?php endif; ?>
@@ -19,6 +18,18 @@
             });
         <?php endif; ?>
     });
+
+    $(document).ready(function() {
+    <?php if (session()->getFlashdata('message')) : ?>
+        iziToast.success({
+            title: '',
+            message: "<?= session()->getFlashdata('message'); ?>",
+            position: 'topRight'
+        });
+    <?php endif; ?>
+});
+
+
 </script>
 
 <div class="container my-5">
@@ -41,7 +52,8 @@
 </div>
 
 <div class="container mt-4">
-    <h2 class="text-left">Crosstrain & Skilled</h2>
+    <h2 class="text-left" id="pageTitle">Loading title...</h2>
+    <button class="btn btn-secondary mb-3" id="editTitleBtn">Edit Title</button>
     <button class="btn btn-primary mb-3" id="addNewBtn" data-bs-toggle="modal" data-bs-target="#addModal">
         <i class="fal fa-plus-square"></i> Add New
     </button>
@@ -55,6 +67,25 @@
         </thead>
         <tbody></tbody>
     </table>
+</div>
+
+<!-- Edit Title Modal -->
+<div class="modal fade" id="editTitleModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="newTitleInput" class="form-control" placeholder="Enter new title">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveTitleBtn">Save</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Add/Edit Modal -->
@@ -86,6 +117,42 @@
 
 <script>
 $(document).ready(function () {
+    // Get CSRF token values from meta tags or hidden fields
+    let csrfTokenName = "<?= csrf_token() ?>"; 
+    let csrfHash = "<?= csrf_hash() ?>";
+
+    // Load title from database
+    function fetchTitle() {
+        $.getJSON("<?= base_url('Crosstrainc/getTitle') ?>", function (data) {
+            $("#pageTitle").text(data.title);
+        });
+    }
+
+    fetchTitle();
+
+    $("#editTitleBtn").click(function () {
+        $("#newTitleInput").val($("#pageTitle").text());
+        $("#editTitleModal").modal("show");
+    });
+
+    $("#saveTitleBtn").click(function () {
+        let newTitle = $("#newTitleInput").val().trim();
+        if (newTitle) {
+            $.post("<?= base_url('Crosstrainc/updateTitle') ?>", { 
+                title: newTitle,
+                [csrfTokenName]: csrfHash // Include CSRF token
+            })
+            .done(function (response) {
+                $("#pageTitle").text(newTitle);
+                $("#editTitleModal").modal("hide");
+                window.location.reload();
+                iziToast.success({ message: "Title updated successfully!", position: "topRight" });
+            })
+            .fail(function () {
+                iziToast.error({ message: "Failed to update title.", position: "topRight" });
+            });
+        }
+    });
     let table = $('#csTable').DataTable({
         "ajax": "<?= base_url('Crosstrainc/fetch') ?>",
         "columns": [
@@ -93,12 +160,12 @@ $(document).ready(function () {
             { "data": "skilled" },
             {
                 "data": null,
-                "render": function (data, type, row) {
+                "render": function (data) {
                     return `
-                        <button class='btn btn-warning btn-sm editBtn' data-id='${row.id}'>
+                        <button class='btn btn-warning btn-sm editBtn' data-id='${data.id}'>
                             <i class="fal fa-edit"></i> Edit
                         </button>
-                        <button class='btn btn-danger btn-sm deleteBtn' data-id='${row.id}'>
+                        <button class='btn btn-danger btn-sm deleteBtn' data-id='${data.id}'>
                             <i class="fal fa-trash-alt"></i> Delete
                         </button>`;
                 }
@@ -107,105 +174,15 @@ $(document).ready(function () {
         responsive: true
     });
 
-    // Display Flash Messages
-    let flashSuccess = "<?= session()->getFlashdata('success') ?>";
-    let flashError = "<?= session()->getFlashdata('error') ?>";
-
-    if (flashSuccess) {
-        iziToast.success({
-            title: 'Success!',
-            message: flashSuccess,
-            position: 'topRight'
-        });
-    }
-    if (flashError) {
-        iziToast.error({
-            title: 'Error!',
-            message: flashError,
-            position: 'topRight'
-        });
-    }
-
-    // Open Add Modal
-    $('#addNewBtn').on('click', function () {
-        $('#csForm')[0].reset();
-        $('#id').val('');
-        $('#addModal').modal('show');
-    });
-
-    // Handle Add/Edit Form Submission
-    $('#csForm').on('submit', function (e) {
-        e.preventDefault();
-        let formData = $(this).serialize();
-        let $submitButton = $('#saveBtn');
-
-        $submitButton.prop("disabled", true).html(`
-            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Saving...
-        `);
-
-        $.ajax({
-            url: "<?= base_url('Crosstrainc/save') ?>",
-            type: "POST",
-            data: formData,
-            success: function () {
-                window.location.reload();
-            },
-            error: function () {
-                $submitButton.prop("disabled", false).html('Save');
-            }
-        });
-    });
-
-    // Handle Edit Button Click
     $(document).on('click', '.editBtn', function () {
         let id = $(this).data('id');
-
-        $.ajax({
-            url: "<?= base_url('Crosstrainc/get/') ?>" + id,
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                if (data && data.id) {
-                    $('#id').val(data.id);
-                    $('#crosstrain').val(data.crosstrain);
-                    $('#skilled').val(data.skilled);
-                    $('#addModal').modal('show');
-                }
+        $.getJSON("<?= base_url('Crosstrainc/get/') ?>" + id, function (data) {
+            if (data.id) {
+                $('#id').val(data.id);
+                $('#crosstrain').val(data.crosstrain);
+                $('#skilled').val(data.skilled);
+                $('#addModal').modal('show');
             }
-        });
-    });
-
-    // Handle Delete Request
-    $(document).on('click', '.deleteBtn', function () {
-        let id = $(this).data('id');
-
-        iziToast.show({
-            title: 'Confirm Delete',
-            message: 'Are you sure you want to delete this record?',
-            position: 'center',
-            timeout: false,
-            close: false,
-            overlay: true,
-            buttons: [
-                ['<button><b>Yes</b></button>', function (instance, toast) {
-                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-
-                    $.ajax({
-                        url: "<?= base_url('Crosstrainc/delete/') ?>" + id,
-                        type: "POST",
-                        data: {
-                            "<?= csrf_token() ?>": $('input[name="<?= csrf_token() ?>"]').val(),
-                            "_method": "DELETE"
-                        },
-                        success: function () {
-                            window.location.reload();
-                        }
-                    });
-                }, true],
-                ['<button>No</button>', function (instance, toast) {
-                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
-                }]
-            ]
         });
     });
 });

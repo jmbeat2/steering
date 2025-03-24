@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\CrosstrainM;
+use App\Models\EmployeeSkillsModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class Crosstrainc extends ResourceController
@@ -82,6 +83,60 @@ class Crosstrainc extends ResourceController
         exit(); // Stop script to check output
     
         return redirect()->to(base_url('Crosstrainc')); // Redirect to trigger flashdata on reload
+    }
+
+    // public function updateTitle()
+    // {
+    //     $db = \Config\Database::connect();
+    //     $title = $this->request->getPost('title');
+    
+    //     if (empty($title)) {
+    //         session()->setFlashdata('message', 'Title cannot be empty!');
+    //         session()->setFlashdata('message_type', 'error');
+    //         return redirect()->to(base_url('Crosstrainc'));
+    //     }
+    
+    //     try {
+    //         $db->table('title')->where('id', 1)->update(['title' => $title]);
+    
+    //         session()->setFlashdata('message', 'Title updated successfully!');
+    //         session()->setFlashdata('message_type', 'success');
+    //     } catch (\Exception $e) {
+    //         session()->setFlashdata('message', 'Database error: ' . $e->getMessage());
+    //         session()->setFlashdata('message_type', 'error');
+    //     }
+    
+    //     return redirect()->to(base_url('Crosstrainc'));
+    // }
+    
+    public function updateTitle()
+    {
+        $db = \Config\Database::connect();
+        $title = $this->request->getPost('title');
+    
+        if (empty($title)) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Title cannot be empty'])->setStatusCode(400);
+        }
+    
+        try {
+            // Update the title where id = 1
+            $db->table('title')->where('id', 2)->update(['title' => $title]);
+    
+            session()->setFlashdata('success', 'Title updated successfully!');
+            return $this->response->setJSON(['status' => 'success', 'message' => 'Title updated successfully!']);
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()])->setStatusCode(500);
+        }
+    }
+    
+
+    public function getTitle()
+    {
+        $model = new EmployeeSkillsModel();
+        $titleData = $model->select('title')->first();
+
+
+        return $this->response->setJSON($titleData ?: ['title' => 'Employee Skills Breakdown']);
     }
       
 }

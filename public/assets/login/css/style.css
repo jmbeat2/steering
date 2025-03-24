@@ -1,49 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  
-}
-
-body{
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
+/* General Styles */
+body {
+    background: #f8f9fa;
     font-family: 'Poppins', sans-serif;
-
-}
-form{
-    border-radius: 20px;
-    margin-top: 150px !important;
-    width: 24% !important;
-    background-color: white !important;
-    padding: 50px;
 }
 
-.btn-primary{
+/* Login Box */
+.login-box {
     width: 100%;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
-    
+    max-width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-control{
-    color: rgba(0,0,0,.87);
-    border-bottom-color: rgba(0,0,0,.42);
-    box-shadow: none !important;
+/* Logo */
+.form-logo img {
+    max-width: 120px;
+}
+
+/* Form Elements */
+.login-form {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.input-group-text {
+    background: #e9ecef;
     border: none;
-    border-bottom: 1px solid;
-    border-radius: 4px 4px 0 0;
-    }
- h4{
-    font-size: 2rem !important;
-    font-weight: 700;
- }  
- .form-label{
-    font-weight: 800 !important;
- }
-@media only screen and (max-width: 600px) {
-    form {
-        width: 100% !important;
-    }
-  }
+    color: #495057;
+}
+
+.form-control {
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    box-shadow: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+/* Show/Hide Password Button */
+.toggle-password {
+    background: transparent;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    z-index: 10;
+}
+
+/* Icon Hover Effect */
+.toggle-password:hover {
+    color: #007bff;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Active effect on click */
+.toggle-password:active {
+    color: #0056b3;
+    transform: translateY(-50%) scale(0.9);
+}
+
+/* Input Group Positioning for Better Layout */
+.input-group {
+    position: relative;
+}
+
+/* Input Field Styling */
+.form-control {
+    padding-right: 45px; /* Adding space for icon */
+}
+
+
+/* Button */
+.btn-primary {
+    background: #007bff;
+    border: none;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+.text-muted {
+    font-size: 12px;
+}
+
+/* Forgot Password Link */
+.text-primary {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.text-primary:hover {
+    text-decoration: underline;
+}
+
+.form-logo {
+    position: absolute; /* Absolute positioning */
+    left: 20px; /* Adjust left margin */
+    top: 20px; /* Adjust bottom margin */
+    display: flex;
+    justify-content: flex-start; /* Align logo to the left */
+    align-items: center;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+/* Logo Image */
+.form-logo img {
+    max-width: 100%;
+    width: 500px; /* Adjust size of the logo */
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect for Logo */
+/* .form-logo img:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+} */
+
+
+
+
+

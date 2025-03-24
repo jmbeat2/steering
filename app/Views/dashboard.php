@@ -6,237 +6,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Defect Tracking Board</title>
     <link href="<?= base_url('public/assets/dashboard/css/style.css') ?>" rel="stylesheet" />
-    <style></style>
   </head>
   <body>
     <h2>Defect Tracking Board</h2>
     <table class="board" id="defectTable">
-      <thead>
-        <tr class="header">
-          <th rowspan="2" class="category-column">Category</th>
-          <th colspan="31">Defect Summary - <?php echo date('F Y'); ?></th>
-
-          
-          <th rowspan="2" class="total-column">Total</th>
-          <th rowspan="2" class="total-column">Crosstrain</th>
-          <th rowspan="2" class="total-column">Skilled</th>
-
-        </tr>
-        <tr class="header" id="dateHeaders"></tr>
-      </thead>
-      <tbody id="defectData"></tbody>
-      <th colspan="1" class="highlight">INPROCESS DEFECT</th>
-      <td colspan="10" id="wrongInsertData"> </td>
-      <td colspan="13" id="notFullyInsertedData"> </td>
-      <!-- Section Titles -->
-      <tr class="header">
-        <!-- <th colspan="1" class="highlight">INPROCESS DEFECT</th> -->
-        <th colspan="7" class="highlight">DAILY ATTENDANCE</th>
+  <thead>
+    <tr class="header">
+      <th rowspan="2" class="category-column">Category</th>
+      <th colspan="31" class="text-center bg-primary text-white">Defect Summary - <?= date('F Y'); ?></th>
+      <th class="total-column text-center bg-danger text-white">Total</th>
+      <th colspan="2" id="employeeSkillsTitle" class="text-center bg-primary text-white">Add title here</th>
       </tr>
-      
-      <!-- Attendance Section -->
-      <tr class="attendance">
-      <!-- <th>Shift</th> -->
-        <th>DS</th>
-        <th>NS</th>
-        <th>Total MP</th>
-        <th>Rate</th>
-        <th>SL</th>
-        <th>VL</th>
-        <th>NU</th>
-      </tr>
-      <tr class="attendance-data">
-        
-      <!-- <th>Shift</th> -->
-        <td id="ds-count">-</td> <!-- Dynamic DS Count -->
-        <td id="ns-count">-</td> <!-- Dynamic NS Count -->
-        <td id="total-mp">-</td> <!-- Dynamic Total MP -->
-        <td id="rate">-</td> <!-- Dynamic Rate -->
-        <td id="sl">-</td> <!-- Dynamic SL -->
-        <td id="vl">-</td> <!-- Dynamic VL -->
-        <td id="nu">-</td> <!-- Dynamic NU -->
-      </tr>
+    <tr class="header" id="dateHeaders">
+      <?php for ($i = 1; $i <= 31; $i++): ?>
+        <th><?= $i; ?></th>
+      <?php endfor; ?>
+      <th class="total-column bg-danger text-white">Sum</th>
+      <th class="bg-primary text-white">Crosstrain</th>
+      <th class="bg-primary text-white">Skilled</th>
+    </tr>
+  </thead>
+  <tbody id="defectData"></tbody>
+  
+  <!-- In-Process Defect Section -->
+  <tr>
+    <th colspan="1" class="highlight">INPROCESS DEFECT</th>
+    <td colspan="10" id="wrongInsertData"></td>
+    <td colspan="13" id="notFullyInsertedData"></td>
+  </tr>
 
-      <!-- Dynamic Defect Data -->
-
-    </table>
+  <!-- Daily Attendance Section -->
+  <tr class="header">
+    <th colspan="7" class="highlight">DAILY ATTENDANCE</th>
+  </tr>
+  <tr class="attendance">
+    <th>DS</th>
+    <th>NS</th>
+    <th>Total MP</th>
+    <th>Rate</th>
+    <th>SL</th>
+    <th>VL</th>
+    <th>NU</th>
+  </tr>
+  <tr class="attendance-data">
+    <td id="ds-count">-</td>
+    <td id="ns-count">-</td>
+    <td id="total-mp">-</td>
+    <td id="rate">-</td>
+    <td id="sl">-</td>
+    <td id="vl">-</td>
+    <td id="nu">-</td>
+  </tr>
+</table>
 
     <script>
-      // Fetch Defect Assignments
       async function fetchDefectAssignments() {
         try {
           let response = await fetch(`<?= base_url('Inprocessc/getDefectAssignments') ?>`);
           let data = await response.json();
           console.log("Fetched Data:", data);
-
-          let wrongInsertTable = document.getElementById("wrongInsertData");
-          let notFullyInsertedTable = document.getElementById("notFullyInsertedData");
-
-          // Clear previous table data
-          wrongInsertTable.innerHTML = "";
-          notFullyInsertedTable.innerHTML = "";
-
-          // Function to map duty numbers to readable text
-          function getDutyText(duty) {
-            switch (parseInt(duty)) {
-              case 1: return " [Day Shift]";
-              case 2: return "[Night Shift]";
-              default: return "Unknown";
-            }
-          }
-
-          // Function to generate table content
-          function populateTable(tableElement, defectType, defectData) {
-            if (defectData.length === 0) {
-              tableElement.innerHTML = `
-                <tr>
-                  <td colspan="2">No data available</td>
-                </tr>`;
-              return;
-            }
-            let headerRow = ` 
-              <tr class="header">
-                <td class="highlight">${defectType}</td>
-              </tr>`;
-            tableElement.innerHTML = headerRow;
-
-            defectData.forEach((entry) => {
-              let row = `
-                <tr>
-                <td colspan="1"><strong>${entry.lname}</strong> - ${getDutyText(entry.id_shift)}</td>
-                </tr>`;
-              tableElement.innerHTML += row;
-            });
-          }
-
-          // Populate both tables
-          populateTable(wrongInsertTable, "Wrong insert:", data.wrong_insert);
-          populateTable(notFullyInsertedTable, "Not fully inserted:", data.not_fully_inserted);
+          document.getElementById("wrongInsertData").innerText = data.wrong_insert.map(e => `Wrong insert: ${e.lname} [${e.duty == 1 ? 'Night Shift' : 'Day Shift'}]`).join(', ') || 'No data';
+          document.getElementById("notFullyInsertedData").innerText = data.not_fully_inserted.map(e => `Wrong fully insert: ${e.lname} [${e.duty == 1 ? 'Night Shift' : 'Day Shift'}]`).join(', ') || 'No data';
         } catch (error) {
-          console.error("Error fetching data:", error);
+          console.error("Error fetching defect assignments:", error);
         }
       }
 
-      // Fetch Defect Data
       async function fetchDefectData() {
         try {
           let response = await fetch(`<?= base_url('Calendarc/getAllDefects') ?>`);
           let data = await response.json();
-          console.log("Fetched defect data:", data);
-
           let crosstrainResponse = await fetch(`<?= base_url('Crosstrainc/index') ?>`);
           let crosstrainData = await crosstrainResponse.json();
-          console.log("Fetched Crosstrain and Skilled data:", crosstrainData);
           populateDefectSummary(data, crosstrainData);
         } catch (error) {
           console.error("Error fetching defect data:", error);
         }
       }
 
-      // Populate Defect Summary
       function populateDefectSummary(data, crosstrainData) {
         let defectTable = document.getElementById("defectData");
         defectTable.innerHTML = "";
         let categories = {};
-        let dateHeaders = document.getElementById("dateHeaders");
-        dateHeaders.innerHTML = "";
-
-        // Create date headers
-        for (let i = 1; i <= 31; i++) {
-          dateHeaders.innerHTML += `<th>${i}</th>`;
-        }
-
-        // Process defect data
-        data.forEach(defect => {
+        for (let defect of data) {
           let category = defect.defect_type;
           let day = new Date(defect.defect_date).getDate();
-          let count = parseInt(defect.total_count);
-
           if (!categories[category]) {
-            categories[category] = {
-              counts: new Array(31).fill(0),
-              total: 0
-            };
+            categories[category] = new Array(31).fill(0);
           }
+          categories[category][day - 1] += parseInt(defect.total_count);
+        }
 
-          categories[category].counts[day - 1] += count;
-          categories[category].total += count;
-        });
-
-        // Render the defect categories
-        let rowCount = 0;
+        let rowIndex = 0;
         for (let category in categories) {
-          let row = `
-            <tr>
-              <td class="category">${category}</td>`;
+          let row = `<tr><td class="category">${category}</td>`;
           let total = 0;
-
-          // Loop over days (1-31)
-          for (let i = 0; i < 31; i++) {
-            let count = categories[category].counts[i];
-            row += `<td>${count}</td>`;
-            total += count;
-          }
-
-          // Add total column
-          row += `<td>${categories[category].total}</td>`;
-
-          let crosstrain = crosstrainData[rowCount] ? crosstrainData[rowCount].crosstrain : "-";
-          let skilled = crosstrainData[rowCount] ? crosstrainData[rowCount].skilled : "-";
-
-          if (rowCount < 8) {
-            row += `<td>${crosstrain}</td>`;
-            row += `<td>${skilled}</td>`;
-          }
-
+          categories[category].forEach(count => { row += `<td>${count}</td>`; total += count; });
+          row += `<td>${total}</td>`;
+          row += `<td>${crosstrainData[rowIndex]?.crosstrain || '-'}</td>`;
+          row += `<td>${crosstrainData[rowIndex]?.skilled || '-'}</td>`;
           row += `</tr>`;
           defectTable.innerHTML += row;
-          rowCount++;
+          rowIndex++;
         }
       }
 
-      // Fetch attendance data
-      // Populate Defect Summary based on attendance data
       async function fetchAttendanceData() {
-    try {
-        // Use PHP's base_url() function to get the full URL dynamically
-        let response = await fetch('<?= base_url("/dailyattendancec") ?>');
-
-        // Check if the response is OK (status code 200)
-        if (!response.ok) {
-            throw new Error('Network response was not ok: ' + response.statusText);
+        try {
+          let response = await fetch('<?= base_url("/dailyattendancec") ?>');
+          let data = await response.json();
+          let attendance = data[0] || {};
+          document.getElementById('ds-count').innerText = attendance.ds_count || '-';
+          document.getElementById('ns-count').innerText = attendance.ns_count || '-';
+          document.getElementById('total-mp').innerText = attendance.total_mp || '-';
+          document.getElementById('rate').innerText = attendance.rate || '-';
+          document.getElementById('sl').innerText = attendance.sl || '-';
+          document.getElementById('vl').innerText = attendance.vl || '-';
+          document.getElementById('nu').innerText = attendance.nu || '-';
+        } catch (error) {
+          console.error("Error fetching attendance data:", error);
         }
+      }
 
-        // Parse the JSON data
-        let data = await response.json();
+      async function fetchEmployeeSkillsTitle() {
+      try {
+          let response = await fetch(`<?= base_url('empSkills/getTitle') ?>`);
+          let data = await response.json();
+          
+          if (data && data.title) {
+              document.getElementById("employeeSkillsTitle").innerText = data.title;
+          }
+      } catch (error) {
+          console.error("Error fetching Employee Skills Breakdown title:", error);
+      }
+  }
 
-        // Check if data is received
-        if (data.length > 0) {
-            let attendanceData = data[0];  // Use the first record (or loop through if needed)
+document.addEventListener("DOMContentLoaded", function() {
+    fetchEmployeeSkillsTitle(); // Fetch and update the title dynamically
+});
 
-            // Update the DOM with the fetched data
-            document.getElementById('ds-count').innerText = attendanceData.ds_count || '-';
-            document.getElementById('ns-count').innerText = attendanceData.ns_count || '-';
-            document.getElementById('total-mp').innerText = attendanceData.total_mp || '-';
-            document.getElementById('rate').innerText = attendanceData.rate || '-';
-            document.getElementById('sl').innerText = attendanceData.sl || '-';
-            document.getElementById('vl').innerText = attendanceData.vl || '-';
-            document.getElementById('nu').innerText = attendanceData.nu || '-';
-        } else {
-            console.error("No attendance data found");
-        }
-    } catch (error) {
-        console.error("Error fetching attendance data:", error);
-    }
-}
-
-
-      // Run functions on page load
-      document.addEventListener("DOMContentLoaded", function() {
+      
+      function refreshData() {
         fetchDefectAssignments();
         fetchDefectData();
         fetchAttendanceData();
+        fetchEmployeeSkillsTitle();
+      }
 
+      document.addEventListener("DOMContentLoaded", function() {
+        refreshData();
+        setInterval(refreshData, 50000);
       });
     </script>
   </body>
