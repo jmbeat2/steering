@@ -117,19 +117,18 @@
 
 <script>
 $(document).ready(function () {
-    // Get CSRF token values from meta tags or hidden fields
     let csrfTokenName = "<?= csrf_token() ?>"; 
     let csrfHash = "<?= csrf_hash() ?>";
 
-    // Load title from database
+    /** ✅ Load title from database */
     function fetchTitle() {
         $.getJSON("<?= base_url('Crosstrainc/getTitle') ?>", function (data) {
             $("#pageTitle").text(data.title);
         });
     }
-
     fetchTitle();
 
+    /** ✅ Edit Title */
     $("#editTitleBtn").click(function () {
         $("#newTitleInput").val($("#pageTitle").text());
         $("#editTitleModal").modal("show");
@@ -140,19 +139,21 @@ $(document).ready(function () {
         if (newTitle) {
             $.post("<?= base_url('Crosstrainc/updateTitle') ?>", { 
                 title: newTitle,
-                [csrfTokenName]: csrfHash // Include CSRF token
+                [csrfTokenName]: csrfHash
             })
-            .done(function (response) {
+            .done(function () {
                 $("#pageTitle").text(newTitle);
                 $("#editTitleModal").modal("hide");
                 window.location.reload();
-                iziToast.success({ message: "Title updated successfully!", position: "topRight" });
+         
             })
             .fail(function () {
                 iziToast.error({ message: "Failed to update title.", position: "topRight" });
             });
         }
     });
+
+    /** ✅ Initialize DataTable */
     let table = $('#csTable').DataTable({
         "ajax": "<?= base_url('Crosstrainc/fetch') ?>",
         "columns": [
@@ -174,8 +175,45 @@ $(document).ready(function () {
         responsive: true
     });
 
+
+    /** ✅ Open Add Modal */
+    $('#addNewBtn').on('click', function () {
+        $('#csForm')[0].reset();
+        $('#id').val('');
+        $('#addModal').modal('show');
+    });
+
+    /** ✅ Handle Add/Edit Form Submission */
+    $('#csForm').on('submit', function (e) {
+        e.preventDefault();
+        let formData = $(this).serialize();
+        let $submitButton = $('#saveBtn');
+
+        $submitButton.prop("disabled", true).html(`
+            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Saving...
+        `);
+
+        $.ajax({
+            url: "<?= base_url('Crosstrainc/save') ?>",
+            type: "POST",
+            data: formData,
+            success: function () {
+                $('#addModal').modal('hide');
+                window.location.reload();
+                table.ajax.reload(null, false);
+                iziToast.success({ message: "Record saved successfully!", position: "topRight" });
+            },
+            error: function () {
+                $submitButton.prop("disabled", false).html('Save');
+                iziToast.error({ message: "Failed to save record.", position: "topRight" });
+            }
+        });
+    });
+
+    /** ✅ Handle Edit Button Click */
     $(document).on('click', '.editBtn', function () {
         let id = $(this).data('id');
+
         $.getJSON("<?= base_url('Crosstrainc/get/') ?>" + id, function (data) {
             if (data.id) {
                 $('#id').val(data.id);
@@ -185,6 +223,45 @@ $(document).ready(function () {
             }
         });
     });
+
+/** ✅ Handle Delete Action */
+$(document).on('click', '.deleteBtn', function () {
+    let id = $(this).data('id');
+    if (!id) return iziToast.error({ message: "Invalid ID!", position: "topRight" });
+
+    iziToast.show({
+        title: 'Confirm Delete',
+        message: 'Are you sure you want to delete this record?',
+        position: 'center',
+        timeout: false,
+        close: false,
+        overlay: true,
+        buttons: [
+            ['<button><b>Yes</b></button>', function (instance, toast) {
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+
+                $.ajax({
+                    url: "<?= base_url('Crosstrainc/delete/') ?>" + id,
+                    type: "POST", // Keep as POST but send DELETE override
+                    data: {
+                        "_method": "DELETE", // ✅ Force DELETE request
+                        "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
+                    },
+                    success: function () {
+                        table.ajax.reload(null, false);
+                        iziToast.success({ message: "Record deleted successfully!", position: "topRight" });
+                    },
+                    error: function () {
+                        iziToast.error({ message: "Failed to delete record.", position: "topRight" });
+                    }
+                });
+            }, true],
+            ['<button>No</button>', function (instance, toast) {
+                instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+            }]
+        ]
+    });
+});
 });
 
 </script>

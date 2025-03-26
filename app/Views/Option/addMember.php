@@ -238,6 +238,11 @@ $(document).ready(function () {
                             dutyClass = "btn-outline-success"; 
                             dutyIcon = "fas fa-sun"; 
                             break;
+                        case "99": 
+                            dutyLabel = "Admin"; 
+                            dutyClass = "btn-outline-secondary disabled"; 
+                            dutyIcon = "fas fa-user-shield"; 
+                            break;
                         default: 
                             dutyLabel = "Unknown"; 
                             dutyClass = "btn-outline-dark"; 
@@ -322,31 +327,47 @@ $(document).ready(function () {
 
 
 
+$(document).ready(function () {
+    let csrfName = '<?= csrf_token() ?>'; // CSRF Token Name
+    let csrfHash = '<?= csrf_hash() ?>';  // CSRF Hash Value
 
-        $(document).ready(function () {
-        let csrfName = '<?= csrf_token() ?>'; // CSRF Token Name
-        let csrfHash = '<?= csrf_hash() ?>';  // CSRF Hash Value
-
-        // Open modal on duty button click
-        $("#usersTable").on("click", ".duty-btn", function () {
+    // Open modal on duty button click
+    $("#usersTable").on("click", ".duty-btn", function () {
         let userId = $(this).data("id");
         let lastname = $(this).data("lastname"); // Fetch last name
         let currentDuty = $(this).data("duty");
+        let userType = "<?= session()->get('user_type'); ?>"; // Get user type from session
+        let empid = "<?= session()->get('employee_id'); ?>"; // Get employee ID from session
 
         console.log("User ID:", userId);
         console.log("Last Name:", lastname);
         console.log("Current Duty:", currentDuty);
+        console.log("User Type:", userType);
+        console.log("Employee ID:", empid);
 
-        $("#dutyModal .modal-title").text("Update Duty for " + lastname);
-
-        $("#userId").val(userId);   // Set user ID
-        $("#lastnameDisplay").text(lastname);
-
-        $("#dutySelect").val(currentDuty); // Set duty selection
-        
-        $("#dutyModal").modal("show");
+        if (userType === "0") {
+            // Allow only non-admins to update duty
+            $("#dutyModal .modal-title").text("Update Duty for " + lastname);
+            $("#userId").val(userId); // Set user ID
+            $("#lastnameDisplay").text(lastname);
+            $("#dutySelect").val(currentDuty); // Set duty selection
+            $("#dutyModal").modal("show");
+        } else if (userType === "0") {
+            // Block admins from making changes
+            iziToast.warning({
+                title: "Restricted",
+                message: "Admins cannot change duty assignments.",
+                position: "topRight"
+            });
+        } else {
+            // If neither condition is met, deny access
+            iziToast.error({
+                title: "Access Denied",
+                message: "Please contact the IT department to reset your account.",
+                position: "topRight"
+            });
+        }
     });
-
 
     // Save duty change
     $("#saveDutyBtn").on("click", function () {
@@ -363,10 +384,12 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response.status === "success") {
+                    window.location.reload();
                     $("#dutyModal").modal("hide");
-                    location.reload(); // Refresh page to reflect changes
+                    // location.reload(); // Refresh page to reflect changes
                 } else {
-                    alert("Error: " + response.message);
+                    window.location.reload();
+                    // alert("Error: " + response.message);
                 }
             },
             error: function (xhr) {
@@ -417,46 +440,100 @@ $(document).ready(function () {
     // Disable button & show spinner inside button
     $button.prop("disabled", true).html(`
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
-      
     `);
 
-    // Fetch user data
-    $.ajax({
-        url: "<?= site_url('addMemberc/getUser/') ?>" + userId,
-        type: "GET",
-        dataType: "json",
-        success: function (response) {
-            if (response.status === "success" && response.data) {
-                var user = response.data;
+    // Get user session info
+    let userType = "<?= session()->get('user_type'); ?>"; // Get user type from session
+    let empid = "<?= session()->get('employee_id'); ?>"; // Get employee ID from session
 
-                $("#updateUserId").val(user.id);
-                $("#updateEmployeeId").val(user.employee_id);
-                $("#updateFirstname").val(user.fname);
-                $("#updateMiddlename").val(user.mname);
-                $("#updateLastname").val(user.lname);
-                $("#updateShift").val(user.id_shift).trigger("change");
-                $("#updateUsername").val(user.username);
-                $("#updateUserType").val(user.user_type).trigger("change");
-                $("#updateFullName").val(user.fullname);
-                $("#updateUserForm").data("id", user.id);
+    console.log("User ID:", userId);
+    console.log("User Type:", userType);
+    console.log("Employee ID:", empid);
 
-                // Show modal after data is fetched
-                $("#updateUserModal").modal("show");
-                $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
-            } else {
-                alert("Error: Unable to fetch user data.");
+    // Check user role before making an AJAX request
+    if (userType === "0") {
+        // Fetch user data
+        $.ajax({
+            url: "<?= site_url('addMemberc/getUser/') ?>" + userId,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                if (response.status === "success" && response.data) {
+                    var user = response.data;
+
+                    $("#updateUserId").val(user.id);
+                    $("#updateEmployeeId").val(user.employee_id);
+                    $("#updateFirstname").val(user.fname);
+                    $("#updateMiddlename").val(user.mname);
+                    $("#updateLastname").val(user.lname);
+                    $("#updateShift").val(user.id_shift).trigger("change");
+                    $("#updateUsername").val(user.username);
+                    $("#updateUserType").val(user.user_type).trigger("change");
+                    $("#updateFullName").val(user.fullname);
+                    $("#updateUserForm").data("id", user.id);
+
+                    // Show modal after data is fetched
+                    $("#updateUserModal").modal("show");
+                } else {
+                    alert("Error: Unable to fetch user data.");
+                }
+            },
+            error: function () {
+                alert("Failed to fetch user data. Please try again.");
+            },
+            complete: function () {
+                // Re-enable button & restore original text
                 $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
             }
-        },
-        error: function () {
-            alert("Failed to fetch user data. Please try again.");
-        },
-        complete: function () {
-            // Re-enable button & restore original text
-            $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
-        }
-    });
+        });
+    } else if (userType === "0") {
+        // Block admins from editing user info
+        iziToast.warning({
+            title: "Restricted",
+            message: "Admins cannot edit user information.",
+            position: "topRight"
+        });
+        $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
+    } else {
+               // Fetch user data
+               $.ajax({
+            url: "<?= site_url('addMemberc/getUser/') ?>" + userId,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                if (response.status === "success" && response.data) {
+                    var user = response.data;
+
+                    $("#updateUserId").val(user.id);
+                    $("#updateEmployeeId").val(user.employee_id);
+                    $("#updateFirstname").val(user.fname);
+                    $("#updateMiddlename").val(user.mname);
+                    $("#updateLastname").val(user.lname);
+                    $("#updateShift").val(user.id_shift).trigger("change");
+                    $("#updateUsername").val(user.username);
+                    $("#updateUserType").val(user.user_type).trigger("change");
+                    $("#updateFullName").val(user.fullname);
+                    $("#updateUserForm").data("id", user.id);
+
+                    // Show modal after data is fetched
+                    $("#updateUserModal").modal("show");
+                } else {
+                    alert("Error: Unable to fetch user data.");
+                }
+            },
+            error: function () {
+                alert("Failed to fetch user data. Please try again.");
+            },
+            complete: function () {
+                // Re-enable button & restore original text
+                $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
+            }
+        });
+        
+        $button.prop("disabled", false).html('<i class="far fa-user-edit"></i> Edit');
+    }
 });
+
 
 
     // 🔹 Handle Update User Form Submission
@@ -486,7 +563,7 @@ $(document).ready(function () {
                     $("#updateUserModal").modal("hide");
                    
                 } else {
-                    alert("Error: " + response.message);
+                    window.location.reload();
                 }
             },
             error: function (xhr) {
@@ -546,7 +623,7 @@ $(document).ready(function () {
                     `);
 
                     $.ajax({
-                        url: "<?= site_url('addAttendance/delete/') ?>" + attendanceId,
+                        url: "<?= site_url('addMemberc/deleteUser/') ?>" + attendanceId,
                         type: "POST",
                         data: {
                             "<?= csrf_token() ?>": "<?= csrf_hash() ?>"
@@ -556,7 +633,7 @@ $(document).ready(function () {
                             if (response.status === "success") {
                                 iziToast.success({
                                     title: 'Deleted!',
-                                    message: 'Attendance has been removed successfully.',
+                                    message: 'Users has been removed successfully.',
                                     position: 'topRight'
                                 });
                                 setTimeout(() => window.location.reload(), 1000);

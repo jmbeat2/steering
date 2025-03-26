@@ -40,6 +40,7 @@ class addMemberc extends BaseController
     
         $data = [
             'employee_id' => $this->request->getPost('employee_id'),
+            'user_type'     => 0,
             'password' => md5($this->request->getPost('password')),
             'fname'       => $this->request->getPost('fname'),
             'mname'       => $this->request->getPost('mname'),
@@ -61,70 +62,98 @@ class addMemberc extends BaseController
     }
     
 
-    // Update user data
-    public function updateUser($id)
-    {
-        $addUserm = new addUserm();
-        $request = $this->request;
+// Update user data
+public function updateUser($id)
+{
+    $addUserm = new addUserm();
+    $request = $this->request;
+    $db = \Config\Database::connect();
 
-        // Validate form data
-        $validation = \Config\Services::validation();
-        $validation->setRules([
-            'employee_id' => 'required',
-            'fname'       => 'required',
-            'mname'       => 'required',
-            'lname'       => 'required',
-            
-        ]);
+    // Check if the user exists
+    $user = $db->table('users')->where('id', $id)->get()->getRow();
 
-        
-        if (!$validation->withRequest($request)->run()) {
-            return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
-        }
-
-        // Get data from form
-        $data = [
-            'employee_id' => $request->getPost('employee_id'),
-            'fname'       => $request->getPost('fname'),
-            'mname'       => $request->getPost('mname'),
-            'lname'       => $request->getPost('lname'),
-            'duty'        => $request->getPost('id_shift'),
-          
-        ];
-
-        $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
-
-        // Update user in the database
-        if ($addUserm->update($id, $data)) {
-
-            session()->setFlashdata('success', 'your in leaders have been successfully!');
-
-            return $this->response->setJSON(['status' => 'success', 'message' => 'User updated successfully!']);
-        } else {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'Update failed.']);
-        }
+    if (!$user) {
+        session()->setFlashdata('error', 'User not found.');
+        return $this->response->setJSON(['status' => 'error', 'message' => 'User not found.']);
     }
+
+    // Check the logged-in user's type
+    $currentUser = session()->get('user_type'); // Assuming you store user_type in session
+
+    if ($currentUser == 0 && $user->user_type == 1) {
+        // If the logged-in user is type 0, they cannot update an admin user (type 1).
+        session()->setFlashdata('error', 'You do not have permission to edit admin users.');
+        return $this->response->setJSON(['status' => 'error', 'message' => 'You do not have permission to edit admin users.']);
+    }
+
+    // Validate form data
+    $validation = \Config\Services::validation();
+    $validation->setRules([
+        'employee_id' => 'required',
+        'fname'       => 'required',
+        'mname'       => 'required',
+        'lname'       => 'required',
+    ]);
+
+    if (!$validation->withRequest($request)->run()) {
+        session()->setFlashdata('error', 'Validation failed. Please check the form.');
+        return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
+    }
+
+    // Get data from form
+    $data = [
+        'employee_id' => $request->getPost('employee_id'),
+        'fname'       => $request->getPost('fname'),
+        'mname'       => $request->getPost('mname'),
+        'lname'       => $request->getPost('lname'),
+        'duty'        => $request->getPost('id_shift'),
+    ];
+
+    $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
+
+    // Update user in the database
+    if ($addUserm->update($id, $data)) {
+        session()->setFlashdata('success', $data['fullname'] . ' has been updated successfully!');
+        return $this->response->setJSON(['status' => 'success', 'message' => 'User updated successfully!']);
+    } else {
+        session()->setFlashdata('error', 'Update failed. Please try again.');
+        return $this->response->setJSON(['status' => 'error', 'message' => 'Update failed.']);
+    }
+}
+
+
     
     // Delete user
-    public function deleteUser($id)
-    {
-        $addUserm = new addUserm();
-        
-        if ($addUserm->find($id)) { // Check if user exists
-            $addUserm->delete($id);
-    
-            return $this->response->setJSON([
-                session()->setFlashdata('success', 'your leader employee have been successfuly removed!'),
-                'status' => 'success',
-                'message' => 'User deleted successfully'
-            ]);
-        }
-    
+// Delete user
+public function deleteUser($id)
+{
+    $addUserm = new addUserm();
+    $user = $addUserm->find($id); // Find the user by ID
+
+    if (!$user) {
         return $this->response->setJSON([
             'status' => 'error',
             'message' => 'User not found'
         ]);
     }
+
+    // Prevent deleting users with user_type == 1
+    if ($user['user_type'] == 1) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Admin users cannot be deleted.'
+        ]);
+    }
+
+    // Proceed with deletion
+    $addUserm->delete($id);
+
+    return $this->response->setJSON([
+        'status' => 'success',
+        'message' => 'User deleted successfully'
+    ]);
+}
+
     
 
     // Fetch all users for DataTable
@@ -177,39 +206,55 @@ class addMemberc extends BaseController
         $db = \Config\Database::connect();
         $id = $this->request->getPost('id');
         $duty = $this->request->getPost('duty');
-        
     
         // Check if the user exists
         $user = $db->table('users')->where('id', $id)->get()->getRow();
     
         if (!$user) {
-            return $this->response->setJSON(['status' => 'error', 'message' => 'User not found']);
+            session()->setFlashdata('error', 'User not found');
+            return $this->handleResponse('error', 'User not found');
         }
     
-        // Debug: Print user data
-        error_log(print_r($user, true)); // Check what fields exist in the user object
+        // Check if the user is an admin before updating
+        if ($user->user_type == 1) {
+            session()->setFlashdata('error', 'Please contact the IT');
+            return $this->handleResponse('error', 'User cannot update admin account');
+        }
     
-        // Check if the `name` column exists
-        $fullname = isset($user->fullname) ? $user->fullname : "User"; // Use "User" if name is missing
+        // Determine user full name
+        $fullname = property_exists($user, 'fullname') ? $user->fullname : "User";
     
-        // Update the duty
+        // Update the duty in the database
         $db->table('users')->where('id', $id)->update(['duty' => $duty]);
     
         // Custom success message based on duty type
-        $dutyMessage = "{$fullname} has updated duty successfully!";
-        if ($duty === "0") {
-            $dutyMessage = "{$fullname} is now Off Duty!";
-        } elseif ($duty == "2") {
-            $dutyMessage = "{$fullname} is now assigned to Day Shift!";
-        } elseif ($duty == "1") {
-            $dutyMessage = "{$fullname} is now assigned to Night Shift!";
-        }
+        $dutyMessages = [
+            "0" => "{$fullname} is now Off Duty!",
+            "1" => "{$fullname} is now assigned to Night Shift!",
+            "2" => "{$fullname} is now assigned to Day Shift!"
+        ];
     
-        // Store message in flashdata
+        $dutyMessage = $dutyMessages[$duty] ?? "{$fullname} has updated duty successfully!";
+    
+        // Store message in Flashdata for UI display
         session()->setFlashdata('success', $dutyMessage);
     
-        return $this->response->setJSON(['status' => 'success', 'message' => $dutyMessage]);
+        return $this->handleResponse('success', $dutyMessage);
     }
+    
+    /**
+     * Handle response based on request type (AJAX or normal request)
+     */
+    private function handleResponse($status, $message)
+    {
+        if ($this->request->isAJAX()) {
+            return $this->response->setJSON(['status' => $status, 'message' => $message]);
+        }
+    
+        return redirect()->back();
+    }
+    
+    
     
     public function resetPassword()
     {
