@@ -7,6 +7,6 @@ class defectsModel extends Model
     protected $table = 'defects';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'defect_type', 'defect_date', 'count', 'id_shift', 'name', 'empid'
+        'id','encodeby','defect_type', 'defect_date', 'count', 'id_shift', 'name', 'empid'
     ];
 }

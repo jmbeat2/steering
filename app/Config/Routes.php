@@ -16,12 +16,19 @@ $routes->get('logout', 'Empusersc::logout');
 
 # DEFECTS ROUTES POST
 $routes->post('defects/store', 'Defects::store');
+$routes->post('defects/store1', 'Defects::store1');
+$routes->post('defects/saveGlobalToggle', 'Defects::saveGlobalToggle');
+$routes->post('defects/deleteZeroCountDefects', 'Defects::deleteZeroCountDefects');
+
 
 # DEFECTS ROUTES GET
 $routes->get('defects', 'Defects::index');
 $routes->get('defectsview', 'Defects::index'); 
 $routes->get('defects/fetchDefects', 'Defects::fetchDefects');
 $routes->get('Defectstype/getDefectTypes', 'Defectstype::getDefectTypes');
+$routes->get('Defectstype/getName', 'Defectstype::getName');
+$routes->get('Defectstype/getShift', 'Defectstype::getShift');
+
 
 #IN PROCESS (DASHBOARD AREA)
 $routes->get('Inprocessc/getDefectAssignments', 'Inprocessc::getDefectAssignments');
@@ -46,7 +53,8 @@ $routes->get('addMemberc/getUser/(:num)', 'addMemberc::getUser/$1'); // Use lowe
 $routes->post('addMemberc/updateUser/(:num)', 'addMemberc::updateUser/$1');
 $routes->post('addMemberc/deleteUser/(:num)', 'addMemberc::deleteUser/$1');
 $routes->post('addMemberc/addUser', 'addMemberc::addUser');
-
+$routes->post('addMemberc/updateDuty', 'AddMemberc::updateDuty');
+$routes->post('addMemberc/resetPassword', 'addMemberc::resetPassword');
 
 # SHIFT TYPES FETCHING
 $routes->get('fetchShiftc/fetchShiftTypes', 'fetchShiftc::fetchShiftTypes');
@@ -58,12 +66,12 @@ $routes->get('dashboard', ['filter' => 'auth']);
 // Route to access the daily attendance data
 $routes->get('/dailyattendancec', 'Dailyattendancec::getAttendanceData');
 
-// ATTENDANCE ROUTES
+# ATTENDANCE
 $routes->get('addAttendance', 'AddAttendance::index');
 $routes->get('addAttendance/getAttendanceData', 'AddAttendance::getAttendanceData');  
 $routes->post('addAttendance/update/(:num)', 'addAttendance::update/$1');
 
-  // Add ID parameter here
+# ID PARAMETER HERE
 $routes->post('addAttendance/add', 'AddAttendance::add');
 $routes->get('addAttendance/view/(:num)', 'AddAttendance::view/$1');
 $routes->post('addAttendance/delete/(:num)', 'AddAttendance::delete/$1');
@@ -83,16 +91,46 @@ $routes->post('Crosstrainc/updateTitle', 'Crosstrainc::updateTitle');  // Make s
 $routes->get('/dashboard', 'defects_types::index');
 $routes->get('/dashboard/fetch-defects', 'defects_types::fetchDefectSummary');
 
-$routes->post('addMemberc/updateDuty', 'AddMemberc::updateDuty');
-
-
-$routes->post('addMemberc/resetPassword', 'addMemberc::resetPassword');
-
-// $routes->get('employeeskillsbreakdown', 'EmployeeSkillsBreakdownController::index');
-// $routes->post('employeeskillsbreakdown/create', 'EmployeeSkillsBreakdownController::create');
-// $routes->post('employeeskillsbreakdown/update/(:num)', 'EmployeeSkillsBreakdownController::updateTitle/$1');
-// $routes->delete('employeeskillsbreakdown/delete/(:num)', 'EmployeeSkillsBreakdownController::deleteTitle/$1');
-
-
 $routes->get('empSkills/getTitle', 'empSkills::getTitle');
+$routes->get('empSkills/getTitle1', 'empSkills::getTitle1');
+
+# EDIT TOP 5 TITLE
+$routes->post('empSkills/updateTitle1', 'empSkills::updateTitle1'); 
+
+# ADMIN LOGS
+$routes->get('activityLogs', 'ActivityLogs::index'); // To load the main page
+$routes->get('activityLogs/fetchLogs', 'ActivityLogs::fetchLogs'); // To fetch logs via AJAX
+
+
+# DELETED LOGS
+$routes->get('activityLogs/indexdb', 'ActivityLogs::indexdb'); // To load the main page
+
+
+# OPERATORS
+
+$routes->group('operators', function($routes) {
+    $routes->get('index', 'Operators::index');
+    $routes->get('fetch', 'Operators::fetch');
+    $routes->get('fetch/(:num)', 'Operators::fetch/$1');
+    $routes->post('add', 'Operators::add');  // POST route for adding
+    $routes->get('edit/(:num)', 'Operators::edit/$1');
+    $routes->post('update', 'Operators::update');
+    $routes->post('delete/(:num)', 'Operators::delete/$1');  // Keep this for deleting
+
+});
+$routes->post('Operators/updateDuty', 'Operators::updateDuty');
+
+
+# DEFECTS
+
+$routes->group('defects', function($routes) {
+    $routes->get('defectsViews', 'Defects::defectsViews');
+    $routes->get('fetchDefects1', 'Defects::fetchDefects1');
+});
+
+$routes->post('Defects/updateDefect', 'Defects::updateDefect');
+$routes->post('Defects/deleteDefect', 'Defects::deleteDefect');
+
+
+
 

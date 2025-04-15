@@ -20,67 +20,50 @@
     });
 </script>
 
-<div class="container my-5">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
-        <li class="breadcrumb-item">
-            <a class="link-body-emphasis" href="<?= site_url('/') ?>">
-            <i class="fa-solid fa-house"></i>
-            <span class="visually-hidden">Home</span>
-            </a>
-        </li>
-        <li class="breadcrumb-item">
-            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Manage</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">
-
-            <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addMemberc/index') ?>">Add leader</a>
-
-        <li class="breadcrumb-item active" aria-current="page">
-            
-        </li>
-        </ol>
-    </nav>
-    </div>
-
-    <div class="container mt-3">
-    <h2>ADD NEW LEADER </h2>
-    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="far fa-user-plus"></i>
-        Add User
-    </button>
+<script>
+    $(document).ready(function() {
+        <?php if (session()->getFlashdata('message')) : ?>
+            iziToast.success({
+                title: '',
+                message: "<?= session()->getFlashdata('message'); ?>",
+                position: 'topRight'
+            });
+        <?php endif; ?>
+    });
+</script>
 
     <!-- Add User Modal -->
     <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+             <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addUserModalLabel"><i class="fas fa-user-plus me-2"></i> Add a new leader</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="addUserForm">
                         <div class="row">
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="employeeId" class="form-label">Employee ID</label>
-                                <input type="text" name="employee_id" id="employeeId" class="form-control" required>
-                            </div>
+                                <label for="employeeId" class="form-label"><i class="fas fa-id-card"></i> Employee ID</label>
+                                <input type="text" name="employee_id" id="employeeId" class="form-control" placeholder="1234-123" maxlength="8" required>
+                                </div>
                            
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" required>
+                                <label for="password" class="form-label"><i class="fas fa-key"></i> Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter atleast 8 chracters" required>
                             </div>
                             
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="firstname" class="form-label">First Name</label>
-                                <input type="text" name="fname" id="firstname" class="form-control" required>
+                                <label for="firstname" class="form-label"><i class="fas fa-user-circle" title="Represents personal identity (First Name)"></i>  First Name</label>
+                                <input type="text" name="fname" id="firstname" class="form-control" placeholder="David " required>
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="middlename" class="form-label">Middle Name</label>
-                                <input type="text" name="mname" id="middlename" class="form-control">
+                                <label for="middlename" class="form-label"><i class="fas fa-user-tag" title="Represents an additional identifier (Middle Name)"></i> Middle Name</label>
+                                <input type="text" name="mname" id="middlename" class="form-control" placeholder="S. (or complete middle name)">
                             </div>
                             <div class="col-12 col-md-6 mb-3">
-                                <label for="lastname" class="form-label">Last Name</label>
-                                <input type="text" name="lname" id="lastname" class="form-control" required>
+                                <label for="lastname" class="form-label"><i class="fas fa-user-shield" title="Represents family or heritage (Last Name)"></i> Last Name</label>
+                                <input type="text" name="lname" id="lastname" class="form-control" placeholder="Harrell" required>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Add User</button>
@@ -94,37 +77,52 @@
 <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateUserModalLabel">Update User</h5>
+        <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title" id="updateUserModalLabel"><i class="fas fa-user-edit me-2"></i> Update User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="updateUserForm">
                     <input type="hidden" id="updateUserId">
                     <div class="row">
+                        <!-- Employee ID -->
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="updateEmployeeId" class="form-label">Employee ID</label>
-                            <input type="text" id="updateEmployeeId" class="form-control" required>
+                            <label for="updateEmployeeId" class="form-label"><i class="fas fa-id-card"></i> Employee ID</label>
+                            <input type="text" id="updateEmployeeId" class="form-control" placeholder="1234-123" required>
                         </div>
+                        
+                        <!-- First Name -->
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="updateFirstname" class="form-label">First Name</label>
-                            <input type="text" id="updateFirstname" class="form-control" required>
+                            <label for="updateFirstname" class="form-label">
+                                <i class="fas fa-user-circle" title="Represents personal identity (First Name)"></i> First Name
+                            </label>
+                            <input type="text" id="updateFirstname" class="form-control" placeholder="David" required>
                         </div>
+
+                        <!-- Middle Name -->
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="updateMiddlename" class="form-label">Middle Name</label>
-                            <input type="text" id="updateMiddlename" class="form-control">
+                            <label for="updateMiddlename" class="form-label">
+                                <i class="fas fa-user-tag" title="Represents an additional identifier (Middle Name)"></i> Middle Name
+                            </label>
+                            <input type="text" id="updateMiddlename" class="form-control" placeholder="S. (or complete middle name)">
                         </div>
+
+                        <!-- Last Name -->
                         <div class="col-12 col-md-6 mb-3">
-                            <label for="updateLastname" class="form-label">Last Name</label>
-                            <input type="text" id="updateLastname" class="form-control" required>
+                            <label for="updateLastname" class="form-label">
+                                <i class="fas fa-user-shield" title="Represents family or heritage (Last Name)"></i> Last Name
+                            </label>
+                            <input type="text" id="updateLastname" class="form-control" placeholder="Harrell" required>
                         </div>
                     </div>
+
                     <button type="submit" class="btn btn-warning w-100">Update User</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 
 <div id="dutyModal" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
@@ -183,7 +181,11 @@
     </div>
 </div>
 
-
+<div class="container mt-3">
+    <h2>ADD NEW LEADER </h2>
+    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal"><i class="far fa-user-plus"></i>
+        ADD NEW LEADER
+    </button>
     <!-- Users Table -->
     <div class="table-responsive mt-5">
     <table id="usersTable" class="table table-striped table-hover table-bordered align-middle">
@@ -203,6 +205,7 @@
         </thead>
         <tbody id="user-table-body"></tbody>
     </table>
+</div>
 </div>
 
 <script>
@@ -276,56 +279,82 @@ $(document).ready(function () {
                     `;
                 }
             }
-        ]
+        ], 
+        language: {
+            search: '<i class="fas fa-search"></i> Search a leader:', // ✅ fixed quotes
+            paginate: {
+                previous: "Prev",
+                next: "Next"
+            },
+            emptyTable: "No defects available."
+        },
     });
 
-    // ✅ FIX: Use Event Delegation for Reset Button
-    $("#usersTable tbody").on("click", ".reset-btn", function () {
-    let userId = $(this).data("id");
-    let userName = $(this).data("fullname");
-    let userType = "<?= session()->get('user_type'); ?>"; // Get user type from session
+        // ✅ FIX: Use Event Delegation for Reset Button
+        $("#usersTable tbody").on("click", ".reset-btn", function () {
+        let userId = $(this).data("id");
+        let userName = $(this).data("fullname");
+        let userType = "<?= session()->get('user_type'); ?>"; // Get user type from session
 
-    if (userType === "1") {
-        $("#resetUserId").val(userId);
-        $("#userName").text(userName);
-        $("#resetPasswordModal").modal("show");
-    } else {
-        iziToast.error({
-            title: "Access Denied",
-            message: "Please contact the IT department to reset your account.",
-            position: "topRight"
-        });
-    }
-});
-
-    // ✅ Handle Reset Password Form Submission
-    $("#resetPasswordForm").submit(function (e) {
-    e.preventDefault();
-
-    let csrfName = '<?= csrf_token() ?>'; // Get CSRF token name
-    let csrfHash = '<?= csrf_hash() ?>';  // Get CSRF token value
-
-    let formData = $(this).serializeArray();
-    formData.push({ name: csrfName, value: csrfHash }); // Append CSRF token
-
-    $.ajax({
-        url: "<?= site_url('addMemberc/resetPassword') ?>",
-        type: "POST",
-        data: $.param(formData),  // Send CSRF token along with form data
-        dataType: "json",
-        success: function (response) {
-            if (response.status === "success") {
-                iziToast.success({ message: response.message, position: "topRight" });
-                window.location.reload();
-            } else {
-                iziToast.error({ message: response.message, position: "topRight" });
-            }
+        if (userType === "1") {
+            $("#resetUserId").val(userId);
+            $("#userName").text(userName);
+            $("#resetPasswordModal").modal("show");
+        } else {
+            iziToast.error({
+                title: "Access Denied",
+                message: "Please contact the IT department to reset your account.",
+                position: "topRight"
+            });
         }
     });
+
+        // ✅ Handle Reset Password Form Submission
+        $("#resetPasswordForm").submit(function (e) {
+        e.preventDefault();
+
+        let csrfName = '<?= csrf_token() ?>'; // Get CSRF token name
+        let csrfHash = '<?= csrf_hash() ?>';  // Get CSRF token value
+
+        let formData = $(this).serializeArray();
+        formData.push({ name: csrfName, value: csrfHash }); // Append CSRF token
+
+        $.ajax({
+            url: "<?= site_url('addMemberc/resetPassword') ?>",
+            type: "POST",
+            data: $.param(formData),  // Send CSRF token along with form data
+            dataType: "json",
+            success: function (response) {
+                if (response.status === "success") {
+                    iziToast.success({ message: response.message, position: "topRight" });
+                    window.location.reload();
+                } else {
+                    iziToast.error({ message: response.message, position: "topRight" });
+                }
+            }
+        });
+    });
+
+
+    document.getElementById('employeeId').addEventListener('input', function (e) {
+    let val = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
+    if (val.length > 4) {
+        val = val.slice(0, 4) + '-' + val.slice(4, 7); // Insert dash after 4 digits
+    }
+    this.value = val;
+
+    
 });
 
+document.getElementById('updateEmployeeId').addEventListener('input', function (e) {
+    let val = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
+    if (val.length > 4) {
+        val = val.slice(0, 4) + '-' + val.slice(4, 7); // Insert dash after 4 digits
+    }
+    this.value = val;
 
-
+    
+});
 
 $(document).ready(function () {
     let csrfName = '<?= csrf_token() ?>'; // CSRF Token Name
@@ -673,3 +702,5 @@ $(document).ready(function () {
 
 </body>
 </html>
+
+<?= view('navbar/footer') ?>

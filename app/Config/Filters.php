@@ -27,11 +27,17 @@ class Filters extends BaseFilters
 
     public array $globals = [
         'before' => [
-            'csrf' => ['except' => ['Empusersc/authenticate', 'addMemberc/addUser']]
-
+            'csrf' => ['except' => [
+                'Empusersc/authenticate',
+                'addMemberc/addUser',
+                'defects/saveGlobalToggle',
+                'defects/deleteZeroCountDefects',
+                'defects/store1',
+            ]]
         ],
         'after' => [],
     ];
+    
 
     public array $filters = [
         'auth' => ['before' => [ 'defects/*']], // Protect routes

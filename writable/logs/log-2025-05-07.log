@@ -1,0 +1,1867 @@
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:01:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:01:16 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:16 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:16 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:16 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:16 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:01:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:01:31 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:31 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:31 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:32 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:32 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:01:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:01:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:01:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-05-07 05:01:37 --> CSRF token verified.
+DEBUG - 2025-05-07 13:01:37 --> Session Fullname: Kresia Anne  Conde Hernandez | Shift: 2
+DEBUG - 2025-05-07 13:01:37 --> Selected Date: 2025-05-07 | Current Date: 2025-05-07
+DEBUG - 2025-05-07 13:01:38 --> Existing Defect: 
+DEBUG - 2025-05-07 13:01:38 --> Creating New Defect Record
+DEBUG - 2025-05-07 05:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:01:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:01:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Defectstype::$model is deprecated in APPPATH\Controllers\Defectstype.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Defectstype->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:02:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:07 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:07 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:07 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:07 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:07 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:02:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:02:57 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:57 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:57 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:02:57 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:02:57 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:03:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:03:47 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:03:47 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:03:47 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:03:47 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:03:47 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:04:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:04:36 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:04:36 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:04:36 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:04:36 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:04:36 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:05:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:05:26 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:05:26 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:05:26 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:05:26 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:05:26 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:06:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:06:16 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:06:16 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:06:16 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:06:16 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:06:16 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:07:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:07:07 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:07 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:07 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:07 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:07 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:07:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:07:59 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:59 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:59 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:07:59 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:07:59 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-05-07 05:08:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Inprocessc::$model is deprecated in APPPATH\Controllers\Inprocessc.php on line 11.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Inprocessc->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(55): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-07 05:08:39 --> SQL Query Result for duty 1: Array
+(
+    [0] => Array
+        (
+            [lname] => Maneklang
+            [duty] => 1
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:08:39 --> SQL Query Result for duty 2: Array
+(
+    [0] => Array
+        (
+            [lname] => Hernandez
+            [duty] => 2
+            [id_shift] => 
+        )
+
+)
+
+DEBUG - 2025-05-07 05:08:39 --> Returning JSON Response: Array
+(
+    [wrong_insert] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Maneklang
+                    [duty] => 1
+                    [id_shift] => 
+                )
+
+        )
+
+    [not_fully_inserted] => Array
+        (
+            [0] => Array
+                (
+                    [lname] => Hernandez
+                    [duty] => 2
+                    [id_shift] => 
+                )
+
+        )
+
+)
+
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-05-07 05:08:39 --> Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+
+DEBUG - 2025-05-07 05:08:39 --> Returned Crosstrain and Skilled data: Array
+(
+    [0] => Array
+        (
+            [id] => 4
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [1] => Array
+        (
+            [id] => 29
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [2] => Array
+        (
+            [id] => 39
+            [crosstrain] => 2
+            [skilled] => 2
+        )
+
+    [3] => Array
+        (
+            [id] => 44
+            [crosstrain] => 3
+            [skilled] => 3
+        )
+
+    [4] => Array
+        (
+            [id] => 45
+            [crosstrain] => 3
+            [skilled] => 2
+        )
+
+    [5] => Array
+        (
+            [id] => 48
+            [crosstrain] => 1
+            [skilled] => 2
+        )
+
+    [6] => Array
+        (
+            [id] => 49
+            [crosstrain] => 1
+            [skilled] => 1
+        )
+
+)
+

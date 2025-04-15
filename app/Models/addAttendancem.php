@@ -22,7 +22,7 @@ class addAttendancem extends Model
         'ds_count' => 'required|is_natural',
         'ns_count' => 'required|is_natural',
         'total_mp' => 'required|is_natural',
-        'rate'     => 'required|decimal',
+        // 'rate'     => 'required|varchar',
         'sl'       => 'required|is_natural',
         'vl'       => 'required|is_natural',
         'nu'       => 'required|is_natural'

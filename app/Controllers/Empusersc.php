@@ -15,6 +15,7 @@ class Empusersc extends Controller
 
     public function index()
     {
+        
         return view('login/login'); // Ensure 'app/Views/login/login.php' exists
     }
 
@@ -55,7 +56,6 @@ class Empusersc extends Controller
                 'duty'        => $user['duty'],
                 'logged_in'   => true
             ]);
-    
             // Regenerate CSRF token after login
             $newCsrfToken = csrf_hash();
     
@@ -79,7 +79,14 @@ class Empusersc extends Controller
 
     public function logout()
     {
-        session()->destroy(); // Destroy session
+        // Get the employee_id from the session
+        $employee_id = session()->get('employee_id'); 
+    
+        // Destroy the session
+        session()->destroy(); 
+    
+        // Redirect to the login page with a success message
         return redirect()->to('/login')->with('message', 'Logged out successfully');
     }
+    
 }

@@ -7,14 +7,27 @@ class addMemberc extends BaseController
 {
     public function __construct()
     {
+        $this->session = \Config\Services::session();  // Initialize the session service
+
+
         $this->addUserm = new addUserm(); // Ensure the correct model is loaded
+        
     }
 
     // Show the add user form
     public function index()
     {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to login first.');
+        }
+
+        $db = \Config\Database::connect();
+        $setting = $db->table('global_settings')->where('id', 1)->get()->getRow();
+
+        
         $data = [
-            'title' => 'Option / Member',
+            'title' => 'Manage / Leader',
+            'category_toggle' => $setting->category_toggle ?? 0,
         ];
         return view('Option/addMember', $data);
     }
@@ -22,14 +35,16 @@ class addMemberc extends BaseController
     public function addUser()
     {
         $validation = \Config\Services::validation();
-    
+        // Accessing the employee_id from the session
+   
+
+
         // Validate form data
         if (!$this->validate([
             'employee_id' => 'required',
             'password' => 'required',
             'fname'     => 'required',
             'lname'     => 'required',
-
         ])) {
             return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
         }
@@ -37,29 +52,86 @@ class addMemberc extends BaseController
         // Get form data
         $id_shift = $this->request->getPost('id_shift'); // Ensure you get the correct value
         $duty = $id_shift; // Assigning same value to duty
-    
-        $data = [
+        
+        $newData = [
             'employee_id' => $this->request->getPost('employee_id'),
             'user_type'     => 0,
             'password' => md5($this->request->getPost('password')),
             'fname'       => $this->request->getPost('fname'),
             'mname'       => $this->request->getPost('mname'),
             'lname'       => $this->request->getPost('lname'),
-            
-
         ];
     
         // Concatenate Full Name
-        $data['fullname'] = trim("{$data['fname']} {$data['mname']} {$data['lname']}");
-    
+        $newData['fullname'] = trim("{$newData['fname']} {$newData['mname']} {$newData['lname']}");
+
         // Save to database
         $model = new addUserm();
-        $model->insert($data);
-    
+        $model->insert($newData);
+        
+        // Build a simplified change log for adding a new user (no old values)
+        $changes = [];
+        foreach ($newData as $key => $value) {
+            // For new data, all fields are considered as changes (no old value)
+            $changes[] = ucfirst($key) . ": <span class='text-success'>\"$value\"</span>";
+        }
+
+        if (count($changes) > 0) {
+            $changeList = '';
+            foreach ($changes as $change) {
+                $parts = explode(':', $change);
+                $label = trim($parts[0]);
+                $newValue = trim($parts[1]);
+
+                // Since it's a new user, no old value exists, so we leave the old value empty
+                $oldValue = '';
+
+                $changeList .= "<div class='mb-2'>$label: <span class='text-danger'>\"$oldValue\"</span> → <span class='text-success'>\"$newValue\"</span></div>";
+            }
+
+            // Simplified description for adding a new user
+            $description = "
+                <div class='text-start'>
+                    <div class='mb-2'>
+                        <strong>User:</strong>
+                        <span class='text-primary fw-semibold'>{$newData['fullname']}</span>
+                    </div>
+                    <div class='mb-2'>
+                        <strong>Added by:</strong>
+                        <em class='text-muted'>{$this->session->get('fullname')}</em>
+                    </div>
+                    <div class='mt-2'>
+                        $changeList
+                    </div>
+                </div>
+            ";
+        } else {
+            // Description when no changes are made (which shouldn't happen in add user)
+            $description = "
+                <div class='text-start'>
+                    <div class='mb-2'>
+                        <strong>User:</strong>
+                        <span class='text-primary fw-semibold'>{$newData['fullname']}</span>
+                    </div>
+                    <div class='mb-2 text-muted'>No changes were made.</div>
+                    <div>
+                        <strong class='text-muted'>Added by:</strong>
+                        <em>{$this->session->get('fullname')}</em>
+                    </div>
+                </div>
+            ";
+        }
+        // Log the activity for adding a user
+        log_activity(
+            session()->get('employee_id'),
+            "Added new user",
+            $description
+        );    
         session()->setFlashdata('success', 'New leader has been added successfully!');
     
         return $this->response->setJSON(['status' => 'success', 'message' => 'User added successfully']);
     }
+    
     
 
 // Update user data
@@ -69,7 +141,7 @@ public function updateUser($id)
     $request = $this->request;
     $db = \Config\Database::connect();
 
-    // Check if the user exists
+    // Fetch the current user record
     $user = $db->table('users')->where('id', $id)->get()->getRow();
 
     if (!$user) {
@@ -77,16 +149,13 @@ public function updateUser($id)
         return $this->response->setJSON(['status' => 'error', 'message' => 'User not found.']);
     }
 
-    // Check the logged-in user's type
-    $currentUser = session()->get('user_type'); // Assuming you store user_type in session
-
-    if ($currentUser == 0 && $user->user_type == 1) {
-        // If the logged-in user is type 0, they cannot update an admin user (type 1).
+    $currentUserType = session()->get('user_type');
+    if ($currentUserType == 0 && $user->user_type == 1) {
         session()->setFlashdata('error', 'You do not have permission to edit admin users.');
         return $this->response->setJSON(['status' => 'error', 'message' => 'You do not have permission to edit admin users.']);
     }
 
-    // Validate form data
+    // Validate
     $validation = \Config\Services::validation();
     $validation->setRules([
         'employee_id' => 'required',
@@ -100,8 +169,8 @@ public function updateUser($id)
         return $this->response->setJSON(['status' => 'error', 'message' => $validation->getErrors()]);
     }
 
-    // Get data from form
-    $data = [
+    // New data from form
+    $newData = [
         'employee_id' => $request->getPost('employee_id'),
         'fname'       => $request->getPost('fname'),
         'mname'       => $request->getPost('mname'),
@@ -109,17 +178,85 @@ public function updateUser($id)
         'duty'        => $request->getPost('id_shift'),
     ];
 
-    $data['fullname'] = $data['fname'] . ' ' . $data['mname'] . ' ' . $data['lname'];
+    $newData['fullname'] = $newData['fname'] . ' ' . $newData['mname'] . ' ' . $newData['lname'];
 
-    // Update user in the database
-    if ($addUserm->update($id, $data)) {
-        session()->setFlashdata('success', $data['fullname'] . ' has been updated successfully!');
+ // Build a simplified change log
+$changes = [];
+foreach ($newData as $key => $value) {
+    if (isset($user->$key) && $user->$key != $value) {
+        $oldValue = $user->$key;
+        $changes[] = ucfirst($key) . ": <span class='text-danger'>\"$oldValue\"</span> → <span class='text-success'>\"$value\"</span>";
+    }
+}
+
+if (count($changes) > 0) {
+    $changeList = '';
+    foreach ($changes as $change) {
+        $parts = explode(':', $change);
+        $label = trim($parts[0]);
+        $values = trim($parts[1]);
+
+        [$oldValue, $newValue] = explode('→', $values);
+
+        $changeList .= "<div class='mb-2'>$label: <span class='text-danger'>\"$oldValue\"</span> → <span class='text-success'>\"$newValue\"</span></div>";
+    }
+
+    // Simplified description for update
+    $description = "
+        <div class='text-start'>
+            <div class='mb-2'>
+                <strong>User:</strong>
+                <span class='text-primary fw-semibold'>{$newData['fullname']}</span>
+            </div>
+            <div class='mb-2'>
+                <strong>Updated by:</strong>
+                <em class='text-muted'>{$this->session->get('fullname')}</em>
+            </div>
+            <div class='mt-2'>
+                $changeList
+            </div>
+        </div>
+    ";
+} else {
+    // Description when no changes are made
+    $description = "
+        <div class='text-start'>
+            <div class='mb-2'>
+                <strong>User:</strong>
+                <span class='text-primary fw-semibold'>{$newData['fullname']}</span>
+            </div>
+            <div class='mb-2 text-muted'>No changes were made.</div>
+            <div>
+                <strong class='text-muted'>Updated by:</strong>
+                <em>{$this->session->get('fullname')}</em>
+            </div>
+        </div>
+    ";
+}
+
+
+// Log the activity
+
+    
+
+    // Update
+    if ($addUserm->update($id, $newData)) {
+        session()->setFlashdata('success', "{$newData['fullname']} has been updated successfully!");
+
+        // Log activity with formatted HTML description
+        log_activity(
+            session()->get('employee_id'),
+            "Update user",
+            $description
+        );
+
         return $this->response->setJSON(['status' => 'success', 'message' => 'User updated successfully!']);
     } else {
         session()->setFlashdata('error', 'Update failed. Please try again.');
         return $this->response->setJSON(['status' => 'error', 'message' => 'Update failed.']);
     }
 }
+
 
 
     
@@ -137,7 +274,7 @@ public function deleteUser($id)
         ]);
     }
 
-    // Prevent deleting users with user_type == 1
+    // Prevent deleting users with user_type == 1 (admin users)
     if ($user['user_type'] == 1) {
         return $this->response->setJSON([
             'status' => 'error',
@@ -148,11 +285,38 @@ public function deleteUser($id)
     // Proceed with deletion
     $addUserm->delete($id);
 
+    // Log the activity
+    // Concatenate Full Name using data from the user
+    $fullname = trim("{$user['fname']} {$user['mname']} {$user['lname']}");
+
+
+    // Build the log description for the deleted user
+    $description = "
+        <div class='text-start'>
+            <div class='mb-2'>
+                <strong>User:</strong>
+                <span class='text-primary fw-semibold'>{$fullname}</span>
+            </div>
+            <div class='mb-2'>
+                <strong>Deleted by:</strong>
+                <em class='text-muted'>{$this->session->get('fullname')}</em>
+            </div>
+        </div>
+    ";
+
+    // Log the activity: log user ID, action details, and the description
+    log_activity(
+        session()->get('user_id'), // Pass session user_id
+        "Delete user",             // Action type
+         $description
+    );
+
     return $this->response->setJSON([
         'status' => 'success',
         'message' => 'User deleted successfully'
     ]);
 }
+
 
     
 
@@ -206,7 +370,7 @@ public function deleteUser($id)
         $db = \Config\Database::connect();
         $id = $this->request->getPost('id');
         $duty = $this->request->getPost('duty');
-    
+        
         // Check if the user exists
         $user = $db->table('users')->where('id', $id)->get()->getRow();
     
@@ -224,7 +388,63 @@ public function deleteUser($id)
         // Determine user full name
         $fullname = property_exists($user, 'fullname') ? $user->fullname : "User";
     
-        // Update the duty in the database
+        // Prepare the data for change tracking
+        $oldDuty = $user->duty;
+        $changes = [];
+        
+        // Track the change in duty
+        if ($oldDuty != $duty) {
+            $changes[] = "Duty: <span class='text-danger'>\"$oldDuty\"</span> → <span class='text-success'>\"$duty\"</span>";
+        }
+    
+        // If there are changes, construct the change log
+        if (count($changes) > 0) {
+            $changeList = '';
+            foreach ($changes as $change) {
+                $changeList .= "<div class='mb-2'>$change</div>";
+            }
+    
+            // Description with change list
+            $description = "
+                <div class='text-start'>
+                    <div class='mb-2'>
+                        <strong>User:</strong>
+                        <span class='text-primary fw-semibold'>{$fullname}</span>
+                    </div>
+                    <div class='mb-2'>
+                        <strong>Updated by:</strong>
+                        <em class='text-muted'>{$this->session->get('fullname')}</em>
+                    </div>
+                    <div class='mt-2'>
+                        $changeList
+                    </div>
+                </div>
+            ";
+        } else {
+            // Description when no changes were made (this case shouldn't happen if duty is updated)
+            $description = "
+                <div class='text-start'>
+                    <div class='mb-2'>
+                        <strong>User:</strong>
+                        <span class='text-primary fw-semibold'>{$fullname}</span>
+                    </div>
+                    <div class='mb-2 text-muted'>No changes were made.</div>
+                    <div>
+                        <strong class='text-muted'>Updated by:</strong>
+                        <em>{$this->session->get('fullname')}</em>
+                    </div>
+                </div>
+            ";
+        }
+    
+        // Log the activity for updating duty
+        log_activity(
+            session()->get('employee_id'),
+            "Update Duty",
+            $description
+        );
+    
+        // Update the user's duty in the database
         $db->table('users')->where('id', $id)->update(['duty' => $duty]);
     
         // Custom success message based on duty type
@@ -241,6 +461,7 @@ public function deleteUser($id)
     
         return $this->handleResponse('success', $dutyMessage);
     }
+    
     
     /**
      * Handle response based on request type (AJAX or normal request)

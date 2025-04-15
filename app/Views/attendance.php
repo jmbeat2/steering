@@ -1,26 +1,4 @@
 <?= view('navbar/navbar') ?>
-
-<div class="container my-5">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3">
-      <li class="breadcrumb-item">
-        <a class="link-body-emphasis" href="<?= site_url('/') ?>">
-        <i class="fa-solid fa-house"></i>
-          <span class="visually-hidden">Home</span>
-        </a>
-      </li>
-      <li class="breadcrumb-item">
-        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Manage</a>
-      </li>
-      <li class="breadcrumb-item">
-        <a class="link-body-emphasis fw-semibold text-decoration-none" href="<?= site_url('addAttendance') ?>">Add attendance</a>
-      </li>
-      <li class="breadcrumb-item active" aria-current="page">
-        
-      </li>
-    </ol>
-  </nav>
-</div>
     
 <div class="container mt-3">
 <h2 style="text-align: left;">ATTENDANCE LIST</h2>
@@ -28,7 +6,7 @@
         <button type="button" class="btn btn-primary" id="addAttendanceBtn"><i class="far fa-user-plus"></i>
         Add Attendance
         </button>
-        <br>        <br>
+        <br>        <br> <br> <br>
         <!-- Table for displaying data -->
         <table id="attendanceTable" class="table table-striped table-hover table-bordered">
             
@@ -51,47 +29,56 @@
 
 <!-- Add Attendance Modal -->
 <div class="modal fade" id="attendanceAddModal" tabindex="-1" aria-labelledby="attendanceAddModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="attendanceAddModalLabel">Add Attendance</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content shadow-lg rounded-4">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="attendanceAddModalLabel"><i class="fas fa-user-plus me-2"></i>Add Attendance</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body px-4 py-3">
                 <form id="attendanceFormAdd">
-                    <div class="mb-3">
-                        <label for="dateAdd" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="dateAdd" name="date" required>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="dateAdd" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="dateAdd" name="date" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ds_countAdd" class="form-label">DS Count</label>
+                            <input type="number" class="form-control" id="ds_countAdd" name="ds_count" placeholder="Input Day shift count" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ns_countAdd" class="form-label">NS Count</label>
+                            <input type="number" class="form-control" id="ns_countAdd" name="ns_count" placeholder="Input night shift count" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="total_mpAdd" class="form-label">Total Man Power</label>
+                            <input type="number" class="form-control" id="total_mpAdd" name="total_mp" placeholder="Input MP"  required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rateAdd" class="form-label">Rate</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="rateAdd" name="rate" placeholder="Input rate percent"  required>
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="slAdd" class="form-label">Sick Leave</label>
+                            <input type="number" class="form-control" id="slAdd" name="sl" placeholder="Input sick leave" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="vlAdd" class="form-label">Vacation Leave</label>
+                            <input type="number" class="form-control" id="vlAdd" name="vl" placeholder="Input vacation leave" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nuAdd" class="form-label">NI</label>
+                            <input type="number" class="form-control" id="nuAdd" name="nu"  required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="ds_countAdd" class="form-label">DS Count</label>
-                        <input type="number" class="form-control" id="ds_countAdd" name="ds_count" required>
+                    <div class="text-end mt-4">
+                        <button type="submit" class="btn btn-success px-4"><i class="fas fa-save me-1"></i> Save</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="ns_countAdd" class="form-label">NS Count</label>
-                        <input type="number" class="form-control" id="ns_countAdd" name="ns_count" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="total_mpAdd" class="form-label">Total MP</label>
-                        <input type="number" class="form-control" id="total_mpAdd" name="total_mp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rateAdd" class="form-label">Rate</label>
-                        <input type="number" class="form-control" id="rateAdd" name="rate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="slAdd" class="form-label">SL</label>
-                        <input type="number" class="form-control" id="slAdd" name="sl" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="vlAdd" class="form-label">VL</label>
-                        <input type="number" class="form-control" id="vlAdd" name="vl" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nuAdd" class="form-label">NU</label>
-                        <input type="number" class="form-control" id="nuAdd" name="nu" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
         </div>
@@ -99,56 +86,66 @@
 </div>
 
 
-<!-- Edit Attendance Modal -->
 <!-- Edit Attendance Modal -->
 <div class="modal fade" id="attendanceEditModal" tabindex="-1" aria-labelledby="attendanceEditModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="attendanceEditModalLabel">Edit Attendance</h5>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content shadow-lg rounded-4">
+            <div class="modal-header bg-warning text-dark">
+                <h5 class="modal-title" id="attendanceEditModalLabel"><i class="fas fa-edit me-2"></i>Edit Attendance</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body px-4 py-3">
                 <form id="attendanceFormEdit">
                     <input type="hidden" name="id" id="attendanceIdEdit">
-                    <div class="mb-3">
-                        <label for="dateEdit" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="dateEdit" name="date" required>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="dateEdit" class="form-label">Date</label>
+                            <input type="date" class="form-control" id="dateEdit" name="date" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ds_countEdit" class="form-label">DS Count</label>
+                            <input type="number" class="form-control" id="ds_countEdit" name="ds_count" placeholder="Input Day shift count" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ns_countEdit" class="form-label">NS Count</label>
+                            <input type="number" class="form-control" id="ns_countEdit" name="ns_count" placeholder="Input night shift count" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="total_mpEdit" class="form-label">Total Man Power</label>
+                            <input type="number" class="form-control" id="total_mpEdit" name="total_mp" placeholder="Input MP" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rateEdit" class="form-label">Rate</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="rateEdit" name="rate" placeholder="Input rate percent" required>
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="slEdit" class="form-label">Sick Leave</label>
+                            <input type="number" class="form-control" id="slEdit" name="sl" placeholder="Input sick leave" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="vlEdit" class="form-label">Vacation Leave</label>
+                            <input type="number" class="form-control" id="vlEdit" name="vl" placeholder="Input vacation leave" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nuEdit" class="form-label">NI</label>
+                            <input type="number" class="form-control" id="nuEdit" name="nu" placeholder="Input no information" required>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="ds_countEdit" class="form-label">DS Count</label>
-                        <input type="number" class="form-control" id="ds_countEdit" name="ds_count" required>
+                    <div class="text-end mt-4">
+                        <button type="submit" class="btn btn-primary px-4"><i class="fas fa-sync-alt me-1"></i> Update</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="ns_countEdit" class="form-label">NS Count</label>
-                        <input type="number" class="form-control" id="ns_countEdit" name="ns_count" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="total_mpEdit" class="form-label">Total MP</label>
-                        <input type="number" class="form-control" id="total_mpEdit" name="total_mp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="rateEdit" class="form-label">Rate</label>
-                        <input type="number" class="form-control" id="rateEdit" name="rate" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="slEdit" class="form-label">SL</label>
-                        <input type="number" class="form-control" id="slEdit" name="sl" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="vlEdit" class="form-label">VL</label>
-                        <input type="number" class="form-control" id="vlEdit" name="vl" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="nuEdit" class="form-label">NU</label>
-                        <input type="number" class="form-control" id="nuEdit" name="nu" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 <script>
@@ -180,7 +177,16 @@
                         `;
                     }
                 }
-            ]
+            ], 
+            language: {
+            search: '<i class="fas fa-search"></i> Search attendance:', // ✅ fixed quotes
+            paginate: {
+                previous: "Prev",
+                next: "Next"
+            },
+            emptyTable: "No defects available."
+        },
+        pageLength: 5,
         });
 
         let message = "<?= session()->getFlashdata('message') ?>";
@@ -339,11 +345,7 @@
                         dataType: "json",
                         success: function (response) {
                             if (response.status === "success") {
-                                iziToast.success({
-                                    title: 'Deleted!',
-                                    message: 'User has been removed successfully.',
-                                    position: 'topRight'
-                                });
+                               
                                 setTimeout(() => window.location.reload(), 1000);
                             } else {
                                 iziToast.error({
@@ -376,8 +378,59 @@
 </script>
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const rateInput = document.getElementById('rateAdd');
 
+        rateInput.addEventListener('input', function () {
+            let value = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
+            if (value) {
+                this.value = value + '%';
+            } else {
+                this.value = '';
+            }
+        });
 
+        rateInput.addEventListener('focus', function () {
+            this.value = this.value.replace('%', '');
+        });
+
+        rateInput.addEventListener('blur', function () {
+            let value = this.value.replace(/[^0-9]/g, '');
+            if (value) {
+                this.value = value + '%';
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const rateInput = document.getElementById('rateEdit');
+
+        rateInput.addEventListener('input', function () {
+            let value = this.value.replace(/[^0-9]/g, ''); // Remove non-digits
+            if (value) {
+                this.value = value + '%';
+            } else {
+                this.value = '';
+            }
+        });
+
+        rateInput.addEventListener('focus', function () {
+            this.value = this.value.replace('%', '');
+        });
+
+        rateInput.addEventListener('blur', function () {
+            let value = this.value.replace(/[^0-9]/g, '');
+            if (value) {
+                this.value = value + '%';
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
+
+<?= view('navbar/footer') ?>

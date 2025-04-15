@@ -12,6 +12,22 @@ class defectsTypesM extends Model
     {
         return $this->select('id, type')->findAll(); // Fetch id and defect_type columns
     }
+
+    public function getOperatorName()
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('operators');
+
+        return $builder->select('id, fullname')->get()->getResultArray();
+    }
+
+    public function fetchShifts()
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('shift');
+
+        return $builder->select('id, shift_name')->get()->getResultArray();
+    }
     
 }
 

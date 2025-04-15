@@ -8,6 +8,10 @@ class Userc extends BaseController
 {
     public function __construct()
     {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to login first.');
+        }
+        
         $this->model = new Userm();
     }
 

@@ -8,7 +8,12 @@ class Defectstype extends BaseController
 {
     public function __construct()
     {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login')->with('error', 'You need to login first.');
+        }
+        
         $this->model = new defectsTypesM();
+        
     }
 
     // Method to fetch defect types via AJAX
@@ -16,5 +21,17 @@ class Defectstype extends BaseController
     {
         $defectTypes = $this->model->getDefectTypes();
         return $this->response->setJSON($defectTypes);
+    }
+
+    public function getName()
+    {
+        $opname = $this->model->getOperatorName();
+        return $this->response->setJSON($opname);
+    }
+
+    public function getShift()
+    {
+        $shifts = $this->model->fetchShifts();
+        return $this->response->setJSON($shifts);
     }
 }

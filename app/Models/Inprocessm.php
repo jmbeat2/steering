@@ -6,9 +6,9 @@ use CodeIgniter\Model;
 
 class Inprocessm extends Model
 {
-    protected $table = 'users'; // Ensure this is your actual table name
+    protected $table = 'operators'; // Ensure this is your actual table name
     protected $primaryKey = 'id';
-    protected $allowedFields = ['firstname', 'middlename', 'lastname', 'id_shift', 'date', 'duty'];
+    protected $allowedFields = ['firstname', 'middlename', 'lastname', 'id_shift', 'fullname', 'duty','authorized'];
 
     public function getDefectAssignments($duty)
     {
