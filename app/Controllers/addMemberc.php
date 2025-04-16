@@ -343,9 +343,21 @@ public function deleteUser($id)
     public function fetchUsers()
     {
         $model = new addUserm();
-        $data = ["data" => $model->findAll()];
-        return $this->response->setJSON($data);
+        $users = $model->findAll();
+        
+        foreach ($users as &$user) {
+            // Format date fields or any other fields if necessary
+            $user['created_at'] = date('F j, Y g:i A', strtotime($user['created_at'])); // example formatting
+        }
+    
+        return $this->response->setJSON([
+            'draw' => $this->request->getVar('draw'),
+            'recordsTotal' => count($users),
+            'recordsFiltered' => count($users),
+            'data' => $users
+        ]);
     }
+    
 
     // Fetch specific user by ID for editing
     public function getUser($id)

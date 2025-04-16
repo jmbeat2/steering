@@ -1,0 +1,27 @@
+          <div class="form-check form-switch">
+          <div class="form-check form-switch d-flex align-items-center gap-2">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" <?= $category_toggle ? 'checked' : '' ?>>
+            <!-- <label class="form-check-label mb-0" for="flexSwitchCheckDefault">Show / Hide Category</label> -->
+            <span id="switchStatus" class="badge <?= $category_toggle ? 'bg-success' : 'bg-danger' ?> ms-2">
+                <?= $category_toggle ? 'Show category' : 'Hide category' ?>
+            </span>
+        </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleSwitch = document.getElementById('flexSwitchCheckDefault');
+    const switchStatus = document.getElementById('switchStatus');
+
+    toggleSwitch.addEventListener('change', function () {
+        const isChecked = this.checked;
+
+        // Set badge text
+        switchStatus.textContent = isChecked ? 'Show category' : 'Hide category';
+
+        // Set badge color
+        switchStatus.classList.remove('bg-success', 'bg-danger');
+        switchStatus.classList.add(isChecked ? 'bg-success' : 'bg-danger');
+    });
+});
+</script>

@@ -34,4 +34,11 @@ class Defectstype extends BaseController
         $shifts = $this->model->fetchShifts();
         return $this->response->setJSON($shifts);
     }
+
+    public function getOperatorsByShift($shiftId)
+{
+    $operators = $this->model->getOperatorsByShift($shiftId);
+    return $this->response->setJSON($operators);
+}
+
 }

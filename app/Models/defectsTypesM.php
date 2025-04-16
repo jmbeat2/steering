@@ -28,6 +28,16 @@ class defectsTypesM extends Model
 
         return $builder->select('id, shift_name')->get()->getResultArray();
     }
+
+    public function getOperatorsByShift($shiftId)
+    {
+        return $this->db->table('operators')
+                        ->where('duty', $shiftId)
+                        ->get()
+                        ->getResult();
+    }
+    
+
     
 }
 

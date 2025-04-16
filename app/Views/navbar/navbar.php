@@ -19,6 +19,13 @@
 <link href="<?= base_url('public/assets/izi/dist/css/iziToast.css') ?>" rel="stylesheet" />
 <link href="<?= base_url('public/assets/izi/dist/css/iziToast.min.css') ?>" rel="stylesheet" />
 
+<style>
+.form-check-input:checked {
+  background-color: #198754; /* Bootstrap success */
+  border-color: #198754;
+}
+
+</style>
 
 <meta name="csrf-token" content="<?= csrf_hash() ?>">
 <meta name="csrf-header" content="<?= csrf_header() ?>">
@@ -82,8 +89,8 @@
   <div class="modal-dialog">
     <form id="editTitleForm">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editTitleLabel">Edit Top 5 Title</h5>
+      <div class="modal-header bg-warning text-dark">
+          <h5 class="modal-title" id="editTitleLabel"><i class="far fa-edit"></i> Edit Top 5 Title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -128,8 +135,14 @@
 
           <!-- Switch -->
           <div class="form-check form-switch">
+          <div class="form-check form-switch d-flex align-items-center gap-2">
             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" <?= $category_toggle ? 'checked' : '' ?>>
-            <label class="form-check-label" for="flexSwitchCheckDefault">Show / Hide Category</label>
+            <!-- <label class="form-check-label mb-0" for="flexSwitchCheckDefault">Show / Hide Category</label> -->
+            <span id="switchStatus" class="badge <?= $category_toggle ? 'bg-success' : 'bg-danger' ?> ms-2">
+                <?= $category_toggle ? 'Show all category without defects record' : 'Hide all without defects record category' ?>
+            </span>
+        </div>
+
           </div>
         </div>
         <div class="modal-footer">
@@ -143,7 +156,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const toggleSwitch = document.getElementById('flexSwitchCheckDefault');
-    
+
     if (toggleSwitch) {
         toggleSwitch.addEventListener('change', function (e) {
             e.preventDefault();  // Prevent form submission
@@ -257,9 +270,64 @@ window.addEventListener('load', function () {
         sessionStorage.removeItem('settingsSaved');
     }
 });
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleSwitch = document.getElementById('flexSwitchCheckDefault');
+    const switchStatus = document.getElementById('switchStatus');
+
+    toggleSwitch.addEventListener('change', function () {
+        const isChecked = this.checked;
+
+        // Set badge text
+        switchStatus.textContent = isChecked ? 'Show all category without defects record' : 'Hide all without defects record category';
+
+        // Set badge color
+        switchStatus.classList.remove('bg-success', 'bg-danger');
+        switchStatus.classList.add(isChecked ? 'bg-success' : 'bg-danger');
+    });
+});
 </script>
 
 
+<script>
+
+function openEditTitleModal(currentTitle) {
+  document.getElementById("top5TitleInput").value = currentTitle;
+  const editTitleModal = new bootstrap.Modal(document.getElementById('editTitleModal'));
+  editTitleModal.show();
+}
+
+document.getElementById("editTitleForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const newTitle = document.getElementById("top5TitleInput").value;
+
+  // Get CSRF info from meta tags
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const csrfHeader = document.querySelector('meta[name="csrf-header"]').getAttribute('content');
+
+  try {
+    let response = await fetch("<?= base_url('empSkills/updateTitle1') ?>", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        [csrfHeader]: csrfToken  // 👈 include CSRF token
+      },
+      body: JSON.stringify({ title: newTitle })
+    });
+
+    let result = await response.json();
+    if (result.status === 'success') {
+      window.location.reload();
+    } else {
+      alert("Failed to update title.");
+    }
+  } catch (err) {
+    console.error("Error updating title:", err);
+  }
+});
 </script>
 <!-- END OF JAVASCRIPT -->
 

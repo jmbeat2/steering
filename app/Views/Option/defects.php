@@ -69,7 +69,7 @@
           </div>
           <div class="mb-3">
             <label for="edit-defect-type" class="form-label"><i class="fal fa-exclamation-triangle"></i> Defect Type</label>
-            <input type="text" class="form-control" id="edit-defect-type" name="defect_type" required>
+            <input type="text" class="form-control" id="edit-defect-type" name="defect_type" readonly>
           </div>
           <div class="mb-3">
             <label for="edit-count" class="form-label"><i class="fal fa-tally"></i> Count</label>
@@ -118,10 +118,10 @@ $(document).ready(function() {
                             return '<span class="badge bg-secondary"><i class="fas fa-bed me-1"></i> Off Duty</span>';
                         case '1':
                         case 1:
-                            return '<span class="badge bg-success"><i class="fas fa-sun me-1"></i> Day Shift</span>';
+                            return '<span class="badge bg-dark"><i class="fas fa-moon me-1"></i> Night Shift</span>';
                         case '2':
                         case 2:
-                            return '<span class="badge bg-dark"><i class="fas fa-moon me-1"></i> Night Shift</span>';
+                            return '<span class="badge bg-success"><i class="fas fa-sun me-1"></i> Day Shift</span>';
                         default:
                             return '<span class="badge bg-danger"><i class="fas fa-question-circle me-1"></i> Unknown</span>';
                     }

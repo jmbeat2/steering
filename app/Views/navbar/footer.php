@@ -21,9 +21,9 @@
   <footer class="footer mt-auto py-3 border-top bg-body-tertiary">
     <div class="container d-flex flex-wrap justify-content-between align-items-center">
       <div class="col-md-6 d-flex align-items-center">
-        <a href="<?= base_url('public/image/nbc-bg-dashboard.jpg') ?>" class="me-2 text-decoration-none lh-1" aria-label="NBC Logo">
+        <!-- <a href="<?= base_url('public/image/nbc-bg-dashboard.jpg') ?>" class="me-2 text-decoration-none lh-1" aria-label="NBC Logo"> -->
           <img src="<?= base_url('public/image/nbc-bg-dashboard.jpg') ?>" alt="NBC Logo" width="80" height="30" class="align-middle">
-        </a>
+        </a>&nbsp;
         <span class="text-muted align-middle">&copy; <?= date('Y') ?> NBC (Philippines) Car Technology Corporation</span>
       </div>
 

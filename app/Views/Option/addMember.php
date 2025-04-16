@@ -197,7 +197,6 @@
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
-                <th style="min-width: 110px;">Shift</th> <!-- Adjusted width -->
                 <th>Date Added</th>
                 <th style="min-width: 300px;">Actions</th> <!-- Adjusted width -->
 
@@ -218,50 +217,6 @@ $(document).ready(function () {
             { data: "fname" },
             { data: "mname" },
             { data: "lname" },
-            {
-                data: "duty",
-                render: function (data, type, row) {
-                    let dutyLabel = "";
-                    let dutyClass = "";
-                    let dutyIcon = "";
-
-                    switch (data) {
-                        case "0": 
-                            dutyLabel = "Off Duty"; 
-                            dutyClass = "btn-outline-secondary"; 
-                            dutyIcon = "fas fa-moon"; 
-                            break;
-                        case "1": 
-                            dutyLabel = "Night Shift"; 
-                            dutyClass = "btn-outline-danger"; 
-                            dutyIcon = "fas fa-cloud-moon"; 
-                            break;
-                        case "2": 
-                            dutyLabel = "Day Shift"; 
-                            dutyClass = "btn-outline-success"; 
-                            dutyIcon = "fas fa-sun"; 
-                            break;
-                        case "99": 
-                            dutyLabel = "Admin"; 
-                            dutyClass = "btn-outline-secondary disabled"; 
-                            dutyIcon = "fas fa-user-shield"; 
-                            break;
-                        default: 
-                            dutyLabel = "Unknown"; 
-                            dutyClass = "btn-outline-dark"; 
-                            dutyIcon = "fas fa-question"; 
-                    }
-
-                    return `
-                        <button class="btn btn-sm ${dutyClass} duty-btn d-flex align-items-center" 
-                            data-lastname="${row.lname}" 
-                            data-id="${row.id}" 
-                            data-duty="${data}">
-                            <i class="${dutyIcon} me-2"></i> ${dutyLabel}
-                        </button>
-                    `;
-                }
-            },
             { data: "created_at" },
             {
                 data: "id",

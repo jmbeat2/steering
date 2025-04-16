@@ -64,17 +64,21 @@ class Defects extends Controller
     {
         $model = new DefectsModel();
         $defects = $model
-            ->select('id,name, id_shift, encodeby, defect_date, count, defect_type, SUM(count) as total')
+            ->select('id, name, id_shift, encodeby, defect_date, count, defect_type, SUM(count) as total')
             ->groupBy('defect_date, defect_type, name, encodeby')
             ->orderBy('defect_date', 'DESC')
             ->findAll();
-
-        // Format the date as "March 5, 2025"
-        foreach ($defects as &$defect) {
+    
+        // Filter out count == 0 and format dates
+        $filtered = array_filter($defects, function ($defect) {
+            return $defect['count'] != 0;
+        });
+    
+        foreach ($filtered as &$defect) {
             $defect['defect_date'] = date('F j, Y', strtotime($defect['defect_date']));
         }
-
-        return $this->response->setJSON($defects);
+    
+        return $this->response->setJSON(array_values($filtered));
     }
 
     

@@ -29,6 +29,8 @@ $routes->get('Defectstype/getDefectTypes', 'Defectstype::getDefectTypes');
 $routes->get('Defectstype/getName', 'Defectstype::getName');
 $routes->get('Defectstype/getShift', 'Defectstype::getShift');
 
+$routes->get('Defectstype/getOperatorsByShift/(:num)', 'Defectstype::getOperatorsByShift/$1');
+
 
 #IN PROCESS (DASHBOARD AREA)
 $routes->get('Inprocessc/getDefectAssignments', 'Inprocessc::getDefectAssignments');

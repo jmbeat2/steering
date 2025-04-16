@@ -54,7 +54,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-3">
             <label for="count" class="form-label"><i class="fad fa-tally"></i> Defect Count</label>
-            <input type="number" name="count" class="form-control" required>
+            <input type="number" name="count" class="form-control" min="1" required>
         </div>
 
         <!-- <input type="hidden" class="form-control" id="empid" name="empid" value="<?= session()->get('employee_id') ?>" required readonly> -->
@@ -111,10 +111,10 @@ $(document).ready(function() {
                             return '<span class="badge bg-secondary"><i class="fas fa-bed me-1"></i> Off Duty</span>';
                         case '1':
                         case 1:
-                            return '<span class="badge bg-success"><i class="fas fa-sun me-1"></i> Day Shift</span>';
+                            return '<span class="badge bg-dark"><i class="fas fa-moon me-1"></i> Night Shift</span>';
                         case '2':
                         case 2:
-                            return '<span class="badge bg-dark"><i class="fas fa-moon me-1"></i> Night Shift</span>';
+                            return '<span class="badge bg-success"><i class="fas fa-sun me-1"></i> Day Shift</span>';
                         default:
                             return '<span class="badge bg-danger"><i class="fas fa-question-circle me-1"></i> Unknown</span>';
                     }
@@ -159,37 +159,48 @@ $(document).ready(function() {
     });
 });
 
-    // Fetch Operators name types
-    $.ajax({
-        url: "<?= base_url('Defectstype/getName') ?>",
-        type: "GET",
-        dataType: "json",
-        success: function(response) {
-            $('#op_name').append('<option value="">Select Operator Name</option>');
-            $.each(response, function(index, opname) {
-                $('#op_name').append('<option value="' + opname.fullname + '">' + opname.fullname + '</option>');
-            });
-        },
-        error: function() {
-            alert("Failed to fetch defect types.");
-        }
-    });
+// Fetch Shift types initially
+$.ajax({
+    url: "<?= base_url('Defectstype/getShift') ?>",
+    type: "GET",
+    dataType: "json",
+    success: function(response) {
+        $('#shift').append('<option value="">Select shift</option>');
+        $.each(response, function(index, shift) {
+            $('#shift').append('<option value="' + shift.id + '">' + shift.shift_name + '</option>');
+        });
+    },
+    error: function() {
+        alert("Failed to fetch shift types.");
+    }
+});
 
-        // Fetch Operators name types
+// On shift change, fetch corresponding operator names
+$('#shift').on('change', function() {
+    var shiftId = $(this).val();
+    $('#op_name').html('<option value="">Loading...</option>');
+
+    if (shiftId) {
         $.ajax({
-        url: "<?= base_url('Defectstype/getShift') ?>",
-        type: "GET",
-        dataType: "json",
-        success: function(response) {
-            $('#shift').append('<option value="">Select shift</option>');
-            $.each(response, function(index, shift) {
-                $('#shift').append('<option value="' + shift.id + '">' + shift.shift_name + '</option>');
-            });
-        },
-        error: function() {
-            alert("Failed to fetch defect types.");
-        }
-    });
+            url: "<?= base_url('Defectstype/getOperatorsByShift') ?>/" + shiftId,
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+                $('#op_name').html('<option value="">Select Operator Name</option>');
+                $.each(response, function(index, opname) {
+                    $('#op_name').append('<option value="' + opname.fullname + '">' + opname.fullname + '</option>');
+                });
+            },
+            error: function() {
+                alert("Failed to fetch operators.");
+                $('#op_name').html('<option value="">Select Operator Name</option>');
+            }
+        });
+    } else {
+        $('#op_name').html('<option value="">Select Operator Name</option>');
+    }
+});
+
 
 // Function to update time
 function updateTime() {

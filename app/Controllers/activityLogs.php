@@ -12,14 +12,20 @@ class ActivityLogs extends BaseController
     {
         // Load the model
         $this->activityLogModel = new ActivityLogModel();
+        
     }
 
     public function index()
     {
         // Return the main page view
+        $db = \Config\Database::connect();
+        $setting = $db->table('global_settings')->where('id', 1)->get()->getRow();
+
 
         $data = [
             'title' => 'Admin logs',
+            'category_toggle' => $setting->category_toggle ?? 0,
+
         ];
         return view('option/logs', $data);
     }
@@ -53,8 +59,13 @@ class ActivityLogs extends BaseController
 
     public function indexdb ()
     {
+        $db = \Config\Database::connect();
+        $setting = $db->table('global_settings')->where('id', 1)->get()->getRow();
+        
         $data = [
             'title' => 'Database',
+            'category_toggle' => $setting->category_toggle ?? 0,
+
         ];
         
         return view('option/logs', $data);
